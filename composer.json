@@ -1,19 +1,33 @@
 {
-  "name": "oxid-esales/oxideshop-project",
+  "name": "o3-shop/shop-project",
   "type": "project",
-  "description": "This file should be used as an OXID eShop project root composer.json file. Entries provided here intended to be examples and could be changed to your specific needs.",
+  "description": "This file should be used as an O3-Shop project root composer.json file. Entries provided here intended to be examples and could be changed to your specific needs.",
   "license": [
     "GPL-3.0-only"
   ],
+  "author": [
+    {
+      "name": "OXID eSales AG",
+      "email": "info@oxid-esales.com",
+      "homepage": "https://oxid-esales.com",
+      "role": "Developer"
+    },
+    {
+      "name": "O3-Shop",
+      "email": "info@o3-shop.com",
+      "homepage": "https://o3-shop.com",
+      "role": "Developer"
+    }
+  ],
   "minimum-stability": "stable",
   "require": {
-    "oxid-esales/oxideshop-metapackage-ce": "v6.4.3"
+    "o3-shop/shop-metapackage-ce": "v1.0.0"
   },
   "require-dev": {
-    "oxid-esales/testing-library": "^v8.1.0",
+    "o3-shop/testing-library": "^v1.0.0",
     "incenteev/composer-parameter-handler": "^v2.0.0",
-    "oxid-esales/oxideshop-ide-helper": "^v4.1.0",
-    "oxid-esales/azure-theme": "^v1.4.2"
+    "o3-shop/shop-ide-helper": "^v1.0.0",
+    "o3-shop/azure-theme": "^v1.0.0"
   },
   "autoload-dev": {
     "psr-4": {
@@ -38,14 +52,14 @@
       "*": "dist"
     },
     "allow-plugins": {
-      "oxid-esales/oxideshop-composer-plugin": true,
-      "oxid-esales/oxideshop-unified-namespace-generator": true
+      "o3-shop/shop-composer-plugin": true,
+      "o3-shop/shop-unified-namespace-generator": true
     }
   },
   "extra": {
     "incenteev-parameters": {
       "file": "test_config.yml",
-      "dist-file": "vendor/oxid-esales/testing-library/test_config.yml.dist",
+      "dist-file": "vendor/o3-shop/testing-library/test_config.yml.dist",
       "parameter-key": "mandatory_parameters",
       "env-map": {
         "shop_path": "SHOP_PATH",
