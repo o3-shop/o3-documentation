@@ -1,4 +1,4 @@
-# O3-Shop Compilation
+# O3-Shop
 
 ## System requirements
 
