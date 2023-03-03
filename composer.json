@@ -31,7 +31,7 @@
   },
   "autoload-dev": {
     "psr-4": {
-      "OxidEsales\\EshopCommunity\\Tests\\": "./vendor/oxid-esales/oxideshop-ce/tests"
+      "OxidEsales\\EshopCommunity\\Tests\\": "./vendor/o3-shop/shop-ce/tests"
     }
   },
   "scripts": {
