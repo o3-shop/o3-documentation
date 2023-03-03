@@ -1,6 +1,6 @@
 # O3-Shop
 
-<logo>
+![O3-Shop logo](assets/logo.png "O3-Shop logo")
 
 O3-Shop project is community driven fork of the last GPL based OXID eShop Community Edition (CE).
 
@@ -16,12 +16,14 @@ License: GNU General Public License 3 [https://www.gnu.org/licenses/gpl-3.0.de.h
 
 Website: [https://www.O3-Shop.com](https://www.O3-Shop.com)
 
-<frontend img>
+![O3-Shop frontend](assets/frontend-wave.jpg "O3-Shop frontend")
 
-## Installation Manual
+## User manual
 
-- [System requirements](documentation/SystemRequirements.md)
-- [Installation](documentation/Installation.md)
-- [Get involved](/documentation/GetInvolved.md)
+- [System requirements](user/installation/SystemRequirements.md)
+- [Installation](user/installation/Installation.md)
 
-Enjoy!
+## Developer manual
+- [Get involved](developer/GetInvolved.md)
+
+Thank you for using O3-Shop!
