@@ -8,7 +8,7 @@ O3 Shop based on flexible PHP symfony framework and is optimized for PHP8+.
 
 The aim of this project is to maintain and consequently improve the O3 Shop as a flexible & robust B2B/B2C open source ecommerce platform for the DACH market with an open minded approach and involvement of the strong community and partner network.
 
-## Join the Commuinity on [https://community.o3-shop.com](https://community.o3-shop.com)
+## Join the Community on [https://community.o3-shop.com](https://community.o3-shop.com)
 
 ## About O3 Shop
 
