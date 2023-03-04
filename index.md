@@ -16,7 +16,7 @@ License: GNU General Public License 3 [https://www.gnu.org/licenses/gpl-3.0.de.h
 
 Website: [https://www.O3-Shop.com](https://www.O3-Shop.com)
 
-![O3-Shop frontend](assets/frontend-wave.jpg "O3-Shop frontend")
+![O3-Shop frontend](assets/O3-screen-Github.png "O3-Shop frontend")
 
 ## User manual
 
