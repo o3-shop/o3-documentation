@@ -1,3 +1,3 @@
 # O3-Shop documentation
 
-see [https://o3-shop.github.io](https://o3-shop.github.io)
+see [https://docs.o3-shop.com](https://docs.o3-shop.com)
