@@ -1,6 +1,11 @@
 ```{toctree}
 :maxdepth: 1
 :hidden:
+Welcome <welcome>
+```
+```{toctree}
+:maxdepth: 1
+:hidden:
 :caption: User Manual
 Installation <user/installation/index>
 ```

@@ -1,4 +1,4 @@
-# Installation from scratch
+# Prepare installation
 
 Install Composer in version 2.2.x ([https://getcomposer.org](https://gecomposer.org)).
 
