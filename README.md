@@ -21,6 +21,7 @@ Assuming you have Python already, install Sphinx:
 ```
 pip install sphinx
 pip install myst-parser
+pip install sphinx-rtd-theme
 ```
 
 Check out the fork and change to the root directory. 
