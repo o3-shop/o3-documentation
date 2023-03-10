@@ -27,8 +27,7 @@ html_theme = 'sphinx_rtd_theme'
 html_static_path = ['_static']
 myst_enable_extensions = ["colon_fence"]
 
-
-html_logo = 'assets/logo.png'
+html_logo = 'assets/logo_light.png'
 display_gitlab = True
 gitlab_url = 'https://gitlab.o3-shop.com/o3/o3-documentation'
 html_theme_options = {
@@ -37,7 +36,7 @@ html_theme_options = {
     'prev_next_buttons_location': 'bottom',
     'style_external_links': False,
     'vcs_pageview_mode': 'blob',
-    'style_nav_header_background': '#ececef',
+    'style_nav_header_background': '#343131',
     # Toc options
     'collapse_navigation': True,
     'sticky_navigation': True,
