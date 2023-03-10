@@ -1,4 +1,4 @@
-# Get involved 
+# Get involved
 
 O3 Shop is available under GPL v3 License.
 
