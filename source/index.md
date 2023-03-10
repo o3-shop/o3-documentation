@@ -1,12 +1,14 @@
 ```{toctree}
 :maxdepth: 1
 :hidden:
-User Manual <user/index>
+:caption: User Manual
+Installation <user/installation/index>
 ```
 ```{toctree}
 :maxdepth: 1
 :hidden:
-Developer Manual <developer/index>
+:caption: Developer Manual
+Get involved <developer/GetInvolved>
 ```
 
 # O3-Shop

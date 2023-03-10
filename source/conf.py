@@ -37,9 +37,9 @@ myst_enable_extensions = ["colon_fence"]
 
 html_logo = 'assets/logo_light.png'
 html_favicon = 'assets/favicon.ico'
-# html_css_files = [
-#     'css/o3.css',
-# ]
+html_css_files = [
+    'css/o3.css',
+]
 
 html_context = {
     'current_version': '1.0',
