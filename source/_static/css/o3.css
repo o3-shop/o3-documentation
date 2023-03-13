@@ -5,3 +5,9 @@
 .wy-menu-vertical a:active {
     background-color: #82BA00;
 }
+
+.ethical-rtd,
+#rtd-sidebar {
+    display: none;
+}
+
