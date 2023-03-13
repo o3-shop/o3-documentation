@@ -6,28 +6,28 @@ Retrieve the files needed for the shop with the help of Composer, the dependency
 
 Then run the web-based setup and install the shop.
 
-[image]
+![O3-Shop Setup](../../../assets/setup_1.jpg)
 
 ## Ensure server and system requirements
 
 **Contents**: Server, shared hosting, managed server, server farm with load balancing and database cluster, Linux, web server, Apache 2.2 + 2.4, MySQL 5.5 + 5.7, MariaDB 10.4, PHP 8.1 and 7.4, Composer, OpenSSL.
 
-[Read article](SystemRequirements.md)
+[Read the article](SystemRequirements.md)
 
 ## Prepare installation
 
 **Contents**: Install Composer, provide shop files, configure Apache, adjust file and directory permissions, create database.
 
-[Read article](PrepareInstallation.md)
+[Read the article](PrepareInstallation.md)
 
 ## Run setup
 
 **Contents**: Web-based setup, check system requirements, select main country of delivery and language of shop, licence conditions, database, database name, specify database user and password, demo data, shop directories, specify access data for administration area, shop administrator.
 
-[Read article](RunSetup.md)
+[Read the article](RunSetup.md)
 
 ## Complete installation
 
 **Contents**: Check deletion of setup directory, set file and directory permissions, write permissions for /source/out/pictures, /source/out/media, /source/log, /source/export, /source/tmp, /var, write protection for .htaccess, config.inc.php
 
-[Read article](CompleteSetup.md)
+[Read the article](CompleteSetup.md)
