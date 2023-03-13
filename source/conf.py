@@ -51,10 +51,10 @@ html_context = {
         [
             ('EN', 'https://docs.o3-shop.com/en/1.0/')
         ],
-    
+
     'show_sphinx': False,
-    
-    "display_gitlab": True, # Integrate Gitlab
+
+    "display_gitlab": True,
     "gitlab_host": "gitlab.o3-shop.com",
     "gitlab_user": "o3", # Username
     "gitlab_repo": "o3-documentation", # Repo name
