@@ -15,7 +15,15 @@ For installation instructions, see the Getting Started section of the Composer p
 The shop files are provided by Composer. The shop files are stored in a subdirectory that is specified in the command with **your_project_name**. This is based on the directory in which the command is issued in the shell. The parameter **--no-dev** is specified if the development-related files are not needed.
 
 ```
-composer create-project --no-dev o3-shop/o3-shop your_project_name dev-b-1.0-ce
+composer create-project --no-dev o3-shop/o3-shop your_project_name 1.0
+```
+
+```{note}
+Use a different version constraint to install a different project version.
+
+- `1.0` for the latest official release of the 1.0 branch
+- leave empty for the latest official release ever
+- `dev-b-1.0-ce-nightly` for the latest development versions of the 1.0 branch. This is intended for development and testing purposes and should not be used for productive use!
 ```
 
 After Composer has finished its work, the new directory named *your_project_name* exists. This is the root directory of the project and contains all files needed for the installation of the O3-Shop.

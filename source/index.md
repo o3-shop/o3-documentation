@@ -15,6 +15,15 @@ Installation <user/installation/index>
 :caption: Developer Manual
 Get involved <developer/GetInvolved>
 ```
+```{toctree}
+:maxdepth: 1
+:hidden:
+:caption: WIP
+Versioning <wip/versioning>
+Update strategy <wip/updatestrategy>
+Release availability <wip/releaseavailability>
+Dependency definition <wip/dependencydefinition>
+```
 
 # O3-Shop
 
