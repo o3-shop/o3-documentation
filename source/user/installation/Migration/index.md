@@ -7,18 +7,18 @@ In principle, a migration between the OXID eShop and O3-Shop is possible, but we
 Please ensure that *all* requirements are met beforehand:
 
 - an error-free Composer installation of the OXID eShop
-- OXID eShop in version 6.4.3
+- OXID eShop in version 6.2, 6.3 or 6.4
   For older shop versions, please carry out the update offered by OXID eSales to the named shop version beforehand. Newer OXID shops (> 6.4.3) cannot be migrated.
-- OXID eShop Community Edition 
-  The migration only supports Community Editions. The migration of Professional or Enterprise Editions is not supported.
-- The OXID eShop was installed via the package “oxid-esales/oxideshop-project”.
-  Check if “oxid-esales/oxideshop-project” is mentioned as “name” in the file “composer.json” in the main directory of your shop. If you use a different package composition, please check its components manually to see if they can be replaced.
+- OXID eShop Community Edition, Professional Edition or Enterprise Edition
+  All editions of the OXID shop can be migrated. Please note that not all features of the Enterprise Edition are available in the O3-Shop.
+- The OXID eShop was installed via the package `oxid-esales/oxideshop-project`.
+  Check if `oxid-esales/oxideshop-project` is mentioned as `name` in the file `composer.json` in the main directory of your shop. If you use a different package composition, please check its components manually to see if they can be replaced.
 
 ## Perform migration
 
 ### Create backup
 
-Before migrating, create a backup of the shop. This includes the database and the files on the server
+Before migrating, create a backup of the shop. This includes the database and the files on the server.
 
 ### Replace packages
 
@@ -33,7 +33,7 @@ composer remove oxid-esales/testing-library:^1.0 oxid-esales/oxideshop-ide-helpe
 composer require o3-shop/shop-metapackage-ce:^1.0
 ```
 
-Confirm all overwrite requests with “y”.
+Confirm all overwrite requests with `y`.
 
 If the Azure theme is explicitly installed in your shop
 
@@ -43,11 +43,24 @@ composer remove oxid-esales/azure-theme --dev
 
 ### Data migration
 
-With the current status, no migration of data is necessary.
+To do this, run the following command.
+
+```
+vendor/bin/oe-eshop-db_migrate migrations:migrate
+```
+
+Regenerate the database views.
+
+Background: Depending on the changes and the shop edition, the shop may go into maintenance mode after the update.
+To prevent this, regenerate the database views with the following command:
+
+```
+vendor/bin/oe-shop-db_views_generate
+```
 
 ### Complete migration
 
-In the case of additional packages installed by OXID or individual compositions of the shop project, please check which packages need to be replaced from “oxid-esales” to “o3-shop”.
+In the case of additional packages installed by OXID or individual compositions of the shop project, please check which packages need to be replaced from `oxid-esales` to `o3-shop`.
 
 ## Overview of the packages replaced by O3-Shop and their versions
 
