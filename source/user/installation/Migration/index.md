@@ -14,6 +14,10 @@ Please ensure that *all* requirements are met beforehand:
 - The OXID eShop was installed via the package “oxid-esales/oxideshop-project”.
   Check if “oxid-esales/oxideshop-project” is mentioned as “name” in the file “composer.json” in the main directory of your shop. If you use a different package composition, please check its components manually to see if they can be replaced.
 
+## Updating the system environment
+
+If the system environment is to be updated with the migration or update (e.g. more recent mySQL version), please carry out the update or migration in advance and only update your system afterwards.
+
 ## Perform migration
 
 ### Create backup
@@ -43,7 +47,21 @@ composer remove oxid-esales/azure-theme --dev
 
 ### Data migration
 
-With the current status, no migration of data is necessary.
+To do this, run the following command.
+
+```
+vendor/bin/oe-eshop-db_migrate migrations:migrate
+```
+
+Regenerate the database views.
+
+Background: Depending on the changes and the shop edition, the shop may go into maintenance mode after the update.
+To prevent this, regenerate the database views with the following command:
+
+```
+vendor/bin/oe-shop-db_views_generate
+```
+
 
 ### Complete migration
 
