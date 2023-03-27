@@ -9,7 +9,7 @@ Make sure that configuration parameters can be written during the setup and star
 1. Open a shell and change to the shop's directory.
 
 ```
-cd /var/www/oxideshop/source
+cd /var/www/your_project_name/source
 ```
 
 2. Make sure that the following files are not write-protected:
@@ -92,7 +92,7 @@ Make a note of the following settings and keep the data in a safe place:
 
 **Directory on the server to the shop**
 
-  Indicates the internal path to the shop on the server (for example /var/www/oxideshop/source/).
+  Indicates the internal path to the shop on the server (for example /var/www/your_project_name/source/).
 
   Adjust the path, for example, if you have several shops.
 
