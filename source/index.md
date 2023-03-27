@@ -30,6 +30,7 @@ The aim of this project is to maintain and consequently improve the O3 Shop as a
 
 - Join the [Community](https://community.o3-shop.com)
 - Website: [https://www.o3-shop.com](https://www.o3-shop.com)
+- Issue tracker: [https://issues.o3-shop.com](https://issues.o3-shop.com)
 - License: [GNU General Public License 3](https://www.gnu.org/licenses/gpl-3.0.de.html)
 
 Thank you for using O3-Shop!
