@@ -1,6 +1,6 @@
 # Installation from scratch
 
-Learn how to install the O3-Shop 1.0 from scratch.
+Learn how to install the O3-Shop 1.1 from scratch.
 
 Retrieve the files needed for the shop with the help of Composer, the dependency manager for PHP.
 
