@@ -23,7 +23,7 @@ Use a different version constraint to install a different project version.
 
 - `1.1` for the latest official release of the 1.1 branch
 - leave empty for the latest official release ever
-- `dev-b-1.1-ce-nightly` for the latest development versions of the 1.1 branch. This is intended for development and testing purposes and should not be used for productive use!
+- `dev-b-1.x-ce-nightly` for the latest development versions of the 1.x branch. This is intended for development and testing purposes and should not be used for productive use!
 ```
 
 After Composer has finished its work, the new directory named *your_project_name* exists. This is the root directory of the project and contains all files needed for the installation of the O3-Shop.
