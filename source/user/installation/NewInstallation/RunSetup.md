@@ -114,7 +114,7 @@ Make a note of the following settings and keep the data in a safe place:
 
 For security reasons, set the *config.inc.php* file to *read-only* mode. Test the shop.
 
-1. Open the console of your system and change to the shop's directory (/var/www/ocideshop/source/).
+1. Open the console of your system and change to the shop's directory (/var/www/your_project_name/source/).
 2. Execute the following command:
 ```
 chmod 0444 config.inc.php
