@@ -55,7 +55,7 @@ Create a database or integrate an existing database.
   You have the following options:
 
   - If the database and web server are on the same server, leave the default value localhost. This is the default for most shops.
-  - If your database is outsourced, enter the host name or IP address of your database server. If you need to specify a port, it is placed after the host name and a colon (host name:port).
+  - If your database is outsourced, enter the host name or IP address of your database server.
 
 **Database Name**
 

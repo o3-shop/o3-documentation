@@ -38,7 +38,7 @@ A decoder (Zend Guard Loader, ionCube Loader, ...) is not required, as O3-Shop i
 
 ## Database
 
-- MySQL 5.5 or 5.7
+- MySQL 5.5, 5.7 or 8.0
 - MariaDB (tested with MariaDB 10.4)
 
 The database user needs sufficient authorisation to be able to create a database during the installation, if it does not already exist. The authorisation must also allow the creation of views.
@@ -47,7 +47,7 @@ The transaction isolation level must be left at the default value *REPEATABLE RE
 
 ## PHP
 
-- PHP versions 7.4, 8.0 or 8.1
+- PHP versions 7.4, 8.0, 8.1 or 8.2
 - A *memory_limit* of 60 MB, but at least 32 MB, is recommended.
 - The PHP setting *session.auto_start* in the ***php.ini*** file should be disabled (OFF)
 - File uploads should be enabled in PHP

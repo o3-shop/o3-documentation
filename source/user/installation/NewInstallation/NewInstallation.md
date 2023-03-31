@@ -1,6 +1,6 @@
 # Installation from scratch
 
-Learn how to install the O3-Shop 1.0 from scratch.
+Learn how to install the O3-Shop from scratch.
 
 Retrieve the files needed for the shop with the help of Composer, the dependency manager for PHP.
 
@@ -10,7 +10,7 @@ Then run the web-based setup and install the shop.
 
 ## Ensure server and system requirements
 
-**Contents**: Server, shared hosting, managed server, server farm with load balancing and database cluster, Linux, web server, Apache 2.2 + 2.4, MySQL 5.5 + 5.7, MariaDB 10.4, PHP 8.1 and 7.4, Composer, OpenSSL.
+**Contents**: Server, shared hosting, managed server, server farm with load balancing and database cluster, Linux, web server, Apache 2.2 + 2.4, MySQL 5.5, 5.7 or 8.0, MariaDB 10.4, PHP from 7.4 to 8.2, Composer, OpenSSL.
 
 [Read the article](SystemRequirements.md)
 

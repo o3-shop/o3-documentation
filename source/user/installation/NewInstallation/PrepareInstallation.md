@@ -15,15 +15,15 @@ For installation instructions, see the Getting Started section of the Composer p
 The shop files are provided by Composer. The shop files are stored in a subdirectory that is specified in the command with **your_project_name**. This is based on the directory in which the command is issued in the shell. The parameter **--no-dev** is specified if the development-related files are not needed.
 
 ```
-composer create-project --no-dev o3-shop/o3-shop your_project_name 1.0
+composer create-project --no-dev o3-shop/o3-shop your_project_name
 ```
 
 ```{note}
 Use a different version constraint to install a different project version.
 
-- `1.0` for the latest official release of the 1.0 branch
 - leave empty for the latest official release ever
-- `dev-b-1.0-ce-nightly` for the latest development versions of the 1.0 branch. This is intended for development and testing purposes and should not be used for productive use!
+- e.g. `1.2` for the latest official release of the 1.0 branch
+- `dev-b-1.x-ce-nightly` for the latest development versions of the 1.x branch. This is intended for development and testing purposes and should not be used for productive use!
 ```
 
 After Composer has finished its work, the new directory named *your_project_name* exists. This is the root directory of the project and contains all files needed for the installation of the O3-Shop.
@@ -53,11 +53,11 @@ For the web-based setup, the HTTP server must have write access to the following
 
 ## Create database
 
-O3-Shop requires a MySQL database to store items, categories, customer and order data and other information.
+O3-Shop requires a MySQL / MariaDB database to store items, categories, customer and order data and other information.
 
 Most web hosts offer database access via a special website, such as phpMyAdmin. If you need help with this, please contact your hosting partner or Internet Service Provider (ISP).
 
-Create a new MySQL database. You can choose the name of the database freely, for example `o3_shop`.
+Create a new MySQL or MariaDB database. You can choose the name of the database freely, for example `o3_shop`.
 
 Remember the name of the database and the access data to the database (user name and password).
 
