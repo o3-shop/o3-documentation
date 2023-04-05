@@ -1,1 +1,74 @@
 # Update
+
+## Ensure
+
+Ensure you have an error-free Composer installation of the OXID eShop.
+
+## Prepare
+
+Create a backup of the shop. This includes the database and the files on the server.
+
+## Perform
+
+### Update metapackage version in the composer.json file
+
+Execute following composer command to update. Match the name with the version you want to udpate to (in the example 1.1):
+
+```
+composer require --no-update o3-shop/shop-metapackage-ce:v1.1
+```
+
+### Update dependencies
+
+Open a shell in the main store directory and run the composer command below.
+This will update all the required libraries.
+Only specify the **--no-dev parameter** if you don’t need the development related files.
+
+```
+composer update --no-plugins --no-scripts --no-dev
+```
+
+### Perform the update running the scripts
+
+```
+composer update --no-dev
+```
+
+```{note}
+The update will overwrite any changes you may have made to modules or themes in the source directory.
+
+Background: During a store update, Composer first loads the new data into the **vendor** directory. Then the data is copied to the **source** directory. This replaces the files of the store, the modules and the themes.
+
+Your individual customizations of the O3-Shop or changes to third-party modules are only safe from being overwritten by the update if you have made the changes through one of the shop's extension options (component, module, child theme).
+```
+
+```{attention}
+During the update you will be asked which packages may be overwritten.
+
+To ensure that only compatible and tested packages are installed and to avoid inconsistencies and malfunctions caused by incorrectly implemented modules or themes, you have to confirm the queries with Yes.
+b-1.x-ce-nightly` for the latest development versions of the 1.x branch. This is intended for development and testing purposes and should not be used for productive use!
+```
+
+### Empty ***tmp*** directory
+
+To ensure that the cached items do not contain incompatibilities, empty the **tmp** directory:
+
+```
+rm -rf source/tmp/*
+```
+
+### Migrate database
+
+```
+vendor/bin/oe-shop-db_migrate migrations:migrate
+```
+
+### Regenerate database views
+
+Depending on the changes and store edition, the store may go into maintenance mode after the update.
+To prevent this, regenerate the database views with the following command:
+
+```
+vendor/bin/oe-shop-db_migrate migrations:migrate
+```
+
