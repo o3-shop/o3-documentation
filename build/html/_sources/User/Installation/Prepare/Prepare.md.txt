@@ -1,0 +1,3 @@
+## Prepare
+
+Install/update missing components, e.g. update Composer.

@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Update &mdash; O3-Shop 1.0.0 documentation</title>
+      <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/css/o3.css" type="text/css" />
+    <link rel="shortcut icon" href="../../_static/favicon.ico"/>
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../../_static/doctools.js"></script>
+        <script src="../../_static/sphinx_highlight.js"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="System Requirements" href="SystemRequirements.html" />
+    <link rel="prev" title="Migrate from OXID eShop" href="Migration.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search"  style="background: #343131" >
+
+          
+          
+          <a href="../../index.html">
+            
+              <img src="../../_static/logo_light.png" class="logo" alt="Logo"/>
+          </a>
+              <div class="version">
+                1.0
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../Welcome.html">Welcome</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">User Manual</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Installation</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="index.html#ensure">Ensure</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#prepare">Prepare</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="index.html#perform">Perform</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="NewInstallation.html">New installation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Migration.html">Migrate from OXID eShop</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Update</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#update-metapackage-version-in-the-composer-json-file">Update metapackage version in the composer.json file</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#update-dependencies">Update dependencies</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#perform-the-update-running-the-scripts">Perform the update running the scripts</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#empty-tmp-directory">Empty <em><strong>tmp</strong></em> directory</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#migrate-database">Migrate database</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#regenerate-database-views">Regenerate database views</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="SystemRequirements.html">System Requirements</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Developer Manual</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../Developer/GetInvolved.html">Get involved</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu"  style="background: #343131" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">O3-Shop</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="index.html">Installation</a></li>
+      <li class="breadcrumb-item active">Update</li>
+      <li class="wy-breadcrumbs-aside">
+              <a href="https://gitlab.o3-shop.com/o3/o3-documentation/blob/main/source/User/Installation/Update.md" class="fa fa-gitlab"> Edit on GitLab</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="update">
+<h1>Update<a class="headerlink" href="#update" title="Permalink to this heading"></a></h1>
+<section id="update-metapackage-version-in-the-composer-json-file">
+<h2>Update metapackage version in the composer.json file<a class="headerlink" href="#update-metapackage-version-in-the-composer-json-file" title="Permalink to this heading"></a></h2>
+<p>Open a terminal window and navigate to the main store directory.</p>
+<p>Execute following Composer command to update. Match the name with the version you want to udpate to (in the example 1.1):</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">composer</span> <span class="n">require</span> <span class="o">--</span><span class="n">no</span><span class="o">-</span><span class="n">update</span> <span class="n">o3</span><span class="o">-</span><span class="n">shop</span><span class="o">/</span><span class="n">shop</span><span class="o">-</span><span class="n">metapackage</span><span class="o">-</span><span class="n">ce</span><span class="p">:</span><span class="n">v1</span><span class="mf">.1</span>
+</pre></div>
+</div>
+</section>
+<section id="update-dependencies">
+<h2>Update dependencies<a class="headerlink" href="#update-dependencies" title="Permalink to this heading"></a></h2>
+<p>Update all required libraries executing the Composer command:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">composer</span> <span class="n">update</span> <span class="o">--</span><span class="n">no</span><span class="o">-</span><span class="n">plugins</span> <span class="o">--</span><span class="n">no</span><span class="o">-</span><span class="n">scripts</span> <span class="o">--</span><span class="n">no</span><span class="o">-</span><span class="n">dev</span>
+</pre></div>
+</div>
+<p>Only specify the <strong>–no-dev parameter</strong> if you don’t need the development related files.</p>
+</section>
+<section id="perform-the-update-running-the-scripts">
+<h2>Perform the update running the scripts<a class="headerlink" href="#perform-the-update-running-the-scripts" title="Permalink to this heading"></a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">composer</span> <span class="n">update</span> <span class="o">--</span><span class="n">no</span><span class="o">-</span><span class="n">dev</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The update will overwrite any changes you may have made to modules or themes in the source directory.</p>
+<p>Background: During a store update, Composer first loads the new data into the <strong>vendor</strong> directory. Then the data is copied to the <strong>source</strong> directory. This replaces the files of the store, the modules and the themes.</p>
+<p>Your individual customizations of the O3-Shop or changes to third-party modules are only safe from being overwritten by the update if you have made the changes through one of the shop’s extension options (component, module, child theme).</p>
+</div>
+<div class="admonition attention">
+<p class="admonition-title">Attention</p>
+<p>During the update you will be asked which packages may be overwritten.</p>
+<p>To ensure that only compatible and tested packages are installed and to avoid inconsistencies and malfunctions caused by incorrectly implemented modules or themes, you have to confirm the queries with <em>Yes</em>.</p>
+</div>
+</section>
+<section id="empty-tmp-directory">
+<h2>Empty <em><strong>tmp</strong></em> directory<a class="headerlink" href="#empty-tmp-directory" title="Permalink to this heading"></a></h2>
+<p>To ensure that the cached items do not contain incompatibilities, empty the <strong>tmp</strong> directory:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">rm</span> <span class="o">-</span><span class="n">rf</span> <span class="n">source</span><span class="o">/</span><span class="n">tmp</span><span class="o">/*</span>
+</pre></div>
+</div>
+</section>
+<section id="migrate-database">
+<h2>Migrate database<a class="headerlink" href="#migrate-database" title="Permalink to this heading"></a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">vendor</span><span class="o">/</span><span class="nb">bin</span><span class="o">/</span><span class="n">oe</span><span class="o">-</span><span class="n">shop</span><span class="o">-</span><span class="n">db_migrate</span> <span class="n">migrations</span><span class="p">:</span><span class="n">migrate</span>
+</pre></div>
+</div>
+</section>
+<section id="regenerate-database-views">
+<h2>Regenerate database views<a class="headerlink" href="#regenerate-database-views" title="Permalink to this heading"></a></h2>
+<p>Depending on the changes and store edition, the store may go into maintenance mode after the update.
+To prevent this, regenerate the database views with the following command:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">vendor</span><span class="o">/</span><span class="nb">bin</span><span class="o">/</span><span class="n">oe</span><span class="o">-</span><span class="n">shop</span><span class="o">-</span><span class="n">db_migrate</span> <span class="n">migrations</span><span class="p">:</span><span class="n">migrate</span>
+</pre></div>
+</div>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="Migration.html" class="btn btn-neutral float-left" title="Migrate from OXID eShop" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="SystemRequirements.html" class="btn btn-neutral float-right" title="System Requirements" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023 - 2023, O3-Shop, 2021 - 2022 OXID eSales AG.</p>
+  </div>
+
+   <jinja2.runtime.BlockReference object at 0x7fc0fa229588>
+<a href="https://www.o3-shop.com/"><span class="icon icon-home"></span> About O3-Shop</a> | <a href="https://community.o3-shop.com/">Join the community</a> | <a href="https://issues.o3-shop.com/">Issue tracker</a> | <a href="https://gitlab.o3-shop.com/o3/">Sources</a> | <a href="https://www.o3-shop.com/contact/">Contact</a> | <a href="https://www.gnu.org/licenses/gpl-3.0.de.html">License: GPL v3</a>
+
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

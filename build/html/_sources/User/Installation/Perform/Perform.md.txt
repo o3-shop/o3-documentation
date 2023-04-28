@@ -1,0 +1,8 @@
+## Perform
+
+```{toctree}
+:maxdepth: 1
+New installation <NewInstallation>
+Migrate from OXID eShop <Migration>
+Update <Update>
+```

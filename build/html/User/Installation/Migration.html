@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Migrate from OXID eShop &mdash; O3-Shop 1.0.0 documentation</title>
+      <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/css/o3.css" type="text/css" />
+    <link rel="shortcut icon" href="../../_static/favicon.ico"/>
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../../_static/doctools.js"></script>
+        <script src="../../_static/sphinx_highlight.js"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Update" href="Update.html" />
+    <link rel="prev" title="New Installation" href="NewInstallation.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search"  style="background: #343131" >
+
+          
+          
+          <a href="../../index.html">
+            
+              <img src="../../_static/logo_light.png" class="logo" alt="Logo"/>
+          </a>
+              <div class="version">
+                1.0
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../Welcome.html">Welcome</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">User Manual</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Installation</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="index.html#ensure">Ensure</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#prepare">Prepare</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="index.html#perform">Perform</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="NewInstallation.html">New installation</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Migrate from OXID eShop</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#requirements-for-a-migration">Requirements for a migration</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#perform-migration">Perform migration</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#overview-of-the-packages-replaced-by-o3-shop-and-their-versions">Overview of the packages replaced by O3-Shop and their versions</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="Update.html">Update</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="SystemRequirements.html">System Requirements</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Developer Manual</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../Developer/GetInvolved.html">Get involved</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu"  style="background: #343131" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">O3-Shop</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="index.html">Installation</a></li>
+      <li class="breadcrumb-item active">Migrate from OXID eShop</li>
+      <li class="wy-breadcrumbs-aside">
+              <a href="https://gitlab.o3-shop.com/o3/o3-documentation/blob/main/source/User/Installation/Migration.md" class="fa fa-gitlab"> Edit on GitLab</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="migrate-from-oxid-eshop">
+<h1>Migrate from OXID eShop<a class="headerlink" href="#migrate-from-oxid-eshop" title="Permalink to this heading"></a></h1>
+<p>In principle, a migration between the OXID eShop and O3-Shop is possible, but we recommend a new installation to get a clean installation.</p>
+<section id="requirements-for-a-migration">
+<h2>Requirements for a migration<a class="headerlink" href="#requirements-for-a-migration" title="Permalink to this heading"></a></h2>
+<p>Please ensure that <strong>all</strong> requirements are met:</p>
+<ul class="simple">
+<li><p>You start with an error-free Composer installation of the OXID eShop version 6.4.3 <strong>Community Edition</strong>.
+For older shop versions, please perform the update offered by OXID eSales to version 6.4.3 <strong>before</strong> you start the migration. Newer OXID shops (&gt; 6.4.3) cannot be migrated.
+The migration only supports Community Editions. The migration of Professional or Enterprise Editions is not supported.</p></li>
+<li><p>The OXID eShop was installed via the package ‘oxid-esales/oxideshop-project’. Check if ‘oxid-esales/oxideshop-project’ is mentioned as <em>name</em> in the file composer.json, located in the main directory of your shop. If you use a different package composition, please check its components manually to determine if they can be replaced.</p></li>
+</ul>
+</section>
+<section id="perform-migration">
+<h2>Perform migration<a class="headerlink" href="#perform-migration" title="Permalink to this heading"></a></h2>
+<section id="replace-packages">
+<h3>Replace packages<a class="headerlink" href="#replace-packages" title="Permalink to this heading"></a></h3>
+<p>Open a terminal window and navigate to the main store directory. Exectue the commands:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">composer</span> <span class="n">require</span> <span class="o">-</span><span class="n">W</span> <span class="n">o3</span><span class="o">-</span><span class="n">shop</span><span class="o">/</span><span class="n">shop</span><span class="o">-</span><span class="n">metapackage</span><span class="o">-</span><span class="n">ce</span><span class="p">:</span><span class="o">^</span><span class="mf">1.0</span> <span class="o">--</span><span class="n">no</span><span class="o">-</span><span class="n">scripts</span> <span class="o">--</span><span class="n">no</span><span class="o">-</span><span class="n">plugins</span>
+<span class="n">composer</span> <span class="n">require</span> <span class="o">-</span><span class="n">W</span> <span class="n">o3</span><span class="o">-</span><span class="n">shop</span><span class="o">/</span><span class="n">testing</span><span class="o">-</span><span class="n">library</span><span class="p">:</span><span class="o">^</span><span class="mf">1.0</span> <span class="n">o3</span><span class="o">-</span><span class="n">shop</span><span class="o">/</span><span class="n">shop</span><span class="o">-</span><span class="n">ide</span><span class="o">-</span><span class="n">helper</span><span class="p">:</span><span class="o">^</span><span class="mf">1.0</span> <span class="o">--</span><span class="n">dev</span> <span class="o">--</span><span class="n">no</span><span class="o">-</span><span class="n">plugins</span> <span class="o">--</span><span class="n">no</span><span class="o">-</span><span class="n">scripts</span>
+<span class="n">composer</span> <span class="n">config</span> <span class="n">extra</span><span class="o">.</span><span class="n">incenteev</span><span class="o">-</span><span class="n">parameters</span><span class="o">.</span><span class="n">dist</span><span class="o">-</span><span class="n">file</span> <span class="s1">&#39;vendor/o3-shop/testing-library/test_config.yml.dist&#39;</span>
+<span class="n">composer</span> <span class="n">remove</span> <span class="n">oxid</span><span class="o">-</span><span class="n">esales</span><span class="o">/</span><span class="n">oxideshop</span><span class="o">-</span><span class="n">metapackage</span><span class="o">-</span><span class="n">ce</span> <span class="o">--</span><span class="n">no</span><span class="o">-</span><span class="n">scripts</span> <span class="o">--</span><span class="n">no</span><span class="o">-</span><span class="n">plugins</span>
+<span class="n">composer</span> <span class="n">remove</span> <span class="n">oxid</span><span class="o">-</span><span class="n">esales</span><span class="o">/</span><span class="n">testing</span><span class="o">-</span><span class="n">library</span><span class="p">:</span><span class="o">^</span><span class="mf">1.0</span> <span class="n">oxid</span><span class="o">-</span><span class="n">esales</span><span class="o">/</span><span class="n">oxideshop</span><span class="o">-</span><span class="n">ide</span><span class="o">-</span><span class="n">helper</span><span class="p">:</span><span class="o">^</span><span class="mf">1.0</span> <span class="o">--</span><span class="n">dev</span> <span class="o">--</span><span class="n">no</span><span class="o">-</span><span class="n">scripts</span> <span class="o">--</span><span class="n">no</span><span class="o">-</span><span class="n">plugins</span>
+<span class="n">composer</span> <span class="n">require</span> <span class="n">o3</span><span class="o">-</span><span class="n">shop</span><span class="o">/</span><span class="n">shop</span><span class="o">-</span><span class="n">metapackage</span><span class="o">-</span><span class="n">ce</span><span class="p">:</span><span class="o">^</span><span class="mf">1.0</span>
+</pre></div>
+</div>
+<p>Confirm all overwrite requests with <em>y</em>.</p>
+<p>If the Azure theme should be explicitly installed:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">composer</span> <span class="n">remove</span> <span class="n">oxid</span><span class="o">-</span><span class="n">esales</span><span class="o">/</span><span class="n">azure</span><span class="o">-</span><span class="n">theme</span> <span class="o">--</span><span class="n">dev</span>
+</pre></div>
+</div>
+</section>
+<section id="data-migration">
+<h3>Data migration<a class="headerlink" href="#data-migration" title="Permalink to this heading"></a></h3>
+<p>With the current status, no migration of data is necessary.</p>
+</section>
+<section id="complete-migration">
+<h3>Complete migration<a class="headerlink" href="#complete-migration" title="Permalink to this heading"></a></h3>
+<p>In the case of additional packages installed by OXID or individual compositions of the shop project, please check which packages need to be replaced from <em>oxid-esales</em> to <em>o3-shop</em>.</p>
+</section>
+</section>
+<section id="overview-of-the-packages-replaced-by-o3-shop-and-their-versions">
+<h2>Overview of the packages replaced by O3-Shop and their versions<a class="headerlink" href="#overview-of-the-packages-replaced-by-o3-shop-and-their-versions" title="Permalink to this heading"></a></h2>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head text-left"><p>OXID package</p></th>
+<th class="head text-right"><p>OXID version</p></th>
+<th class="head text-left"><p>O3-Shop package</p></th>
+<th class="head text-right"><p>O3-Shop version</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td class="text-left"><p>oxid-esales/oxideshop-project</p></td>
+<td class="text-right"><p>dev-b-6.0-ce</p></td>
+<td class="text-left"><p>o3-shop/o3-shop</p></td>
+<td class="text-right"><p>dev-b-1.0-ce</p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p>oxid-esales/oxideshop-metapackage-ce</p></td>
+<td class="text-right"><p>6.4.3</p></td>
+<td class="text-left"><p>o3-shop/shop-metapackage-ce</p></td>
+<td class="text-right"><p>1.0.0</p></td>
+</tr>
+<tr class="row-even"><td class="text-left"><p>oxid-esales/oxideshop-ce</p></td>
+<td class="text-right"><p>6.10.3</p></td>
+<td class="text-left"><p>o3-shop/shop_ce</p></td>
+<td class="text-right"><p>1.0.0</p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p>oxid-esales/oxideshop-composer-plugin</p></td>
+<td class="text-right"><p>5.2.2</p></td>
+<td class="text-left"><p>o3-shop/shop-composer-plugin</p></td>
+<td class="text-right"><p>1.0.0</p></td>
+</tr>
+<tr class="row-even"><td class="text-left"><p>oxid-esales/oxideshop-facts</p></td>
+<td class="text-right"><p>2.4.0</p></td>
+<td class="text-left"><p>o3-shop/shop-facts</p></td>
+<td class="text-right"><p>1.0.0</p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p>oxid-esales/oxideshop-unified-namespace-generator</p></td>
+<td class="text-right"><p>2.2.0</p></td>
+<td class="text-left"><p>o3-shop/shop-unified-namespace-generator</p></td>
+<td class="text-right"><p>1.0.0</p></td>
+</tr>
+<tr class="row-even"><td class="text-left"><p>oxid-esales/oxideshop-doctrine-migration-wrapper</p></td>
+<td class="text-right"><p>3.3.0</p></td>
+<td class="text-left"><p>o3-shop/shop-doctrine-migration-wrapper</p></td>
+<td class="text-right"><p>1.0.0</p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p>oxid-esales/oxideshop-db-views-generator</p></td>
+<td class="text-right"><p>1.3.0</p></td>
+<td class="text-left"><p>o3-shop/shop-db-views-generator</p></td>
+<td class="text-right"><p>1.0.0</p></td>
+</tr>
+<tr class="row-even"><td class="text-left"><p>oxid-esales/codeception-page-objects</p></td>
+<td class="text-right"><p>2.3.0</p></td>
+<td class="text-left"><p>o3-shop/codeception-page-objects</p></td>
+<td class="text-right"><p>1.0.0</p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p>oxid-esales/codeception-modules</p></td>
+<td class="text-right"><p>1.4.2</p></td>
+<td class="text-left"><p>o3-shop/codeception-modules</p></td>
+<td class="text-right"><p>1.0.0</p></td>
+</tr>
+<tr class="row-even"><td class="text-left"><p></p></td>
+<td class="text-right"><p></p></td>
+<td class="text-left"><p></p></td>
+<td class="text-right"><p></p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p>oxid-esales/flow-theme</p></td>
+<td class="text-right"><p>3.8.1</p></td>
+<td class="text-left"><p>o3-shop/flow-theme</p></td>
+<td class="text-right"><p>1.0.0</p></td>
+</tr>
+<tr class="row-even"><td class="text-left"><p>oxid-esales/wave-theme</p></td>
+<td class="text-right"><p>1.6.2</p></td>
+<td class="text-left"><p>o3-shop/wave-theme</p></td>
+<td class="text-right"><p>1.0.0</p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p>oxid-esales/azure-theme</p></td>
+<td class="text-right"><p>*</p></td>
+<td class="text-left"><p>currently discontinued</p></td>
+<td class="text-right"><p></p></td>
+</tr>
+<tr class="row-even"><td class="text-left"><p></p></td>
+<td class="text-right"><p></p></td>
+<td class="text-left"><p></p></td>
+<td class="text-right"><p></p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p>oxid-esales/oxideshop-demodata-installer</p></td>
+<td class="text-right"><p>1.3.0</p></td>
+<td class="text-left"><p>o3-shop/shop-demodata-installer</p></td>
+<td class="text-right"><p>1.0.0</p></td>
+</tr>
+<tr class="row-even"><td class="text-left"><p>oxid-esales/oxideshop-demodata-ce</p></td>
+<td class="text-right"><p>6.0.4</p></td>
+<td class="text-left"><p>o3-shop/shop-demodata-ce</p></td>
+<td class="text-right"><p>1.0.0</p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p></p></td>
+<td class="text-right"><p></p></td>
+<td class="text-left"><p></p></td>
+<td class="text-right"><p></p></td>
+</tr>
+<tr class="row-even"><td class="text-left"><p>oxid-esales/paypal-module</p></td>
+<td class="text-right"><p>6.4.1</p></td>
+<td class="text-left"><p>o3-shop/paypal-module</p></td>
+<td class="text-right"><p>1.0.0</p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p>oxid-esales/gdpr-optin-module</p></td>
+<td class="text-right"><p>2.3.3</p></td>
+<td class="text-left"><p>o3-shop/gdpr-optin-module</p></td>
+<td class="text-right"><p>1.0.0</p></td>
+</tr>
+<tr class="row-even"><td class="text-left"><p>oxid-professional-services/usercentrics</p></td>
+<td class="text-right"><p>1.2.1</p></td>
+<td class="text-left"><p>o3-shop/usercentrics</p></td>
+<td class="text-right"><p>1.0.0</p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p></p></td>
+<td class="text-right"><p></p></td>
+<td class="text-left"><p></p></td>
+<td class="text-right"><p></p></td>
+</tr>
+<tr class="row-even"><td class="text-left"><p>oxid-esales/testing-library</p></td>
+<td class="text-right"><p>8.1.0</p></td>
+<td class="text-left"><p>o3-shop/testing-library</p></td>
+<td class="text-right"><p>1.0.0</p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p>oxid-esales/oxideshop-ide-helper</p></td>
+<td class="text-right"><p>4.1.0</p></td>
+<td class="text-left"><p>o3-shop/shop-ide-helper</p></td>
+<td class="text-right"><p>1.0.0</p></td>
+</tr>
+<tr class="row-even"><td class="text-left"><p>oxid-esales/developer-tools</p></td>
+<td class="text-right"><p>1.1.0</p></td>
+<td class="text-left"><p>o3-shop/developer-tools</p></td>
+<td class="text-right"><p>1.0.0</p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p>oxid-esales/php-selenium</p></td>
+<td class="text-right"><p>1.0.5</p></td>
+<td class="text-left"><p>o3-shop/php-selenium</p></td>
+<td class="text-right"><p>1.0.0</p></td>
+</tr>
+<tr class="row-even"><td class="text-left"><p>oxid-esales/mink-selenium-driver</p></td>
+<td class="text-right"><p>1.1.2</p></td>
+<td class="text-left"><p>o3-shop/mink-selenium-driver</p></td>
+<td class="text-right"><p>1.0.0</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="NewInstallation.html" class="btn btn-neutral float-left" title="New Installation" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="Update.html" class="btn btn-neutral float-right" title="Update" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023 - 2023, O3-Shop, 2021 - 2022 OXID eSales AG.</p>
+  </div>
+
+   <jinja2.runtime.BlockReference object at 0x7f30a9dc7898>
+<a href="https://www.o3-shop.com/"><span class="icon icon-home"></span> About O3-Shop</a> | <a href="https://community.o3-shop.com/">Join the community</a> | <a href="https://issues.o3-shop.com/">Issue tracker</a> | <a href="https://gitlab.o3-shop.com/o3/">Sources</a> | <a href="https://www.o3-shop.com/contact/">Contact</a> | <a href="https://www.gnu.org/licenses/gpl-3.0.de.html">License: GPL v3</a>
+
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

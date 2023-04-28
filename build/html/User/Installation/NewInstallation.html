@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>New Installation &mdash; O3-Shop 1.0.0 documentation</title>
+      <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/css/o3.css" type="text/css" />
+    <link rel="shortcut icon" href="../../_static/favicon.ico"/>
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../../_static/doctools.js"></script>
+        <script src="../../_static/sphinx_highlight.js"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Migrate from OXID eShop" href="Migration.html" />
+    <link rel="prev" title="Installation" href="index.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search"  style="background: #343131" >
+
+          
+          
+          <a href="../../index.html">
+            
+              <img src="../../_static/logo_light.png" class="logo" alt="Logo"/>
+          </a>
+              <div class="version">
+                1.0
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../Welcome.html">Welcome</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">User Manual</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Installation</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="index.html#ensure">Ensure</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#prepare">Prepare</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="index.html#perform">Perform</a><ul class="current">
+<li class="toctree-l3 current"><a class="current reference internal" href="#">New installation</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#create-database">Create database</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#provide-shop-files">Provide shop files</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#adjust-file-and-directory-permissions">Adjust file and directory permissions</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#configure-apache">Configure Apache</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#run-web-based-setup-application">Run web-based setup application</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#complete-installation">Complete installation</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="Migration.html">Migrate from OXID eShop</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Update.html">Update</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="SystemRequirements.html">System Requirements</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Developer Manual</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../Developer/GetInvolved.html">Get involved</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu"  style="background: #343131" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">O3-Shop</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="index.html">Installation</a></li>
+      <li class="breadcrumb-item active">New Installation</li>
+      <li class="wy-breadcrumbs-aside">
+              <a href="https://gitlab.o3-shop.com/o3/o3-documentation/blob/main/source/User/Installation/NewInstallation.md" class="fa fa-gitlab"> Edit on GitLab</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="new-installation">
+<h1>New Installation<a class="headerlink" href="#new-installation" title="Permalink to this heading"></a></h1>
+<section id="create-database">
+<h2>Create database<a class="headerlink" href="#create-database" title="Permalink to this heading"></a></h2>
+<p>O3-Shop requires a MySQL or MariaDB database to store items, categories, customer and order data and other information.</p>
+<p>Most web hosts offer database access via a web-based application, as e.g. phpMyAdmin. If you need help with this, please contact your hosting partner or Internet Service Provider (ISP).</p>
+<p>Create a new database. You can choose the name of the database freely, for example <code class="docutils literal notranslate"><span class="pre">o3_shop</span></code>.</p>
+</section>
+<section id="provide-shop-files">
+<h2>Provide shop files<a class="headerlink" href="#provide-shop-files" title="Permalink to this heading"></a></h2>
+<p>The shop files are provided by Composer. The shop files are stored in a subdirectory that is specified in the command with <strong>your_project_name</strong>. This is based on the directory in which the command is issued in the terminal window. The parameter <strong>–no-dev</strong> is specified if the development-related files are not needed.</p>
+<p>Open a terminal window and navigate to the main store directory.</p>
+<p>Install the shop executing the Composer command:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">composer</span> <span class="n">create</span><span class="o">-</span><span class="n">project</span> <span class="o">--</span><span class="n">no</span><span class="o">-</span><span class="n">dev</span> <span class="n">o3</span><span class="o">-</span><span class="n">shop</span><span class="o">/</span><span class="n">o3</span><span class="o">-</span><span class="n">shop</span> <span class="n">your_project_name</span> <span class="mf">1.1</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Use a different version constraint to install a different project version.</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">1.1</span></code> for the latest official release of the 1.1 branch</p></li>
+<li><p>leave empty for the latest official release</p></li>
+</ul>
+</div>
+<p>After Composer has finished its work, the new directory named <em>your_project_name</em> exists. This is the root directory of the project and contains all files needed for the installation of the O3-Shop.</p>
+</section>
+<section id="adjust-file-and-directory-permissions">
+<h2>Adjust file and directory permissions<a class="headerlink" href="#adjust-file-and-directory-permissions" title="Permalink to this heading"></a></h2>
+<p>The HTTP server requires read and write access for the following directories and their subdirectories at runtime:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">/source/export</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">/source/log/</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">/source/out/pictures/</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">/source/out/media/</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">/source/tmp/</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">/var/</span></code></p></li>
+</ul>
+<p>In addition, the CLI user (Command Line Interface) also needs read and write access for the directory <code class="docutils literal notranslate"><span class="pre">/var/</span></code>.</p>
+<p>For the web-based setup, the HTTP server must have write access to the following directory and these files:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">/source/Setup</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">/source/config.inc.php</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">/source/.htaccess</span></code></p></li>
+</ul>
+</section>
+<section id="configure-apache">
+<h2>Configure Apache<a class="headerlink" href="#configure-apache" title="Permalink to this heading"></a></h2>
+<p>The root directory must point to a directory that the HTTP server can access. The document root directory of Apache must point to the <em><strong>/source</strong></em> directory of the main directory.</p>
+<p>If you are able to run the setup application as described in the next paragraph this configuration was successful.</p>
+</section>
+<section id="run-web-based-setup-application">
+<h2>Run web-based setup application<a class="headerlink" href="#run-web-based-setup-application" title="Permalink to this heading"></a></h2>
+<p>Open a browser and go to <code class="docutils literal notranslate"><span class="pre">www.yourshopurl.com/setup</span></code>.</p>
+<p>Replace <code class="docutils literal notranslate"><span class="pre">www.yourshopurl.com</span></code> with the URL where your O3-Shop will be accessible.</p>
+<p><img alt="O3-Shop Setup" src="../../_images/setup_1.jpg" /></p>
+<section id="system-requirements">
+<h3>System Requirements<a class="headerlink" href="#system-requirements" title="Permalink to this heading"></a></h3>
+<p>Colored symbols indicate whether the system requirements are met:<br>
+<img alt="" src="../../_images/install_pass.png" /> The prerequisite is fulfilled.<br>
+<img alt="" src="../../_images/install_pmin.png" /> The prerequisite is not completely fulfilled, tough the shop can be installed.<br>
+<img alt="" src="../../_images/install_fail.png" /> The prerequisite is not fulfilled, the shop can’t be installed.<br>
+<img alt="" src="../../_images/install_null.png" /> The prerequisite could not be checked.</p>
+<ul class="simple">
+<li><p>Select the language for the installation. This selection only has influence on the language of the setup application, not on the shop installation itself.</p></li>
+<li><p>Make sure that all system requirements are fulfilled in order to install the O3-Shop and operate without issues. In case of configuration problems, contact your hosting partner or Internet Service Provider (ISP).</p></li>
+</ul>
+</section>
+<section id="welcome">
+<h3>Welcome<a class="headerlink" href="#welcome" title="Permalink to this heading"></a></h3>
+<p>Set the main delivery country and the shop language. You can add more delivery countries and/or languages after installation in the shop admin.</p>
+</section>
+<section id="licence-conditions">
+<h3>Licence conditions<a class="headerlink" href="#licence-conditions" title="Permalink to this heading"></a></h3>
+<p>Check the licence conditions and accept as requisite to install the shop.</p>
+</section>
+<section id="database">
+<h3>Database<a class="headerlink" href="#database" title="Permalink to this heading"></a></h3>
+<p>Create a database or integrate an existing database.</p>
+<p><strong>Database server hostname or IP address</strong></p>
+<ul class="simple">
+<li><p>If the database and web server are on the same server, leave the default value localhost. This is the default for most shops.</p></li>
+<li><p>If your database is outsourced, enter the host name or IP address of your database server. If you need to specify a port, it is placed after the host name and a colon (host name:port).</p></li>
+</ul>
+<p><strong>Database server TCP Port</strong></p>
+<p>The TCP port, usually 3306.</p>
+<p><strong>Database name</strong></p>
+<p>Enter the name of the shop’s database.</p>
+<p><strong>Database user ame</strong> and <strong>database password</strong></p>
+<p>Enter the access data for the database.</p>
+<p><strong>Demodata</strong></p>
+<p>Decide whether you want to install the shop pre-configured with sample items.</p>
+<p>Demodata is recommended if you want to familiarise yourself with the shop in a test installation first.</p>
+<p>You can delete the demodata at any time if you want to fill the shop with your own articles.</p>
+<p>If you specified a none-empty database, you will be asked if setup should continue and all previous data will be erased.</p>
+</section>
+<section id="directory-login">
+<h3>Directory &amp; Login<a class="headerlink" href="#directory-login" title="Permalink to this heading"></a></h3>
+<p>If necessary, the directory settings can be adjusted:</p>
+<p><strong>Shop URL</strong>:
+The URL your eShop will be accessible.</p>
+<p><strong>Directory for O3-Shop</strong>:
+The internal path of the shop on the server (e.g. /var/www/your_project_name/source/).</p>
+<p><strong>Directory for temporary data</strong>:
+The internal path for the shop’s temporary files, e.g. for Smarty or SEO cache.</p>
+<p>Provide the admin user login data for the shop’s administration area.</p>
+<p><strong>Administrator email</strong> and <strong>Administrator password</strong>:
+Enter the administrator’s email address and password. Use this data to log in to the administration area after the setup.</p>
+</section>
+</section>
+<section id="complete-installation">
+<h2>Complete installation<a class="headerlink" href="#complete-installation" title="Permalink to this heading"></a></h2>
+<section id="setup-directory">
+<h3>Setup directory<a class="headerlink" href="#setup-directory" title="Permalink to this heading"></a></h3>
+<p>After successful installation, the <strong>/setup</strong> directory is automatically deleted. This is to prevent the setup from being called up again at a later time. Check whether the deletion of the directory was successful.</p>
+<p>Also verify that the files config.inc.php and .inv in the shop’s source directory are set to read-only. If not execute:</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>chmod 0444 config.inc.php</p>
+<p>chmod 0444 .env</p>
+</div>
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="index.html" class="btn btn-neutral float-left" title="Installation" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="Migration.html" class="btn btn-neutral float-right" title="Migrate from OXID eShop" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023 - 2023, O3-Shop, 2021 - 2022 OXID eSales AG.</p>
+  </div>
+
+   <jinja2.runtime.BlockReference object at 0x7fa058681a20>
+<a href="https://www.o3-shop.com/"><span class="icon icon-home"></span> About O3-Shop</a> | <a href="https://community.o3-shop.com/">Join the community</a> | <a href="https://issues.o3-shop.com/">Issue tracker</a> | <a href="https://gitlab.o3-shop.com/o3/">Sources</a> | <a href="https://www.o3-shop.com/contact/">Contact</a> | <a href="https://www.gnu.org/licenses/gpl-3.0.de.html">License: GPL v3</a>
+
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

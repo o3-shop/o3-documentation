@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Server and system requirements &mdash; O3-Shop 1.0.0 documentation</title>
+      <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../../../_static/css/o3.css" type="text/css" />
+    <link rel="shortcut icon" href="../../../_static/favicon.ico"/>
+  <!--[if lt IE 9]>
+    <script src="../../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
+        <script src="../../../_static/jquery.js"></script>
+        <script src="../../../_static/underscore.js"></script>
+        <script src="../../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../../../_static/doctools.js"></script>
+        <script src="../../../_static/sphinx_highlight.js"></script>
+    <script src="../../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search"  style="background: #343131" >
+
+          
+          
+          <a href="../../../index.html">
+            
+              <img src="../../../_static/logo_light.png" class="logo" alt="Logo"/>
+          </a>
+              <div class="version">
+                1.0
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../Welcome.html">Welcome</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">User Manual</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../index.html">Installation</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Developer Manual</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../developer/GetInvolved.html">Get involved</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu"  style="background: #343131" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">O3-Shop</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Server and system requirements</li>
+      <li class="wy-breadcrumbs-aside">
+              <a href="https://gitlab.o3-shop.com/o3/o3-documentation/blob/main/source/User/Installation/SystemRequirements/SystemRequirements.md" class="fa fa-gitlab"> Edit on GitLab</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="server-and-system-requirements">
+<h1>Server and system requirements<a class="headerlink" href="#server-and-system-requirements" title="Permalink to this heading"></a></h1>
+<p>You can run O3-Shop on different server systems.</p>
+<p>The choice of a suitable hosting package depends, for example, on the number of articles, the expected visitors to the shop and the number of orders.</p>
+<p>You have the following options:</p>
+<ul class="simple">
+<li><p>For a small shop with a few hundred articles, a few visitors per month and a manageable order volume, a shared hosting system is sufficient.</p></li>
+<li><p>For larger shops, choose a managed server system.</p></li>
+<li><p>If the load increases, a server farm with load balancing and a database cluster is recommended.</p></li>
+</ul>
+<p>You will find advice and support in choosing the right system from our hosting partners. They provide solutions specially tailored to the O3-Shop.</p>
+<hr class="docutils" />
+<p>For the operation of the O3-Shop, your system must meet the following system requirements.</p>
+<section id="webserver">
+<h2>Webserver<a class="headerlink" href="#webserver" title="Permalink to this heading"></a></h2>
+<ul class="simple">
+<li><p>Apache versions 2.2 or 2.4 (on Linux)</p></li>
+<li><p>750 MB free webspace</p></li>
+<li><p>Installed extension <em>mod_rewrite</em></p></li>
+</ul>
+<div class="admonition hint">
+<p class="admonition-title">Hint</p>
+<p>After the installation you will be taken to the web-based setup of the shop.</p>
+<p>Before you can run the setup, the system checks whether the system requirements are met.</p>
+<p>It is possible that under <strong>Server Configuration</strong> the Apache <em>mod_rewrite</em> module is marked as faulty, although you have installed the module.</p>
+<p>One reason for this is often the setting for <em>AllowOverride</em> in the Apache configuration of the vHost.</p>
+<p>If you have Apache 2.3.9, make sure <em>AllowOverride</em> has the value <em>None</em>.</p>
+</div>
+<p>A decoder (Zend Guard Loader, ionCube Loader, …) is not required, as O3-Shop is unencrypted.</p>
+</section>
+<section id="database">
+<h2>Database<a class="headerlink" href="#database" title="Permalink to this heading"></a></h2>
+<ul class="simple">
+<li><p>MySQL 5.5 or 5.7</p></li>
+<li><p>MariaDB (tested with MariaDB 10.4)</p></li>
+</ul>
+<p>The database user needs sufficient authorisation to be able to create a database during the installation, if it does not already exist. The authorisation must also allow the creation of views.</p>
+<p>The transaction isolation level must be left at the default value <em>REPEATABLE READ</em> of the InnoDB Storage Engine on the server side.</p>
+</section>
+<section id="php">
+<h2>PHP<a class="headerlink" href="#php" title="Permalink to this heading"></a></h2>
+<ul class="simple">
+<li><p>PHP versions 7.4, 8.0 or 8.1</p></li>
+<li><p>A <em>memory_limit</em> of 60 MB, but at least 32 MB, is recommended.</p></li>
+<li><p>The PHP setting <em>session.auto_start</em> in the <em><strong>php.ini</strong></em> file should be disabled (OFF)</p></li>
+<li><p>File uploads should be enabled in PHP</p></li>
+<li><p>Enabled <em>allow_url_fopen</em> and <em>fsockopen</em> on port 80</p></li>
+<li><p>Apache server variables <em>REQUEST_URI</em> or <em>SCRIPT_URI</em> must be present</p></li>
+<li><p><em>ini_set</em> allowed</p></li>
+</ul>
+<p>PHP extensions that must be installed:</p>
+<ul class="simple">
+<li><p><em>GD LIB version 2.x</em></p></li>
+<li><p><em>PDO_MySQL</em></p></li>
+<li><p><em>BC Math</em></p></li>
+<li><p><em>JSON</em></p></li>
+<li><p><em>iconv</em></p></li>
+<li><p><em>tokenizer</em></p></li>
+<li><p><em>mbstring</em></p></li>
+<li><p><em>cURL</em></p></li>
+<li><p><em>SOAP</em></p></li>
+<li><p><em>DOM</em></p></li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>For PHP 8 operation, it is strongly recommended to set PHP’s error_reporting to <code class="docutils literal notranslate"><span class="pre">error_reporting</span> <span class="pre">=</span> <span class="pre">E_ALL</span> <span class="pre">&amp;</span> <span class="pre">~E_NOTICE</span> <span class="pre">&amp;</span> <span class="pre">~E_WARNING</span> <span class="pre">&amp;</span> <span class="pre">~E_DEPRECATED</span></code>, otherwise you will get a lot of warnings.</p>
+</div>
+</section>
+<section id="composer">
+<h2>Composer<a class="headerlink" href="#composer" title="Permalink to this heading"></a></h2>
+<p>The installation of O3-Shop is no longer based on packed and downloadable installation packages, but is carried out with the help of Composer. Composer is a dependency manager for PHP, a tool that takes dependencies of program components of a project into account while installing the files of this project into a defined directory.</p>
+<p>Composer is required for the installation of the O3-Shop and changes in the autoloading of files (not at runtime).</p>
+<p>The requirements for Composer can be found at <a class="reference external" href="https://getcomposer.org/doc/00-intro.md#system-requirements">https://getcomposer.org/doc/00-intro.md#system-requirements</a>.</p>
+<p>For installation instructions, see the Getting Started section of the Composer pages at <a class="reference external" href="https://getcomposer.org">https://getcomposer.org</a>.</p>
+<ul class="simple">
+<li><p>Composer 2.2</p></li>
+</ul>
+<div class="admonition attention">
+<p class="admonition-title">Attention</p>
+<p>A Composer version newer than 2.2 is not supported.</p>
+<p>For example, install Composer version 2.2 as follows:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">composer</span> <span class="n">selfupdate</span> <span class="o">--</span><span class="mf">2.2</span>
+</pre></div>
+</div>
+</div>
+</section>
+<section id="openssl">
+<h2>OpenSSL<a class="headerlink" href="#openssl" title="Permalink to this heading"></a></h2>
+<p>OpenSSL is required for the modules belonging to a compilation.</p>
+<ul class="simple">
+<li><p><em>openssl</em> &gt;= 1.0.1</p></li>
+</ul>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023 - 2023, O3-Shop, 2021 - 2022 OXID eSales AG.</p>
+  </div>
+
+   <jinja2.runtime.BlockReference object at 0x7f2854d9d208>
+<a href="https://www.o3-shop.com/"><span class="icon icon-home"></span> About O3-Shop</a> | <a href="https://community.o3-shop.com/">Join the community</a> | <a href="https://issues.o3-shop.com/">Issue tracker</a> | <a href="https://gitlab.o3-shop.com/o3/">Sources</a> | <a href="https://www.o3-shop.com/contact/">Contact</a> | <a href="https://www.gnu.org/licenses/gpl-3.0.de.html">License: GPL v3</a>
+
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
