@@ -35,7 +35,9 @@ composer remove oxid-esales/azure-theme --dev
 
 ### Data migration
 
-With the current status, no migration of data is necessary.
+```
+vendor/bin/oe-shop-db_migrate migrations:migrate
+```
 
 ### Complete migration
 

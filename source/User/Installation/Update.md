@@ -7,7 +7,7 @@ Open a terminal window and navigate to the main store directory.
 Execute following Composer command to update. Match the name with the version you want to udpate to (in the example 1.1):
 
 ```
-composer require --no-update o3-shop/shop-metapackage-ce:v1.1
+composer require --no-update o3-shop/shop-metapackage-ce:v1.2
 ```
 
 ## Update dependencies
@@ -61,5 +61,5 @@ Depending on the changes and store edition, the store may go into maintenance mo
 To prevent this, regenerate the database views with the following command:
 
 ```
-vendor/bin/oe-shop-db_migrate migrations:migrate
+vendor/bin/oe-eshop-db_views_regenerate
 ```

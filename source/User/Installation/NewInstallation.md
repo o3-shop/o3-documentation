@@ -17,13 +17,13 @@ Open a terminal window and navigate to the main store directory.
 Install the shop executing the Composer command:
 
 ```
-composer create-project --no-dev o3-shop/o3-shop your_project_name 1.1
+composer create-project --no-dev o3-shop/o3-shop your_project_name 1.2
 ```
 
 ```{note}
 Use a different version constraint to install a different project version.
 
-- `1.1` for the latest official release of the 1.1 branch
+- `1.2` for the latest official release of the 1.2 branch
 - leave empty for the latest official release
 ```
 
@@ -46,6 +46,7 @@ For the web-based setup, the HTTP server must have write access to the following
 
 - `/source/Setup`
 - `/source/config.inc.php`
+- `/.env`
 - `/source/.htaccess`
 
 ## Configure Apache
