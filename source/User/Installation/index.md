@@ -9,7 +9,7 @@ Ensure your system can meet the requirements:
 - Apache Linux 2.2 or 2.4
 - Composer 2.2
 
-Detailed <a target="_blank" href="https://docs.o3-shop.com/en/latest/user/Installation/SystemRequirements.html">System Requirements</a>.
+Detailed <a target="_blank" href="https://docs.o3-shop.com/en/latest/User/Installation/SystemRequirements.html">System Requirements</a>.
 
 ## Prepare
 
