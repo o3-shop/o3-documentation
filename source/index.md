@@ -17,6 +17,12 @@ System Requirements <User/Installation/SystemRequirements>
 :caption: Developer Manual
 Get involved <Developer/GetInvolved>
 ```
+```{toctree}
+:maxdepth: 1
+:hidden:
+:caption: Extensions
+Modules <Extensions/Modules>
+```
 
 # O3-Shop
 
