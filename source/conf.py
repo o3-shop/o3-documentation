@@ -6,6 +6,7 @@
 # -- Project information -----------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#project-information
 
+import os
 import datetime as dt
 
 project = 'O3-Shop'
@@ -34,7 +35,10 @@ exclude_patterns = []
 
 html_theme = 'sphinx_rtd_theme'
 html_static_path = ['_static']
-myst_enable_extensions = ["colon_fence"]
+myst_enable_extensions = [
+    "colon_fence",
+    "substitution"
+]
 
 html_logo = 'assets/logo_light.png'
 html_favicon = 'assets/favicon.ico'
@@ -76,4 +80,8 @@ html_theme_options = {
     'navigation_depth': 4,
     'includehidden': True,
     'titles_only': False
+}
+
+myst_substitutions = {
+    'baseurl': os.getenv("READTHEDOCS_CANONICAL_URL", "https://localhost/")
 }

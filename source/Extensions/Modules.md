@@ -16,4 +16,4 @@ Use modules to
 
 This part of the documentation describes modules for the O3-Shop.
 
-- [TinyMCE editor](https://docs.o3-shop.com/projects/tinymce/en/latest/)
+- {{ '[TinyMCE editor]({}../../projects/tinymce/)'.format(baseurl) }}
