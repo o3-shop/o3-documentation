@@ -52,7 +52,7 @@ rm -rf source/tmp/*
 ## Migrate database
 
 ```
-vendor/bin/oe-shop-db_migrate migrations:migrate
+vendor/bin/oe-eshop-db_migrate migrations:migrate
 ```
 
 ## Regenerate database views
