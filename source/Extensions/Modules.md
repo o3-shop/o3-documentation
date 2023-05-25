@@ -16,4 +16,5 @@ Use modules to
 
 This part of the documentation describes modules for the O3-Shop.
 
+- {{ '[Captcha]({}../../projects/captcha/)'.format(baseurl) }}
 - {{ '[TinyMCE editor]({}../../projects/tinymce/)'.format(baseurl) }}
