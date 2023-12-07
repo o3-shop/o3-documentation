@@ -5,7 +5,7 @@
 Ensure your system can meet the requirements:
 
 - PHP 7.4, 8.0, 8.1 or 8.2
-- MySQL 5.5, 5.7, 8.0 or MariaDB 10.4
+- MySQL 5.5, 5.7, 8.0 or MariaDB 10
 - Apache Linux 2.2 or 2.4
 - Composer 2.2
 

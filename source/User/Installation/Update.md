@@ -4,10 +4,10 @@
 
 Open a terminal window and navigate to the main store directory.
 
-Execute following Composer command to update. Match the name with the version you want to udpate to (in the example 1.1):
+Execute following Composer command to update. Match the name with the version you want to udpate to (in the example 1.3):
 
 ```
-composer require --no-update o3-shop/shop-metapackage-ce:v1.2
+composer require --no-update o3-shop/shop-metapackage-ce:v1.3
 ```
 
 ## Update dependencies

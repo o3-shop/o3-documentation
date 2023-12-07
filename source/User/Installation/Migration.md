@@ -25,7 +25,7 @@ composer remove oxid-esales/testing-library:^1.0 oxid-esales/oxideshop-ide-helpe
 composer require o3-shop/shop-metapackage-ce:^1.0
 ```
 
-Confirm all overwrite requests with *y*.
+Confirm all overwrite requests with ´y´.
 
 If the Azure theme should be explicitly installed:
 

@@ -39,7 +39,7 @@ A decoder (Zend Guard Loader, ionCube Loader, ...) is not required, as O3-Shop i
 ## Database
 
 - MySQL 5.5, 5.7 or 8.0
-- MariaDB (tested with MariaDB 10.4)
+- MariaDB (tested with MariaDB 10)
 
 The database user needs sufficient authorisation to be able to create a database during the installation, if it does not already exist. The authorisation must also allow the creation of views.
 
