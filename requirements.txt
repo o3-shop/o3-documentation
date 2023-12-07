@@ -1,1 +1,3 @@
 myst-parser
+sphinxcontrib-jquery
+sphinx-rtd-theme
