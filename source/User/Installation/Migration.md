@@ -21,7 +21,7 @@ isdev= && composer show oxid-esales/testing-* | grep -q . && isdev="1"
 composer require -W o3-shop/shop-metapackage-ce:^1.0 --no-scripts --no-plugins
 composer remove oxid-esales/testing-library oxid-esales/oxideshop-ide-helper --dev --no-scripts --no-plugins
 composer require -W o3-shop/testing-library:^1.0 o3-shop/shop-ide-helper:^1.0 --dev --no-plugins --no-scripts
-composer config extra.incenteev-parameters.dist-file 'vendor/o3-shop/testing-library/test_config.yml.dist' --no-scripts --no-plugins
+composer config extra.incenteev-parameters.dist-file 'vendor/o3-shop/testing-library/test_config.yml.dist' --no-plugins
 composer remove oxid-esales/oxideshop-metapackage-ce --no-scripts --no-plugins
 if [ -n "${isdev}" ]; then composer require o3-shop/shop-metapackage-ce:^1.0; else composer require --update-no-dev o3-shop/shop-metapackage-ce:^1.0; fi
 ```
