@@ -9,6 +9,7 @@ Please ensure that **all** requirements are met:
   For older shop versions, please perform the update offered by OXID eSales to version 6.4.3 **before** you start the migration. Newer OXID shops (> 6.4.3) cannot be migrated.
   The migration only supports Community Editions. The migration of Professional or Enterprise Editions is not supported.
 - The OXID eShop was installed via the package 'oxid-esales/oxideshop-project'. Check if 'oxid-esales/oxideshop-project' is mentioned as *name* in the file composer.json, located in the main directory of your shop. If you use a different package composition, please check its components manually to determine if they can be replaced.
+- You have made a full backup of your installation (Files and Database) before proceeding with a migration
 
 ## Perform migration
 
