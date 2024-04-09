@@ -10,7 +10,7 @@ import os
 import datetime as dt
 
 project = 'O3-Shop'
-copyright = '2023 - {}, O3-Shop, 2021 - 2022 OXID eSales AG'.format(dt.date.today().year)
+copyright = '2023 - {}, O3-Shop, based on 2021 - 2022 OXID eSales AG'.format(dt.date.today().year)
 author = 'O3-Shop Community'
 
 # The short X.Y version
