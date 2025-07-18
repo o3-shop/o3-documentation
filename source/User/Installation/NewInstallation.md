@@ -17,13 +17,13 @@ Open a terminal window and navigate to the main store directory.
 Install the shop executing the Composer command:
 
 ```
-composer create-project --no-dev o3-shop/o3-shop your_project_name 1.3
+composer create-project --no-dev o3-shop/o3-shop your_project_name ^1.4
 ```
 
 ```{note}
 Use a different version constraint to install a different project version.
 
-- `1.3` for the latest official release of the 1.3 branch
+- `^1.4` for the latest official release of the 1.4.x branch
 - leave empty for the latest official release
 ```
 
