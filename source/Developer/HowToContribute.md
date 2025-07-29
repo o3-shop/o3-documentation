@@ -96,5 +96,3 @@ Your work helps make O3 better for everyone.
 All issues for O3 projects—regardless of which repository they concern—should be created in the central [o3-shop/o3-shop issue tracker](https://github.com/o3-shop/o3-shop/issues) using the issue form. **Always specify the relevant repository in the form when submitting an issue.**
 
 This helps maintainers quickly route and address your contribution or report. Automation may be used to triage or label issues based on your selection.
-
-For more details, see the [Developer Guide](./GetInvolved.md) and other resources in this section.
