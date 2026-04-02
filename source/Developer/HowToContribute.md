@@ -76,7 +76,9 @@ Clone your fork locally. In your project directory, run:
 ./docker.sh start
 ```
 
-This command will start the development environment using Docker. Follow any additional setup instructions in the documentation if needed.
+This command will start the development environment using Docker. For a detailed walkthrough of the full setup process, refer to the README in the main shop repository:
+
+👉 [https://github.com/o3-shop/shop-ce/blob/b-1.5/README.md](https://github.com/o3-shop/shop-ce/blob/b-1.5/README.md)
 
 #### Step 6 — Implement the Change (Role: Developer)
 
