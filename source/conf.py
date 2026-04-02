@@ -14,9 +14,9 @@ copyright = '2023 - 2026, O3-Shop, based on 2021 - 2022 OXID eSales AG'.format(d
 author = 'O3-Shop Community'
 
 # The short X.Y version
-version = '1.0'
+version = '1.5'
 # The full version, including alpha/beta/rc tags
-release = '1.0.0'
+release = '1.5.3'
 
 
 # -- General configuration ---------------------------------------------------
@@ -47,24 +47,23 @@ html_css_files = [
 ]
 
 html_context = {
-    'current_version': '1.0',
+    'current_version': '1.5',
     'versions':
         [
-            ('1.0', 'https://docs.o3-shop.com/en/1.0/')
+            ('1.5', 'https://docs.o3-shop.com/en/1.5/')
         ],
     'languages':
         [
-            ('EN', 'https://docs.o3-shop.com/en/1.0/')
+            ('EN', 'https://docs.o3-shop.com/en/1.5/')
         ],
 
     'show_sphinx': False,
 
-    "display_gitlab": True,
-    "gitlab_host": "gitlab.o3-shop.com",
-    "gitlab_user": "o3", # Username
-    "gitlab_repo": "o3-documentation", # Repo name
-    "gitlab_version": "main", # Version
-    "conf_py_path": "/source/", # Path in the checkout to the docs root
+    "display_github": True,
+    "github_user": "o3-shop",
+    "github_repo": "o3-documentation",
+    "github_version": "main",
+    "conf_py_path": "/source/",
 }
 
 html_theme_options = {

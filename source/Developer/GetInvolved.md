@@ -8,5 +8,4 @@ If you are not sure which licence to use, you can contact us for assistance.
 
 For more help on how to contribute, see the [How to Contribute guide](./HowToContribute.md).
 
-- **Questions?** Post them in the [Community](https://community.o3-shop.com)
 - **Bugs or feature requests?** Use the [central issue tracker](https://github.com/o3-shop/o3-shop/issues) and fill out the issue form, making sure to specify the relevant repository.
