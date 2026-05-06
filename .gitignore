@@ -1,0 +1,5 @@
+# Claude Code per-user / per-machine configuration
+.claude/settings.local.json
+
+# Local Python virtualenv (used to run tools/fetch_releases.py and sphinx-build)
+.venv/
