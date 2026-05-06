@@ -15,5 +15,8 @@ shop-ce
 shop-metapackage-ce
 o3-shop
 shop-composer-plugin
+shop-demodata-ce
+o3-Theme
 wave-theme
 flow-theme
+testing-library

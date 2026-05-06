@@ -2,7 +2,7 @@
 
 # Changes from 1.5.4 to 1.6.0
 
-_Aggregated from releases across the o3-shop GitHub organisation since <a target="_blank" rel="noopener" href="https://github.com/o3-shop/shop-ce/releases/tag/v1.5.4"><code>shop-ce v1.5.4</code></a> (2026-04-02). Last updated: 2026-05-06 19:15 UTC._
+_Aggregated from releases across the o3-shop GitHub organisation since <a target="_blank" rel="noopener" href="https://github.com/o3-shop/shop-ce/releases/tag/v1.5.4"><code>shop-ce v1.5.4</code></a> (2026-04-02). Last updated: 2026-05-06 19:43 UTC._
 
 ## shop-ce (v1.6.0)
 
@@ -43,6 +43,38 @@ _Aggregated from releases across the o3-shop GitHub organisation since <a target
 * B 1.1 by <a target="_blank" rel="noopener" href="https://github.com/swinde">@swinde</a> in <a target="_blank" rel="noopener" href="https://github.com/o3-shop/shop-composer-plugin/pull/2">shop-composer-plugin#2</a>
 * Dev b 1.x by <a target="_blank" rel="noopener" href="https://github.com/swinde">@swinde</a> in <a target="_blank" rel="noopener" href="https://github.com/o3-shop/shop-composer-plugin/pull/3">shop-composer-plugin#3</a>
 
+## shop-demodata-ce (v1.4.0)
+
+* fix(#139): seed o3-theme settings & missing base config in demodata.sql by <a target="_blank" rel="noopener" href="https://github.com/ralftrapp">@ralftrapp</a> in <a target="_blank" rel="noopener" href="https://github.com/o3-shop/shop-demodata-ce/pull/8">shop-demodata-ce#8</a>
+* Added seo urls for O3 demo data. by <a target="_blank" rel="noopener" href="https://github.com/ralftrapp">@ralftrapp</a> in <a target="_blank" rel="noopener" href="https://github.com/o3-shop/shop-demodata-ce/pull/1">shop-demodata-ce#1</a>
+* feat: seed §356a revocation feature defaults by <a target="_blank" rel="noopener" href="https://github.com/ralftrapp">@ralftrapp</a> in <a target="_blank" rel="noopener" href="https://github.com/o3-shop/shop-demodata-ce/pull/2">shop-demodata-ce#2</a>
+* Make o3-theme the default theme (#118 companion) by <a target="_blank" rel="noopener" href="https://github.com/ralftrapp">@ralftrapp</a> in <a target="_blank" rel="noopener" href="https://github.com/o3-shop/shop-demodata-ce/pull/3">shop-demodata-ce#3</a>
+* Update README.md by <a target="_blank" rel="noopener" href="https://github.com/swinde">@swinde</a> in <a target="_blank" rel="noopener" href="https://github.com/o3-shop/shop-demodata-ce/pull/4">shop-demodata-ce#4</a>
+* Refresh currency exchange rates to ECB 2026-04-30 (sync with shop-ce #128) by <a target="_blank" rel="noopener" href="https://github.com/ralftrapp">@ralftrapp</a> in <a target="_blank" rel="noopener" href="https://github.com/o3-shop/shop-demodata-ce/pull/7">shop-demodata-ce#7</a>
+
+**New Contributors**
+
+* <a target="_blank" rel="noopener" href="https://github.com/ralftrapp">@ralftrapp</a> made their first contribution in <a target="_blank" rel="noopener" href="https://github.com/o3-shop/shop-demodata-ce/pull/1">shop-demodata-ce#1</a>
+* <a target="_blank" rel="noopener" href="https://github.com/swinde">@swinde</a> made their first contribution in <a target="_blank" rel="noopener" href="https://github.com/o3-shop/shop-demodata-ce/pull/4">shop-demodata-ce#4</a>
+
+## o3-Theme (v1.3.0)
+
+* fix(#141): polish the 2nd-level category menu by <a target="_blank" rel="noopener" href="https://github.com/ralftrapp">@ralftrapp</a> in <a target="_blank" rel="noopener" href="https://github.com/o3-shop/o3-Theme/pull/21">o3-Theme#21</a>
+* issue-155: all modifications FK until 26.04.2026 by <a target="_blank" rel="noopener" href="https://github.com/egate-media-Frank">@egate-media-Frank</a> in <a target="_blank" rel="noopener" href="https://github.com/o3-shop/o3-Theme/pull/13">o3-Theme#13</a>
+* feat: §356a BGB electronic revocation storefront templates (Bootstrap 5) by <a target="_blank" rel="noopener" href="https://github.com/ralftrapp">@ralftrapp</a> in <a target="_blank" rel="noopener" href="https://github.com/o3-shop/o3-Theme/pull/14">o3-Theme#14</a>
+* refactor: place §356a revocation link inside services footer widget by <a target="_blank" rel="noopener" href="https://github.com/ralftrapp">@ralftrapp</a> in <a target="_blank" rel="noopener" href="https://github.com/o3-shop/o3-Theme/pull/16">o3-Theme#16</a>
+* fix: valid manifest.webmanifest + crisp favicon.ico (#120) by <a target="_blank" rel="noopener" href="https://github.com/ralftrapp">@ralftrapp</a> in <a target="_blank" rel="noopener" href="https://github.com/o3-shop/o3-Theme/pull/17">o3-Theme#17</a>
+* Update README.md by <a target="_blank" rel="noopener" href="https://github.com/swinde">@swinde</a> in <a target="_blank" rel="noopener" href="https://github.com/o3-shop/o3-Theme/pull/18">o3-Theme#18</a>
+* fix: o3-theme glitches (#126) by <a target="_blank" rel="noopener" href="https://github.com/ralftrapp">@ralftrapp</a> in <a target="_blank" rel="noopener" href="https://github.com/o3-shop/o3-Theme/pull/19">o3-Theme#19</a>
+* fix(#126): promote footer revocation entry to a primary button by <a target="_blank" rel="noopener" href="https://github.com/ralftrapp">@ralftrapp</a> in <a target="_blank" rel="noopener" href="https://github.com/o3-shop/o3-Theme/pull/20">o3-Theme#20</a>
+
+**New Contributors**
+
+* <a target="_blank" rel="noopener" href="https://github.com/egate-media-Frank">@egate-media-Frank</a> made their first contribution in <a target="_blank" rel="noopener" href="https://github.com/o3-shop/o3-Theme/pull/13">o3-Theme#13</a>
+* <a target="_blank" rel="noopener" href="https://github.com/ralftrapp">@ralftrapp</a> made their first contribution in <a target="_blank" rel="noopener" href="https://github.com/o3-shop/o3-Theme/pull/14">o3-Theme#14</a>
+* <a target="_blank" rel="noopener" href="https://github.com/swinde">@swinde</a> made their first contribution in <a target="_blank" rel="noopener" href="https://github.com/o3-shop/o3-Theme/pull/18">o3-Theme#18</a>
+* build(deps): bump picomatch from 2.3.1 to 2.3.2 by <a target="_blank" rel="noopener" href="https://github.com/dependabot">@dependabot</a>[bot] in <a target="_blank" rel="noopener" href="https://github.com/o3-shop/o3-Theme/pull/12">o3-Theme#12</a>
+
 ## wave-theme (v1.2.0)
 
 * feat: §356a BGB electronic revocation storefront templates (#99) by <a target="_blank" rel="noopener" href="https://github.com/ralftrapp">@ralftrapp</a> in <a target="_blank" rel="noopener" href="https://github.com/o3-shop/wave-theme/pull/2">wave-theme#2</a>
@@ -53,3 +85,7 @@ _Aggregated from releases across the o3-shop GitHub organisation since <a target
 
 * <a target="_blank" rel="noopener" href="https://github.com/ralftrapp">@ralftrapp</a> made their first contribution in <a target="_blank" rel="noopener" href="https://github.com/o3-shop/wave-theme/pull/2">wave-theme#2</a>
 * <a target="_blank" rel="noopener" href="https://github.com/swinde">@swinde</a> made their first contribution in <a target="_blank" rel="noopener" href="https://github.com/o3-shop/wave-theme/pull/1">wave-theme#1</a>
+
+## testing-library (v1.2.0)
+
+* fix: no fail on debug Logs. by <a target="_blank" rel="noopener" href="https://github.com/nlo-tronet">@nlo-tronet</a> in <a target="_blank" rel="noopener" href="https://github.com/o3-shop/testing-library/pull/3">testing-library#3</a>
