@@ -9,6 +9,7 @@ Please ensure that **all** requirements are met:
   For older shop versions, please perform the update offered by OXID eSales to version 6.4.3 **before** you start the migration. Newer OXID shops (> 6.4.3) cannot be migrated.
   The migration only supports Community Editions. The migration of Professional or Enterprise Editions is not supported.
 - The OXID eShop was installed via the package 'oxid-esales/oxideshop-project'. Check if 'oxid-esales/oxideshop-project' is mentioned as *name* in the file composer.json, located in the main directory of your shop. If you use a different package composition, please check its components manually to determine if they can be replaced.
+- You have made a full backup of your installation (Files and Database) before proceeding with a migration
 
 ## Perform migration
 
@@ -17,15 +18,16 @@ Please ensure that **all** requirements are met:
 Open a terminal window and navigate to the main store directory. Exectue the commands:
 
 ```
+isdev= && composer show oxid-esales/testing-* | grep -q . && isdev="1"
 composer require -W o3-shop/shop-metapackage-ce:^1.0 --no-scripts --no-plugins
+composer remove oxid-esales/testing-library oxid-esales/oxideshop-ide-helper --dev --no-scripts --no-plugins
 composer require -W o3-shop/testing-library:^1.0 o3-shop/shop-ide-helper:^1.0 --dev --no-plugins --no-scripts
-composer config extra.incenteev-parameters.dist-file 'vendor/o3-shop/testing-library/test_config.yml.dist'
+composer config extra.incenteev-parameters.dist-file 'vendor/o3-shop/testing-library/test_config.yml.dist' --no-plugins
 composer remove oxid-esales/oxideshop-metapackage-ce --no-scripts --no-plugins
-composer remove oxid-esales/testing-library:^1.0 oxid-esales/oxideshop-ide-helper:^1.0 --dev --no-scripts --no-plugins
-composer require o3-shop/shop-metapackage-ce:^1.0
+if [ -n "${isdev}" ]; then composer require o3-shop/shop-metapackage-ce:^1.0; else composer require --update-no-dev o3-shop/shop-metapackage-ce:^1.0; fi
 ```
 
-Confirm all overwrite requests with *y*.
+Confirm all overwrite requests with ´y´.
 
 If the Azure theme should be explicitly installed:
 
@@ -35,7 +37,9 @@ composer remove oxid-esales/azure-theme --dev
 
 ### Data migration
 
-With the current status, no migration of data is necessary.
+```
+vendor/bin/oe-eshop-db_migrate migrations:migrate
+```
 
 ### Complete migration
 
