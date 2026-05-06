@@ -142,7 +142,6 @@ Update the O3-Shop documentation to reflect the new release:
 1. Update the version numbers in `source/conf.py`:
    - Set `version` to the short `MAJOR.MINOR` version (e.g., `1.6`)
    - Set `release` to the full version string (e.g., `1.6.0`)
-   - Update `current_version` and the `versions` list in `html_context`
 
 2. Review all installation instructions (e.g., `source/User/Installation/NewInstallation.md`) and update any version constraints referenced in Composer commands to reflect the new release.
 

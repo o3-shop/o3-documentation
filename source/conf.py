@@ -47,16 +47,6 @@ html_css_files = [
 ]
 
 html_context = {
-    'current_version': '1.6',
-    'versions':
-        [
-            ('1.6', 'https://docs.o3-shop.com/en/1.6/')
-        ],
-    'languages':
-        [
-            ('EN', 'https://docs.o3-shop.com/en/1.6/')
-        ],
-
     'show_sphinx': False,
 
     "display_github": True,

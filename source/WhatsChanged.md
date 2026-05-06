@@ -2,7 +2,7 @@
 
 # Changes from 1.5.4 to 1.6.0
 
-_Aggregated from releases across the o3-shop GitHub organisation since <a target="_blank" rel="noopener" href="https://github.com/o3-shop/shop-ce/releases/tag/v1.5.4"><code>shop-ce v1.5.4</code></a> (2026-04-02). Last updated: 2026-05-06 19:07 UTC._
+_Aggregated from releases across the o3-shop GitHub organisation since <a target="_blank" rel="noopener" href="https://github.com/o3-shop/shop-ce/releases/tag/v1.5.4"><code>shop-ce v1.5.4</code></a> (2026-04-02). Last updated: 2026-05-06 19:15 UTC._
 
 ## shop-ce (v1.6.0)
 
