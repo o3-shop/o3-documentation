@@ -16,6 +16,11 @@ build:
     # golang: "1.19"
 #  commands:
 #    - pip install myst-parser
+  jobs:
+    pre_build:
+      # Refresh source/WhatsChanged.md from GitHub releases.
+      # Falls back silently to the committed copy if GitHub is unreachable.
+      - python tools/fetch_releases.py
 
 # Build documentation in the docs/ directory with Sphinx
 sphinx:
