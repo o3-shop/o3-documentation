@@ -24,6 +24,12 @@ How to Contribute <Developer/HowToContribute>
 :caption: Extensions
 Modules <Extensions/Modules>
 ```
+```{toctree}
+:maxdepth: 1
+:hidden:
+:caption: What's Changed
+Release notes <WhatsChanged>
+```
 
 # O3-Shop
 
