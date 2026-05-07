@@ -1,0 +1,22 @@
+# Repos under the o3-shop GitHub organisation that appear on the
+# "What's Changed" page. One repo name per line. Lines starting with # are
+# comments.
+#
+# The "anchor:" line below pins the page to one shop-ce tag. The page
+# collects every release from every listed repo whose publish date is on
+# or after the start of the anchor's publish day (UTC). Releases whose
+# tag exactly matches the anchor tag are excluded (so the coordinated
+# 1.5.4 releases across the ecosystem don't leak into the page).
+#
+# When a new release ships, bump this line.
+anchor: shop-ce@v1.5.4
+
+shop-ce
+shop-metapackage-ce
+o3-shop
+shop-composer-plugin
+shop-demodata-ce
+o3-Theme
+wave-theme
+flow-theme
+testing-library

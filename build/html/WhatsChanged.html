@@ -1,0 +1,237 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Changes from 1.5.4 to 1.6.0 &mdash; O3-Shop 1.6.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=9edc463e" />
+      <link rel="stylesheet" type="text/css" href="_static/css/o3.css?v=ebdfdbbb" />
+
+  
+    <link rel="shortcut icon" href="_static/favicon.ico"/>
+      <script src="_static/jquery.js?v=5d32c60e"></script>
+      <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="_static/documentation_options.js?v=72d88caf"></script>
+      <script src="_static/doctools.js?v=fd6eb6e6"></script>
+      <script src="_static/sphinx_highlight.js?v=6ffebe34"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="prev" title="Modules" href="Extensions/Modules.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search"  style="background: #343131" >
+
+          
+          
+          <a href="index.html">
+            
+              <img src="_static/logo_light.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="Welcome.html">Welcome</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">User Manual</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="User/Installation/index.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="User/Installation/SystemRequirements.html">System Requirements</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Developer Manual</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="Developer/GetInvolved.html">Get involved</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Developer/HowToContribute.html">How to Contribute</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Extensions</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="Extensions/Modules.html">Modules</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">What's Changed</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Release notes</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#shop-ce-v1-6-0">shop-ce (v1.6.0)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#o3-shop-v1-6-0">o3-shop (v1.6.0)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#shop-composer-plugin-v1-2-0">shop-composer-plugin (v1.2.0)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#shop-demodata-ce-v1-4-0">shop-demodata-ce (v1.4.0)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#o3-theme-v1-3-0">o3-Theme (v1.3.0)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#wave-theme-v1-2-0">wave-theme (v1.2.0)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#testing-library-v1-2-0">testing-library (v1.2.0)</a></li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu"  style="background: #343131" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">O3-Shop</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Changes from 1.5.4 to 1.6.0</li>
+      <li class="wy-breadcrumbs-aside">
+              <a href="https://github.com/o3-shop/o3-documentation/blob/main/source/WhatsChanged.md" class="fa fa-github"> Edit on GitHub</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <!-- AUTO-GENERATED by tools/fetch_releases.py. Edit the script or tools/repos.txt; do not hand-edit this file. -->
+<section id="changes-from-1-5-4-to-1-6-0">
+<h1>Changes from 1.5.4 to 1.6.0<a class="headerlink" href="#changes-from-1-5-4-to-1-6-0" title="Link to this heading"></a></h1>
+<p><em>Aggregated from releases across the o3-shop GitHub organisation since <a target="_blank" rel="noopener" href="https://github.com/o3-shop/shop-ce/releases/tag/v1.5.4"><code>shop-ce v1.5.4</code></a> (2026-04-02). Last updated: 2026-05-06 19:43 UTC.</em></p>
+<section id="shop-ce-v1-6-0">
+<h2>shop-ce (v1.6.0)<a class="headerlink" href="#shop-ce-v1-6-0" title="Link to this heading"></a></h2>
+<ul class="simple">
+<li><p>Fix/oe cache clear by <a target="_blank" rel="noopener" href="https://github.com/nlo-tronet">&#64;nlo-tronet</a> in <a target="_blank" rel="noopener" href="https://github.com/o3-shop/shop-ce/pull/98">shop-ce#98</a></p></li>
+<li><p>fix: Drag&amp;Drop boxes for Payment Methods will display by <a target="_blank" rel="noopener" href="https://github.com/nlo-tronet">&#64;nlo-tronet</a> in <a target="_blank" rel="noopener" href="https://github.com/o3-shop/shop-ce/pull/102">shop-ce#102</a></p></li>
+<li><p>fix: prevent UtilsComponent::toCompareList() from crashing on bot req… by <a target="_blank" rel="noopener" href="https://github.com/nlo-tronet">&#64;nlo-tronet</a> in <a target="_blank" rel="noopener" href="https://github.com/o3-shop/shop-ce/pull/93">shop-ce#93</a></p></li>
+<li><p>dev: replace wave-theme zip bootstrap with git clone (#114) by <a target="_blank" rel="noopener" href="https://github.com/ralftrapp">&#64;ralftrapp</a> in <a target="_blank" rel="noopener" href="https://github.com/o3-shop/shop-ce/pull/107">shop-ce#107</a></p></li>
+<li><p>feat: phpunit-ini-safety by <a target="_blank" rel="noopener" href="https://github.com/nlo-tronet">&#64;nlo-tronet</a> in <a target="_blank" rel="noopener" href="https://github.com/o3-shop/shop-ce/pull/106">shop-ce#106</a></p></li>
+<li><p>Fix broken _method()/method() BC-shim dispatch (issue #107) by <a target="_blank" rel="noopener" href="https://github.com/ralftrapp">&#64;ralftrapp</a> in <a target="_blank" rel="noopener" href="https://github.com/o3-shop/shop-ce/pull/104">shop-ce#104</a></p></li>
+<li><p>B 1.6.0#110 by <a target="_blank" rel="noopener" href="https://github.com/nlo-tronet">&#64;nlo-tronet</a> in <a target="_blank" rel="noopener" href="https://github.com/o3-shop/shop-ce/pull/103">shop-ce#103</a></p></li>
+<li><p>B 1.5 setup claude by <a target="_blank" rel="noopener" href="https://github.com/nlo-tronet">&#64;nlo-tronet</a> in <a target="_blank" rel="noopener" href="https://github.com/o3-shop/shop-ce/pull/97">shop-ce#97</a></p></li>
+<li><p>feat: §356a BGB electronic revocation feature (#99) by <a target="_blank" rel="noopener" href="https://github.com/ralftrapp">&#64;ralftrapp</a> in <a target="_blank" rel="noopener" href="https://github.com/o3-shop/shop-ce/pull/108">shop-ce#108</a></p></li>
+<li><p>test: Playwright E2E infra + §356a revocation suite + #116 regression by <a target="_blank" rel="noopener" href="https://github.com/ralftrapp">&#64;ralftrapp</a> in <a target="_blank" rel="noopener" href="https://github.com/o3-shop/shop-ce/pull/109">shop-ce#109</a></p></li>
+<li><p>build: exclude AI / dev tooling from composer dist (#119) by <a target="_blank" rel="noopener" href="https://github.com/ralftrapp">&#64;ralftrapp</a> in <a target="_blank" rel="noopener" href="https://github.com/o3-shop/shop-ce/pull/110">shop-ce#110</a></p></li>
+<li><p>test: Playwright regression for o3-theme favicon (#120) by <a target="_blank" rel="noopener" href="https://github.com/ralftrapp">&#64;ralftrapp</a> in <a target="_blank" rel="noopener" href="https://github.com/o3-shop/shop-ce/pull/111">shop-ce#111</a></p></li>
+<li><p>feat: make o3-theme the default theme (#118) by <a target="_blank" rel="noopener" href="https://github.com/ralftrapp">&#64;ralftrapp</a> in <a target="_blank" rel="noopener" href="https://github.com/o3-shop/shop-ce/pull/112">shop-ce#112</a></p></li>
+<li><p>fix: SeoEncoder PHP 8 TypeError on null aSEOReservedWords (#94) by <a target="_blank" rel="noopener" href="https://github.com/ralftrapp">&#64;ralftrapp</a> in <a target="_blank" rel="noopener" href="https://github.com/o3-shop/shop-ce/pull/113">shop-ce#113</a></p></li>
+<li><p>build: exclude dev-only bin/ scripts from composer dist by <a target="_blank" rel="noopener" href="https://github.com/ralftrapp">&#64;ralftrapp</a> in <a target="_blank" rel="noopener" href="https://github.com/o3-shop/shop-ce/pull/115">shop-ce#115</a></p></li>
+<li><p>fix: route internal BC-shim call sites through <code class="docutils literal notranslate"><span class="pre">_method()</span></code> (#107) by <a target="_blank" rel="noopener" href="https://github.com/ralftrapp">&#64;ralftrapp</a> in <a target="_blank" rel="noopener" href="https://github.com/o3-shop/shop-ce/pull/114">shop-ce#114</a></p></li>
+<li><p>fix(#128): refresh currency exchange rates to ECB 2026-04-30 by <a target="_blank" rel="noopener" href="https://github.com/ralftrapp">&#64;ralftrapp</a> in <a target="_blank" rel="noopener" href="https://github.com/o3-shop/shop-ce/pull/116">shop-ce#116</a></p></li>
+<li><p>101-Improve admin update check with dedicated service and UI by <a target="_blank" rel="noopener" href="https://github.com/ralftrapp">&#64;ralftrapp</a> in <a target="_blank" rel="noopener" href="https://github.com/o3-shop/shop-ce/pull/100">shop-ce#100</a></p></li>
+<li><p>test(#133): lift Core / Internal / Application / Setup coverage above 90% by <a target="_blank" rel="noopener" href="https://github.com/ralftrapp">&#64;ralftrapp</a> in <a target="_blank" rel="noopener" href="https://github.com/o3-shop/shop-ce/pull/117">shop-ce#117</a></p></li>
+<li><p>fix(#136): seed o3-theme settings reliably during install by <a target="_blank" rel="noopener" href="https://github.com/ralftrapp">&#64;ralftrapp</a> in <a target="_blank" rel="noopener" href="https://github.com/o3-shop/shop-ce/pull/118">shop-ce#118</a></p></li>
+<li><p>test(#141): playwright suite for the 2nd-level category menu by <a target="_blank" rel="noopener" href="https://github.com/ralftrapp">&#64;ralftrapp</a> in <a target="_blank" rel="noopener" href="https://github.com/o3-shop/shop-ce/pull/119">shop-ce#119</a></p></li>
+</ul>
+</section>
+<section id="o3-shop-v1-6-0">
+<h2>o3-shop (v1.6.0)<a class="headerlink" href="#o3-shop-v1-6-0" title="Link to this heading"></a></h2>
+<ul class="simple">
+<li><p>Update README.md by <a target="_blank" rel="noopener" href="https://github.com/swinde">&#64;swinde</a> in <a target="_blank" rel="noopener" href="https://github.com/o3-shop/o3-shop/pull/129">o3-shop#129</a></p></li>
+<li><p>Update README.md by <a target="_blank" rel="noopener" href="https://github.com/nlo-tronet">&#64;nlo-tronet</a> in <a target="_blank" rel="noopener" href="https://github.com/o3-shop/o3-shop/pull/53">o3-shop#53</a></p></li>
+<li><p>Update README.md by <a target="_blank" rel="noopener" href="https://github.com/swinde">&#64;swinde</a> in <a target="_blank" rel="noopener" href="https://github.com/o3-shop/o3-shop/pull/117">o3-shop#117</a></p></li>
+</ul>
+<p><strong>New Contributors</strong></p>
+<ul class="simple">
+<li><p><a target="_blank" rel="noopener" href="https://github.com/nlo-tronet">&#64;nlo-tronet</a> made their first contribution in <a target="_blank" rel="noopener" href="https://github.com/o3-shop/o3-shop/pull/53">o3-shop#53</a></p></li>
+</ul>
+</section>
+<section id="shop-composer-plugin-v1-2-0">
+<h2>shop-composer-plugin (v1.2.0)<a class="headerlink" href="#shop-composer-plugin-v1-2-0" title="Link to this heading"></a></h2>
+<ul class="simple">
+<li><p>B 1.1 by <a target="_blank" rel="noopener" href="https://github.com/swinde">&#64;swinde</a> in <a target="_blank" rel="noopener" href="https://github.com/o3-shop/shop-composer-plugin/pull/2">shop-composer-plugin#2</a></p></li>
+<li><p>Dev b 1.x by <a target="_blank" rel="noopener" href="https://github.com/swinde">&#64;swinde</a> in <a target="_blank" rel="noopener" href="https://github.com/o3-shop/shop-composer-plugin/pull/3">shop-composer-plugin#3</a></p></li>
+</ul>
+</section>
+<section id="shop-demodata-ce-v1-4-0">
+<h2>shop-demodata-ce (v1.4.0)<a class="headerlink" href="#shop-demodata-ce-v1-4-0" title="Link to this heading"></a></h2>
+<ul class="simple">
+<li><p>fix(#139): seed o3-theme settings &amp; missing base config in demodata.sql by <a target="_blank" rel="noopener" href="https://github.com/ralftrapp">&#64;ralftrapp</a> in <a target="_blank" rel="noopener" href="https://github.com/o3-shop/shop-demodata-ce/pull/8">shop-demodata-ce#8</a></p></li>
+<li><p>Added seo urls for O3 demo data. by <a target="_blank" rel="noopener" href="https://github.com/ralftrapp">&#64;ralftrapp</a> in <a target="_blank" rel="noopener" href="https://github.com/o3-shop/shop-demodata-ce/pull/1">shop-demodata-ce#1</a></p></li>
+<li><p>feat: seed §356a revocation feature defaults by <a target="_blank" rel="noopener" href="https://github.com/ralftrapp">&#64;ralftrapp</a> in <a target="_blank" rel="noopener" href="https://github.com/o3-shop/shop-demodata-ce/pull/2">shop-demodata-ce#2</a></p></li>
+<li><p>Make o3-theme the default theme (#118 companion) by <a target="_blank" rel="noopener" href="https://github.com/ralftrapp">&#64;ralftrapp</a> in <a target="_blank" rel="noopener" href="https://github.com/o3-shop/shop-demodata-ce/pull/3">shop-demodata-ce#3</a></p></li>
+<li><p>Update README.md by <a target="_blank" rel="noopener" href="https://github.com/swinde">&#64;swinde</a> in <a target="_blank" rel="noopener" href="https://github.com/o3-shop/shop-demodata-ce/pull/4">shop-demodata-ce#4</a></p></li>
+<li><p>Refresh currency exchange rates to ECB 2026-04-30 (sync with shop-ce #128) by <a target="_blank" rel="noopener" href="https://github.com/ralftrapp">&#64;ralftrapp</a> in <a target="_blank" rel="noopener" href="https://github.com/o3-shop/shop-demodata-ce/pull/7">shop-demodata-ce#7</a></p></li>
+</ul>
+<p><strong>New Contributors</strong></p>
+<ul class="simple">
+<li><p><a target="_blank" rel="noopener" href="https://github.com/ralftrapp">&#64;ralftrapp</a> made their first contribution in <a target="_blank" rel="noopener" href="https://github.com/o3-shop/shop-demodata-ce/pull/1">shop-demodata-ce#1</a></p></li>
+<li><p><a target="_blank" rel="noopener" href="https://github.com/swinde">&#64;swinde</a> made their first contribution in <a target="_blank" rel="noopener" href="https://github.com/o3-shop/shop-demodata-ce/pull/4">shop-demodata-ce#4</a></p></li>
+</ul>
+</section>
+<section id="o3-theme-v1-3-0">
+<h2>o3-Theme (v1.3.0)<a class="headerlink" href="#o3-theme-v1-3-0" title="Link to this heading"></a></h2>
+<ul class="simple">
+<li><p>fix(#141): polish the 2nd-level category menu by <a target="_blank" rel="noopener" href="https://github.com/ralftrapp">&#64;ralftrapp</a> in <a target="_blank" rel="noopener" href="https://github.com/o3-shop/o3-Theme/pull/21">o3-Theme#21</a></p></li>
+<li><p>issue-155: all modifications FK until 26.04.2026 by <a target="_blank" rel="noopener" href="https://github.com/egate-media-Frank">&#64;egate-media-Frank</a> in <a target="_blank" rel="noopener" href="https://github.com/o3-shop/o3-Theme/pull/13">o3-Theme#13</a></p></li>
+<li><p>feat: §356a BGB electronic revocation storefront templates (Bootstrap 5) by <a target="_blank" rel="noopener" href="https://github.com/ralftrapp">&#64;ralftrapp</a> in <a target="_blank" rel="noopener" href="https://github.com/o3-shop/o3-Theme/pull/14">o3-Theme#14</a></p></li>
+<li><p>refactor: place §356a revocation link inside services footer widget by <a target="_blank" rel="noopener" href="https://github.com/ralftrapp">&#64;ralftrapp</a> in <a target="_blank" rel="noopener" href="https://github.com/o3-shop/o3-Theme/pull/16">o3-Theme#16</a></p></li>
+<li><p>fix: valid manifest.webmanifest + crisp favicon.ico (#120) by <a target="_blank" rel="noopener" href="https://github.com/ralftrapp">&#64;ralftrapp</a> in <a target="_blank" rel="noopener" href="https://github.com/o3-shop/o3-Theme/pull/17">o3-Theme#17</a></p></li>
+<li><p>Update README.md by <a target="_blank" rel="noopener" href="https://github.com/swinde">&#64;swinde</a> in <a target="_blank" rel="noopener" href="https://github.com/o3-shop/o3-Theme/pull/18">o3-Theme#18</a></p></li>
+<li><p>fix: o3-theme glitches (#126) by <a target="_blank" rel="noopener" href="https://github.com/ralftrapp">&#64;ralftrapp</a> in <a target="_blank" rel="noopener" href="https://github.com/o3-shop/o3-Theme/pull/19">o3-Theme#19</a></p></li>
+<li><p>fix(#126): promote footer revocation entry to a primary button by <a target="_blank" rel="noopener" href="https://github.com/ralftrapp">&#64;ralftrapp</a> in <a target="_blank" rel="noopener" href="https://github.com/o3-shop/o3-Theme/pull/20">o3-Theme#20</a></p></li>
+</ul>
+<p><strong>New Contributors</strong></p>
+<ul class="simple">
+<li><p><a target="_blank" rel="noopener" href="https://github.com/egate-media-Frank">&#64;egate-media-Frank</a> made their first contribution in <a target="_blank" rel="noopener" href="https://github.com/o3-shop/o3-Theme/pull/13">o3-Theme#13</a></p></li>
+<li><p><a target="_blank" rel="noopener" href="https://github.com/ralftrapp">&#64;ralftrapp</a> made their first contribution in <a target="_blank" rel="noopener" href="https://github.com/o3-shop/o3-Theme/pull/14">o3-Theme#14</a></p></li>
+<li><p><a target="_blank" rel="noopener" href="https://github.com/swinde">&#64;swinde</a> made their first contribution in <a target="_blank" rel="noopener" href="https://github.com/o3-shop/o3-Theme/pull/18">o3-Theme#18</a></p></li>
+<li><p>build(deps): bump picomatch from 2.3.1 to 2.3.2 by <a target="_blank" rel="noopener" href="https://github.com/dependabot">&#64;dependabot</a>[bot] in <a target="_blank" rel="noopener" href="https://github.com/o3-shop/o3-Theme/pull/12">o3-Theme#12</a></p></li>
+</ul>
+</section>
+<section id="wave-theme-v1-2-0">
+<h2>wave-theme (v1.2.0)<a class="headerlink" href="#wave-theme-v1-2-0" title="Link to this heading"></a></h2>
+<ul class="simple">
+<li><p>feat: §356a BGB electronic revocation storefront templates (#99) by <a target="_blank" rel="noopener" href="https://github.com/ralftrapp">&#64;ralftrapp</a> in <a target="_blank" rel="noopener" href="https://github.com/o3-shop/wave-theme/pull/2">wave-theme#2</a></p></li>
+<li><p>Changed social links in the footer. by <a target="_blank" rel="noopener" href="https://github.com/swinde">&#64;swinde</a> in <a target="_blank" rel="noopener" href="https://github.com/o3-shop/wave-theme/pull/1">wave-theme#1</a></p></li>
+<li><p>Update Issues Link by <a target="_blank" rel="noopener" href="https://github.com/swinde">&#64;swinde</a> in <a target="_blank" rel="noopener" href="https://github.com/o3-shop/wave-theme/pull/3">wave-theme#3</a></p></li>
+</ul>
+<p><strong>New Contributors</strong></p>
+<ul class="simple">
+<li><p><a target="_blank" rel="noopener" href="https://github.com/ralftrapp">&#64;ralftrapp</a> made their first contribution in <a target="_blank" rel="noopener" href="https://github.com/o3-shop/wave-theme/pull/2">wave-theme#2</a></p></li>
+<li><p><a target="_blank" rel="noopener" href="https://github.com/swinde">&#64;swinde</a> made their first contribution in <a target="_blank" rel="noopener" href="https://github.com/o3-shop/wave-theme/pull/1">wave-theme#1</a></p></li>
+</ul>
+</section>
+<section id="testing-library-v1-2-0">
+<h2>testing-library (v1.2.0)<a class="headerlink" href="#testing-library-v1-2-0" title="Link to this heading"></a></h2>
+<ul class="simple">
+<li><p>fix: no fail on debug Logs. by <a target="_blank" rel="noopener" href="https://github.com/nlo-tronet">&#64;nlo-tronet</a> in <a target="_blank" rel="noopener" href="https://github.com/o3-shop/testing-library/pull/3">testing-library#3</a></p></li>
+</ul>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="Extensions/Modules.html" class="btn btn-neutral float-left" title="Modules" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023 - 2026, O3-Shop, based on 2021 - 2022 OXID eSales AG.</p>
+  </div>
+
+   <jinja2.runtime.BlockReference object at 0x10caa8410>
+<a href="https://www.o3-shop.com/"><span class="icon icon-home"></span> About O3-Shop</a> | <a href="https://github.com/o3-shop/o3-shop/issues">Issue tracker</a> | <a href="https://github.com/o3-shop">Sources</a> | <a href="https://www.o3-shop.com/contact/">Contact</a> | <a href="https://www.gnu.org/licenses/gpl-3.0.de.html">License: GPL v3</a>
+
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

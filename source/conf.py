@@ -14,9 +14,9 @@ copyright = '2023 - 2026, O3-Shop, based on 2021 - 2022 OXID eSales AG'.format(d
 author = 'O3-Shop Community'
 
 # The short X.Y version
-version = '1.5'
+version = '1.6'
 # The full version, including alpha/beta/rc tags
-release = '1.5.3'
+release = '1.6.0'
 
 
 # -- General configuration ---------------------------------------------------
@@ -47,16 +47,6 @@ html_css_files = [
 ]
 
 html_context = {
-    'current_version': '1.5',
-    'versions':
-        [
-            ('1.5', 'https://docs.o3-shop.com/en/1.5/')
-        ],
-    'languages':
-        [
-            ('EN', 'https://docs.o3-shop.com/en/1.5/')
-        ],
-
     'show_sphinx': False,
 
     "display_github": True,
@@ -68,7 +58,6 @@ html_context = {
 
 html_theme_options = {
     'logo_only': True,
-    'display_version': True,
     'prev_next_buttons_location': 'bottom',
     'style_external_links': False,
     'vcs_pageview_mode': 'blob',

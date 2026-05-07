@@ -1,0 +1,471 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>How to Contribute &mdash; O3-Shop 1.6.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=9edc463e" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/o3.css?v=ebdfdbbb" />
+
+  
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+      <script src="../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../_static/documentation_options.js?v=72d88caf"></script>
+      <script src="../_static/doctools.js?v=fd6eb6e6"></script>
+      <script src="../_static/sphinx_highlight.js?v=6ffebe34"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Modules" href="../Extensions/Modules.html" />
+    <link rel="prev" title="Get involved" href="GetInvolved.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search"  style="background: #343131" >
+
+          
+          
+          <a href="../index.html">
+            
+              <img src="../_static/logo_light.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../Welcome.html">Welcome</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">User Manual</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../User/Installation/index.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../User/Installation/SystemRequirements.html">System Requirements</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Developer Manual</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="GetInvolved.html">Get involved</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">How to Contribute</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#why-contribute">Why contribute?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#knowledge-you-should-have-before-contributing">Knowledge you should have before contributing</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#if-you-want-to-contribute-with-code">If you want to contribute with code</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#if-you-want-to-contribute-to-the-documentation">If you want to contribute to the documentation</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#roles">Roles</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#workflow">Workflow</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#phase-1-issue-reporting">Phase 1: Issue Reporting</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#step-1-open-an-issue-role-reporter">Step 1 — Open an Issue (Role: Reporter)</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#phase-2-triage-planning">Phase 2: Triage &amp; Planning</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#step-2-triage-the-issue-role-product-owner">Step 2 — Triage the Issue (Role: Product Owner)</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#phase-3-development">Phase 3: Development</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#step-3-assign-to-the-correct-repository-role-developer">Step 3 — Assign to the Correct Repository (Role: Developer)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#step-4-fork-the-repository-and-create-a-branch-role-developer">Step 4 — Fork the Repository and Create a Branch (Role: Developer)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#step-5-set-up-your-development-environment-role-developer">Step 5 — Set Up Your Development Environment (Role: Developer)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#step-6-implement-the-change-role-developer">Step 6 — Implement the Change (Role: Developer)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#step-7-run-tests-and-code-style-checks-role-developer">Step 7 — Run Tests and Code Style Checks (Role: Developer)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#step-8-open-a-pull-request-role-developer">Step 8 — Open a Pull Request (Role: Developer)</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#phase-4-review-merge">Phase 4: Review &amp; Merge</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#step-9-review-the-pull-request-role-reviewer">Step 9 — Review the Pull Request (Role: Reviewer)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#step-10-approve-and-merge-role-approver">Step 10 — Approve and Merge (Role: Approver)</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#phase-5-release">Phase 5: Release</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#step-11-verify-the-milestone-role-release-manager">Step 11 — Verify the Milestone (Role: Release Manager)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#step-12-update-version-numbers-role-release-manager">Step 12 — Update Version Numbers (Role: Release Manager)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#step-13-update-the-documentation-role-release-manager">Step 13 — Update the Documentation (Role: Release Manager)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#step-14-create-and-publish-the-release-tag-role-release-manager">Step 14 — Create and Publish the Release Tag (Role: Release Manager)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#step-15-close-the-milestone-role-release-manager">Step 15 — Close the Milestone (Role: Release Manager)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#step-16-communicate-the-release-role-release-manager">Step 16 — Communicate the Release (Role: Release Manager)</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#quick-reference">Quick Reference</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#github-organization-and-issue-tracker">GitHub Organization and Issue Tracker</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Extensions</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../Extensions/Modules.html">Modules</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">What's Changed</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../WhatsChanged.html">Release notes</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu"  style="background: #343131" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">O3-Shop</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">How to Contribute</li>
+      <li class="wy-breadcrumbs-aside">
+              <a href="https://github.com/o3-shop/o3-documentation/blob/main/source/Developer/HowToContribute.md" class="fa fa-github"> Edit on GitHub</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="how-to-contribute">
+<h1>How to Contribute<a class="headerlink" href="#how-to-contribute" title="Link to this heading"></a></h1>
+<p>Welcome, developer! This guide covers everything you need to contribute to O3-Shop — from opening your first issue through to a published release.</p>
+<section id="why-contribute">
+<h2>Why contribute?<a class="headerlink" href="#why-contribute" title="Link to this heading"></a></h2>
+<ul class="simple">
+<li><p>Help improve O3 for everyone</p></li>
+<li><p>Learn from a community of experienced developers</p></li>
+<li><p>Influence the direction of the project</p></li>
+<li><p>Build your open-source portfolio</p></li>
+</ul>
+</section>
+<section id="knowledge-you-should-have-before-contributing">
+<h2>Knowledge you should have before contributing<a class="headerlink" href="#knowledge-you-should-have-before-contributing" title="Link to this heading"></a></h2>
+<section id="if-you-want-to-contribute-with-code">
+<h3>If you want to contribute with code<a class="headerlink" href="#if-you-want-to-contribute-with-code" title="Link to this heading"></a></h3>
+<ul class="simple">
+<li><p><strong>PHP:</strong> Good knowledge of PHP 7.4 up to the latest version used in O3</p></li>
+<li><p><strong>O3 Modules:</strong> Profound experience in writing modules for O3 or its predecessor</p></li>
+<li><p><strong>Docker:</strong> Secure handling and understanding of Docker containers</p></li>
+<li><p><strong>Unit Testing:</strong> Ability to write and run unit tests using PHPUnit</p></li>
+</ul>
+</section>
+<section id="if-you-want-to-contribute-to-the-documentation">
+<h3>If you want to contribute to the documentation<a class="headerlink" href="#if-you-want-to-contribute-to-the-documentation" title="Link to this heading"></a></h3>
+<ul class="simple">
+<li><p><strong>Documentation Writing:</strong> Understanding of how to write clear, concise, and helpful documentation</p></li>
+<li><p><strong>Sphinx/Markdown:</strong> Familiarity with Sphinx and Markdown is a plus</p></li>
+</ul>
+</section>
+</section>
+<section id="roles">
+<h2>Roles<a class="headerlink" href="#roles" title="Link to this heading"></a></h2>
+<p>The workflow is built around clearly defined roles. A single person can assume multiple roles at different stages of the same issue. For example, a developer who discovers a bug may first act as a Reporter when opening the issue, then later transition into the Developer role when implementing the fix.</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Role</p></th>
+<th class="head"><p>Responsibility</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Reporter</p></td>
+<td><p>Opens the issue in the central repository</p></td>
+</tr>
+<tr class="row-odd"><td><p>Product Owner (PO)</p></td>
+<td><p>Triages, categorizes, and assigns issues to a milestone</p></td>
+</tr>
+<tr class="row-even"><td><p>Developer</p></td>
+<td><p>Assigns the ticket, creates a branch, and implements the fix or feature</p></td>
+</tr>
+<tr class="row-odd"><td><p>Reviewer</p></td>
+<td><p>Reviews the pull request, verifies correctness, and provides feedback</p></td>
+</tr>
+<tr class="row-even"><td><p>Approver</p></td>
+<td><p>Gives final approval and merges the pull request</p></td>
+</tr>
+<tr class="row-odd"><td><p>Release Manager</p></td>
+<td><p>Coordinates the release, tags the version, and publishes the changelog</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="workflow">
+<h2>Workflow<a class="headerlink" href="#workflow" title="Link to this heading"></a></h2>
+<section id="phase-1-issue-reporting">
+<h3>Phase 1: Issue Reporting<a class="headerlink" href="#phase-1-issue-reporting" title="Link to this heading"></a></h3>
+<section id="step-1-open-an-issue-role-reporter">
+<h4>Step 1 — Open an Issue (Role: Reporter)<a class="headerlink" href="#step-1-open-an-issue-role-reporter" title="Link to this heading"></a></h4>
+<p>Every piece of work — whether it is a bug report, a feature request, or a task — must begin with an issue. Even if you intend to fix the problem yourself, always open an issue first. Issues are always created in the central repository:</p>
+<p>👉 <a class="reference external" href="https://github.com/o3-shop/o3-shop/issues">https://github.com/o3-shop/o3-shop/issues</a></p>
+<ul class="simple">
+<li><p><strong>Choose an issue with no assignee.</strong> If the issue already has an assignee, ask in the comments whether you can work on it and check if it is already in progress.</p></li>
+<li><p>Do not start any development work before an issue exists. This ensures full traceability and allows the team to coordinate effectively.</p></li>
+</ul>
+</section>
+</section>
+<section id="phase-2-triage-planning">
+<h3>Phase 2: Triage &amp; Planning<a class="headerlink" href="#phase-2-triage-planning" title="Link to this heading"></a></h3>
+<section id="step-2-triage-the-issue-role-product-owner">
+<h4>Step 2 — Triage the Issue (Role: Product Owner)<a class="headerlink" href="#step-2-triage-the-issue-role-product-owner" title="Link to this heading"></a></h4>
+<p>The Product Owner reviews all incoming issues, verifies their validity, categorizes them (e.g., bug, enhancement, documentation), and assigns them to a milestone. This step ensures that only properly scoped and prioritized work enters the development pipeline.</p>
+</section>
+</section>
+<section id="phase-3-development">
+<h3>Phase 3: Development<a class="headerlink" href="#phase-3-development" title="Link to this heading"></a></h3>
+<section id="step-3-assign-to-the-correct-repository-role-developer">
+<h4>Step 3 — Assign to the Correct Repository (Role: Developer)<a class="headerlink" href="#step-3-assign-to-the-correct-repository-role-developer" title="Link to this heading"></a></h4>
+<p>Once an issue has been triaged and assigned to a milestone, the responsible developer assigns it to the appropriate sub-repository within the <a class="reference external" href="https://github.com/o3-shop">o3-shop GitHub organization</a> where the actual code change will take place.</p>
+</section>
+<section id="step-4-fork-the-repository-and-create-a-branch-role-developer">
+<h4>Step 4 — Fork the Repository and Create a Branch (Role: Developer)<a class="headerlink" href="#step-4-fork-the-repository-and-create-a-branch-role-developer" title="Link to this heading"></a></h4>
+<p>Fork the relevant O3 repository to your own GitHub account and create a dedicated feature branch for the issue. Branch names should follow the project’s naming conventions:</p>
+<ul class="simple">
+<li><p>Bug fixes: <code class="docutils literal notranslate"><span class="pre">fix/issue-123-short-description</span></code></p></li>
+<li><p>New features: <code class="docutils literal notranslate"><span class="pre">feature/issue-456-short-description</span></code></p></li>
+</ul>
+</section>
+<section id="step-5-set-up-your-development-environment-role-developer">
+<h4>Step 5 — Set Up Your Development Environment (Role: Developer)<a class="headerlink" href="#step-5-set-up-your-development-environment-role-developer" title="Link to this heading"></a></h4>
+<p>Clone your fork locally. In your project directory, run:</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>./docker.sh<span class="w"> </span>start
+</pre></div>
+</div>
+<p>This command will start the development environment using Docker. For a detailed walkthrough of the full setup process, refer to the README in the main shop repository:</p>
+<p>👉 <a class="reference external" href="https://github.com/o3-shop/shop-ce/blob/b-1.6/README.md">https://github.com/o3-shop/shop-ce/blob/b-1.6/README.md</a></p>
+</section>
+<section id="step-6-implement-the-change-role-developer">
+<h4>Step 6 — Implement the Change (Role: Developer)<a class="headerlink" href="#step-6-implement-the-change-role-developer" title="Link to this heading"></a></h4>
+<p>Write your code or documentation following the project’s coding standards and documentation guidelines. Keep your commits focused and your commit messages descriptive. Refer to the issue number in your commits where appropriate.</p>
+<p>Ensure your changes are covered by unit tests (for code contributions).</p>
+</section>
+<section id="step-7-run-tests-and-code-style-checks-role-developer">
+<h4>Step 7 — Run Tests and Code Style Checks (Role: Developer)<a class="headerlink" href="#step-7-run-tests-and-code-style-checks-role-developer" title="Link to this heading"></a></h4>
+<p>In your project directory, run:</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>./docker.sh<span class="w"> </span>test-all
+</pre></div>
+</div>
+<p>This command will run all tests and the PHP code fixer to ensure your code meets project standards.</p>
+</section>
+<section id="step-8-open-a-pull-request-role-developer">
+<h4>Step 8 — Open a Pull Request (Role: Developer)<a class="headerlink" href="#step-8-open-a-pull-request-role-developer" title="Link to this heading"></a></h4>
+<p>Once the implementation is complete and all tests pass, open a pull request (PR) against the target branch. The PR description should:</p>
+<ul class="simple">
+<li><p>Reference the original issue (e.g., <code class="docutils literal notranslate"><span class="pre">Fixes</span> <span class="pre">#123</span></code>)</p></li>
+<li><p>Summarize the changes made</p></li>
+<li><p>Include any relevant testing notes</p></li>
+</ul>
+</section>
+</section>
+<section id="phase-4-review-merge">
+<h3>Phase 4: Review &amp; Merge<a class="headerlink" href="#phase-4-review-merge" title="Link to this heading"></a></h3>
+<section id="step-9-review-the-pull-request-role-reviewer">
+<h4>Step 9 — Review the Pull Request (Role: Reviewer)<a class="headerlink" href="#step-9-review-the-pull-request-role-reviewer" title="Link to this heading"></a></h4>
+<p>The Reviewer examines the code for correctness, quality, and adherence to project standards. They also verify that the implementation actually addresses the requirements described in the original issue. The Reviewer provides constructive feedback and requests changes if necessary. The Developer addresses the feedback and updates the PR accordingly.</p>
+</section>
+<section id="step-10-approve-and-merge-role-approver">
+<h4>Step 10 — Approve and Merge (Role: Approver)<a class="headerlink" href="#step-10-approve-and-merge-role-approver" title="Link to this heading"></a></h4>
+<p>Once the Reviewer is satisfied, the Approver gives final sign-off and merges the pull request into the target branch. The Approver is responsible for ensuring that no unresolved review comments remain before merging.</p>
+</section>
+</section>
+<section id="phase-5-release">
+<h3>Phase 5: Release<a class="headerlink" href="#phase-5-release" title="Link to this heading"></a></h3>
+<section id="step-11-verify-the-milestone-role-release-manager">
+<h4>Step 11 — Verify the Milestone (Role: Release Manager)<a class="headerlink" href="#step-11-verify-the-milestone-role-release-manager" title="Link to this heading"></a></h4>
+<p>Before starting a release, confirm that all issues assigned to the milestone are either resolved and merged, or explicitly deferred to a future milestone. No open or in-progress issues should remain on the milestone being released.</p>
+<p>The milestone overview can be found here:
+👉 <a class="reference external" href="https://github.com/o3-shop/o3-shop/milestones">https://github.com/o3-shop/o3-shop/milestones</a></p>
+</section>
+<section id="step-12-update-version-numbers-role-release-manager">
+<h4>Step 12 — Update Version Numbers (Role: Release Manager)<a class="headerlink" href="#step-12-update-version-numbers-role-release-manager" title="Link to this heading"></a></h4>
+<p>Update the version number in all relevant locations within the shop project. This includes:</p>
+<ul class="simple">
+<li><p>The root <code class="docutils literal notranslate"><span class="pre">composer.json</span></code> and any meta-package <code class="docutils literal notranslate"><span class="pre">composer.json</span></code> files</p></li>
+<li><p>Any version constants defined in the codebase</p></li>
+<li><p>The documentation (see Step 13 below for details)</p></li>
+</ul>
+<p>For more information about that, look at the <a class="reference external" href="https://github.com/o3-shop/o3-shop/wiki/Create-a-Release">GitHub Wiki</a></p>
+<p>The version number follows <a class="reference external" href="https://semver.org/">Semantic Versioning</a>: <code class="docutils literal notranslate"><span class="pre">MAJOR.MINOR.PATCH</span></code></p>
+</section>
+<section id="step-13-update-the-documentation-role-release-manager">
+<h4>Step 13 — Update the Documentation (Role: Release Manager)<a class="headerlink" href="#step-13-update-the-documentation-role-release-manager" title="Link to this heading"></a></h4>
+<p>Update the O3-Shop documentation to reflect the new release:</p>
+<ol class="arabic">
+<li><p>Update the version numbers in <code class="docutils literal notranslate"><span class="pre">source/conf.py</span></code>:</p>
+<ul class="simple">
+<li><p>Set <code class="docutils literal notranslate"><span class="pre">version</span></code> to the short <code class="docutils literal notranslate"><span class="pre">MAJOR.MINOR</span></code> version (e.g., <code class="docutils literal notranslate"><span class="pre">1.6</span></code>)</p></li>
+<li><p>Set <code class="docutils literal notranslate"><span class="pre">release</span></code> to the full version string (e.g., <code class="docutils literal notranslate"><span class="pre">1.6.0</span></code>)</p></li>
+</ul>
+</li>
+<li><p>Review all installation instructions (e.g., <code class="docutils literal notranslate"><span class="pre">source/User/Installation/NewInstallation.md</span></code>) and update any version constraints referenced in Composer commands to reflect the new release.</p></li>
+<li><p>Build and verify the documentation locally before publishing:</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>sphinx-build<span class="w"> </span>-b<span class="w"> </span>html<span class="w"> </span><span class="nb">source</span><span class="w"> </span>build/html
+</pre></div>
+</div>
+<p>Or using the Makefile:</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>make<span class="w"> </span>html
+</pre></div>
+</div>
+</li>
+<li><p>Commit and push the documentation changes to the documentation repository:
+👉 <a class="reference external" href="https://github.com/o3-shop/o3-documentation">https://github.com/o3-shop/o3-documentation</a></p>
+<p>Open a pull request targeting the <code class="docutils literal notranslate"><span class="pre">main</span></code> branch. Once merged, the updated documentation will be published automatically via Read the Docs at:
+👉 <a class="reference external" href="https://docs.o3-shop.com">https://docs.o3-shop.com</a></p>
+</li>
+</ol>
+</section>
+<section id="step-14-create-and-publish-the-release-tag-role-release-manager">
+<h4>Step 14 — Create and Publish the Release Tag (Role: Release Manager)<a class="headerlink" href="#step-14-create-and-publish-the-release-tag-role-release-manager" title="Link to this heading"></a></h4>
+<p>Create a Git tag for the release in the main shop repository. The tag name should match the version number and be prefixed with <code class="docutils literal notranslate"><span class="pre">v</span></code> (e.g., <code class="docutils literal notranslate"><span class="pre">v1.6.0</span></code>).</p>
+<p>Publish the release on GitHub, including:</p>
+<ul class="simple">
+<li><p>The release tag</p></li>
+<li><p>The release title (e.g., <code class="docutils literal notranslate"><span class="pre">O3-Shop</span> <span class="pre">v1.6.0</span></code>)</p></li>
+<li><p>The release notes (auto-generated by GitHub from merged pull requests and issues)</p></li>
+</ul>
+<p>The releases page is located at:
+👉 <a class="reference external" href="https://github.com/o3-shop/o3-shop/releases">https://github.com/o3-shop/o3-shop/releases</a></p>
+</section>
+<section id="step-15-close-the-milestone-role-release-manager">
+<h4>Step 15 — Close the Milestone (Role: Release Manager)<a class="headerlink" href="#step-15-close-the-milestone-role-release-manager" title="Link to this heading"></a></h4>
+<p>Once the release tag has been published, close the corresponding milestone in the central issue tracker:
+👉 <a class="reference external" href="https://github.com/o3-shop/o3-shop/milestones">https://github.com/o3-shop/o3-shop/milestones</a></p>
+<p>Any issues that were deferred should have already been moved to a future milestone in Step 11.</p>
+</section>
+<section id="step-16-communicate-the-release-role-release-manager">
+<h4>Step 16 — Communicate the Release (Role: Release Manager)<a class="headerlink" href="#step-16-communicate-the-release-role-release-manager" title="Link to this heading"></a></h4>
+<p>Announce the new release to the community. This typically includes:</p>
+<ul class="simple">
+<li><p>An update to any social channels or community spaces used by the project</p></li>
+</ul>
+</section>
+</section>
+</section>
+<section id="quick-reference">
+<h2>Quick Reference<a class="headerlink" href="#quick-reference" title="Link to this heading"></a></h2>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Phase</p></th>
+<th class="head"><p>Step</p></th>
+<th class="head"><p>Role</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Issue Reporting</p></td>
+<td><p>1. Open an issue</p></td>
+<td><p>Reporter</p></td>
+</tr>
+<tr class="row-odd"><td><p>Triage &amp; Planning</p></td>
+<td><p>2. Triage the issue</p></td>
+<td><p>Product Owner</p></td>
+</tr>
+<tr class="row-even"><td><p>Development</p></td>
+<td><p>3. Assign to repository</p></td>
+<td><p>Developer</p></td>
+</tr>
+<tr class="row-odd"><td><p>Development</p></td>
+<td><p>4. Fork and create a branch</p></td>
+<td><p>Developer</p></td>
+</tr>
+<tr class="row-even"><td><p>Development</p></td>
+<td><p>5. Set up dev environment</p></td>
+<td><p>Developer</p></td>
+</tr>
+<tr class="row-odd"><td><p>Development</p></td>
+<td><p>6. Implement the change</p></td>
+<td><p>Developer</p></td>
+</tr>
+<tr class="row-even"><td><p>Development</p></td>
+<td><p>7. Run tests</p></td>
+<td><p>Developer</p></td>
+</tr>
+<tr class="row-odd"><td><p>Development</p></td>
+<td><p>8. Open a pull request</p></td>
+<td><p>Developer</p></td>
+</tr>
+<tr class="row-even"><td><p>Review &amp; Merge</p></td>
+<td><p>9. Review the pull request</p></td>
+<td><p>Reviewer</p></td>
+</tr>
+<tr class="row-odd"><td><p>Review &amp; Merge</p></td>
+<td><p>10. Approve and merge</p></td>
+<td><p>Approver</p></td>
+</tr>
+<tr class="row-even"><td><p>Release</p></td>
+<td><p>11. Verify the milestone</p></td>
+<td><p>Release Manager</p></td>
+</tr>
+<tr class="row-odd"><td><p>Release</p></td>
+<td><p>12. Update version numbers</p></td>
+<td><p>Release Manager</p></td>
+</tr>
+<tr class="row-even"><td><p>Release</p></td>
+<td><p>13. Update the documentation</p></td>
+<td><p>Release Manager</p></td>
+</tr>
+<tr class="row-odd"><td><p>Release</p></td>
+<td><p>14. Create and publish the release tag</p></td>
+<td><p>Release Manager</p></td>
+</tr>
+<tr class="row-even"><td><p>Release</p></td>
+<td><p>15. Close the milestone</p></td>
+<td><p>Release Manager</p></td>
+</tr>
+<tr class="row-odd"><td><p>Release</p></td>
+<td><p>16. Communicate the release</p></td>
+<td><p>Release Manager</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<hr class="docutils" />
+<section id="github-organization-and-issue-tracker">
+<h2>GitHub Organization and Issue Tracker<a class="headerlink" href="#github-organization-and-issue-tracker" title="Link to this heading"></a></h2>
+<ul class="simple">
+<li><p><strong>GitHub Organization:</strong> <a class="reference external" href="https://github.com/o3-shop">https://github.com/o3-shop</a></p></li>
+<li><p><strong>Central Issue Tracker:</strong> <a class="reference external" href="https://github.com/o3-shop/o3-shop/issues">https://github.com/o3-shop/o3-shop/issues</a></p></li>
+</ul>
+<p>All issues for O3 projects — regardless of which repository they concern — should be created in the central <a class="reference external" href="https://github.com/o3-shop/o3-shop/issues">o3-shop/o3-shop issue tracker</a> using the issue form. <strong>Always specify the relevant repository in the form when submitting an issue.</strong></p>
+<p>This helps maintainers quickly route and address your contribution or report. Automation may be used to triage or label issues based on your selection.</p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="GetInvolved.html" class="btn btn-neutral float-left" title="Get involved" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../Extensions/Modules.html" class="btn btn-neutral float-right" title="Modules" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023 - 2026, O3-Shop, based on 2021 - 2022 OXID eSales AG.</p>
+  </div>
+
+   <jinja2.runtime.BlockReference object at 0x10c713820>
+<a href="https://www.o3-shop.com/"><span class="icon icon-home"></span> About O3-Shop</a> | <a href="https://github.com/o3-shop/o3-shop/issues">Issue tracker</a> | <a href="https://github.com/o3-shop">Sources</a> | <a href="https://www.o3-shop.com/contact/">Contact</a> | <a href="https://www.gnu.org/licenses/gpl-3.0.de.html">License: GPL v3</a>
+
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
