@@ -77,8 +77,8 @@ While ``logo.svg`` is now loading from CHILD all other assets still coming from 
 Overwrite Translations
 ----------------------
 
-Last thing you can overwrite are translations but this time you must use a little bit different structure. The original parent theme uses ``lang.php`` files in corresponding language directories like ``en`` for english or ``de`` for german.
-
+Last thing you can overwrite are translations but this time you must use a little bit different structure. The original parent theme uses ``lang.php`` files in corresponding language directories like ``en`` for english or ``de`` for german.    
+**The parent path is: Application/translations**  
 
 
     o3-theme
