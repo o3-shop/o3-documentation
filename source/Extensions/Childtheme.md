@@ -13,7 +13,7 @@ composer.json
 
 A child theme is an extension like a normal theme, module or component and must be encapsulated in a Composer package. The whole process to generate a Composer installable theme is described in the :doc:`previous section <theme_via_composer>`. We focus on the must-have contents here:
 
-.. code:: json
+```json
 
     {
         "name": "o3-theme/child",
@@ -26,6 +26,7 @@ A child theme is an extension like a normal theme, module or component and must 
             }
         }
     }
+```
 
 theme.php
 ---------
@@ -51,34 +52,25 @@ In this example we use our current o3-theme and support versions 1.1.0 as well a
 
 If you wish, you can also add theme setting as usual.
 
-Overwrite Templates
--------------------
+Overwrite Assets
+----------------
 
 Overwriting assets follows the same principle. Let's take the image ``logo.svg`` as an example in o3-theme:
 
-
-    your_project_name
-      ├── de
-      ├── en
+    source
       ├── out
       .  └── o3-theme
       .     └── img
       .        ├── logo.svg
       .        └── ...
-      └── tpl
 
 And so we use the same structure for CHILD:
 
-
-
-    child
-      ├── de
-      ├── en
+    source
       ├── out
       .  └── child
       .     └── img
       .        └── logo.svg
-      └── tpl
 
 While ``logo.svg`` is now loading from CHILD all other assets still coming from o3-theme.
 
