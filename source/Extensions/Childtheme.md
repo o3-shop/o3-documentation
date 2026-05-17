@@ -52,33 +52,44 @@ In this example we use our current o3-theme and support versions 1.1.0 as well a
 
 If you wish, you can also add theme setting as usual.
 
-Overwrite Assets
-----------------
+Overwrite Templates
+-------------------
 
-Overwriting assets follows the same principle. Let's take the image ``logo.svg`` as an example in o3-theme:
+To overwrite templates you follow the same structure as the parent theme and simply put the same template into your child theme. Let's say we want to overwrite the template header.tpl. The o3-theme (parent) theme follows this structure:
 
-    source
+```
+o3-theme
+      ├── de
+      ├── en
       ├── out
-      .  └── o3-theme
-      .     └── img
-      .        ├── logo.svg
-      .        └── ...
+      └── tpl
+      .  ├── layout
+      .     ├── footer.tpl
+      .     ├── header.tpl
+      .     └── ...
+      .  └── ...
 
-And so we use the same structure for CHILD:
+```
+This means we must copy the exact same structure in our child theme fot the template header.tpl:
 
-    source
-      ├── out
-      .  └── child
-      .     └── img
-      .        └── logo.svg
+```
+child
+  ├── de
+  ├── en
+  ├── out
+  └── tpl
+     └── layout
+        └── header.tpl
 
-While ``logo.svg`` is now loading from CHILD all other assets still coming from o3-theme.
+```
+If we activate our child theme now, the template header.tpl from CHILD is taken while the template footer.tpl is still taken from o3-theme. This means we only copy and modify the templates we desire so.
+
 
 Overwrite Translations
 ----------------------
 
 Last thing you can overwrite are translations but this time you must use a little bit different structure. The original parent theme uses ``lang.php`` files in corresponding language directories like ``en`` for english or ``de`` for german.    
-**The parent path is: Application/translations**  
+**The parent path is: Application/views**  
 
 
     o3-theme
@@ -119,6 +130,31 @@ If some changes do not take effect directly, take care to update the template ca
  ./vendor/bin/oe-console oe:cache:clear 
  
 ```
+
+
+
+Overwrite Assets
+----------------
+
+Overwriting assets follows the same principle. Let's take the image ``logo.svg`` as an example in o3-theme:
+
+    source
+      ├── out
+      .  └── o3-theme
+      .     └── img
+      .        ├── logo.svg
+      .        └── ...
+
+And so we use the same structure for CHILD:
+
+    source
+      ├── out
+      .  └── child
+      .     └── img
+      .        └── logo.svg
+
+While ``logo.svg`` is now loading from CHILD all other assets still coming from o3-theme.
+
 
 Load development files
 -------------------------
