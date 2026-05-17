@@ -35,19 +35,6 @@ In this example we use our current o3-theme and support versions 1.1.0 as well a
 
 If you wish, you can also add theme setting as usual.
 
-1. Create Views Folder and Copy Files
-
-```bash
-mkdir your_project_name/source/Application/views/child
-cp -r your_project_name/vendor/o3-shop/o3-theme/* your_project_name/source/Application/views/child
-```
-
-2. Create Out Folder <THEME_NAME> and Copy Files
-
-```bash
-mkdir your_project_name/source/out/child
-cp -r your_project_name/vendor/o3-shop/o3-theme/out/o3-theme* your_project_name/source/out/child
-```
 Overwrite Templates
 -------------------
 
@@ -124,4 +111,19 @@ If some changes do not take effect directly, take care to update the template ca
     ./vendor/bin/oe-console oe:cache:clear
     ```
 
-        
+Load development files
+-------------------------
+
+Create Views Folder and Copy Files
+
+```bash
+mkdir your_project_name/source/Application/views/child
+cp -r your_project_name/vendor/o3-shop/o3-theme/* your_project_name/source/Application/views/child
+```
+
+Create Out Folder child and Copy Files
+
+```bash
+mkdir your_project_name/source/out/child
+cp -r your_project_name/vendor/o3-shop/o3-theme/out/o3-theme* your_project_name/source/out/child
+```       
