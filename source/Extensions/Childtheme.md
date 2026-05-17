@@ -11,6 +11,22 @@ We name our child theme simply *child*. The ``type`` stays the same as with a st
 composer.json
 -------------
 
+A child theme is an extension like a normal theme, module or component and must be encapsulated in a Composer package. The whole process to generate a Composer installable theme is described in the :doc:`previous section <theme_via_composer>`. We focus on the must-have contents here:
+
+.. code:: json
+
+    {
+        "name": "o3-theme/child",
+        "description": "This is a child theme",
+        "type": "o3-theme",
+        "extra": {
+            "oxideshop": {
+                "target-directory": "o3-theme"
+                "assets-directory": "out/o3-theme",
+            }
+        }
+    }
+
 theme.php
 ---------
 Create a `theme.php` file in the root of the child folder.
