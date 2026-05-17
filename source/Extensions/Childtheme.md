@@ -38,23 +38,90 @@ If you wish, you can also add theme setting as usual.
 1. Create Views Folder and Copy Files
 
 ```bash
-mkdir <DOCUMENT_ROOT>/source/Application/views/<THEME_NAME>
-cp -r <DOCUMENT_ROOT>/vendor/o3-shop/o3-theme/* <DOCUMENT_ROOT>/source/Application/views/<THEME_NAME>
+mkdir your_project_name/source/Application/views/child
+cp -r your_project_name/vendor/o3-shop/o3-theme/* your_project_name/source/Application/views/child
 ```
 
 2. Create Out Folder <THEME_NAME> and Copy Files
 
 ```bash
-mkdir <DOCUMENT_ROOT>/source/out/<THEME_NAME>
-cp -r <DOCUMENT_ROOT>/vendor/o3-shop/o3-theme/out/o3-theme* <DOCUMENT_ROOT>/source/out/<THEME_NAME>
+mkdir your_project_name/source/out/child
+cp -r your_project_name/vendor/o3-shop/o3-theme/out/o3-theme* your_project_name/source/out/child
 ```
+Overwrite Templates
+-------------------
+
+Overwriting assets follows the same principle. Let's take the image ``logo.svg`` as an example in o3-theme:
+
+
+    your_project_name
+      ├── de
+      ├── en
+      ├── out
+      .  └── o3-theme
+      .     └── img
+      .        ├── logo.svg
+      .        └── ...
+      └── tpl
+
+And so we use the same structure for CHILD:
 
 
 
+    child
+      ├── de
+      ├── en
+      ├── out
+      .  └── child
+      .     └── img
+      .        └── logo.svg
+      └── tpl
+
+While ``logo.svg`` is now loading from CHILD all other assets still coming from o3-theme.
+
+Overwrite Translations
+----------------------
+
+Last thing you can overwrite are translations but this time you must use a little bit different structure. The original parent theme uses ``lang.php`` files in corresponding language directories like ``en`` for english or ``de`` for german.
 
 
-> **Important:**
-> - <THEME_NAME> = Name of the theme used when a child theme is active. Default: o3-theme
-> - <THEME_NAME> in packagist.json ändern.
-> - Copy the entire `o3-theme` directory, not just its contents
-> - The target should be `source/out/o3-theme/`, not `source/out/` directly
+
+    apex
+      ├── de
+      .  └── lang.php
+      ├── en
+      .  └── lang.php
+      └── ...
+
+You now use the same directory structure again but name the files ``cust_lang.php``.
+
+
+    child
+      ├── de
+      .  └── cust_lang.php
+      ├── en
+      .  └── cust_lang.php
+      └── ...
+
+Inside the ``cust_lang.php`` files you can change single translations. So the file may contain a few translations like follows:
+
+
+
+    $sLangName = 'English';
+
+    $aLang = [
+        'charset' => 'UTF-8'
+
+        'TRUST_BADGES' => 'Our Trust Badges',
+        'SOCIAL_MEDIA' => 'Social Platforms',
+    ];
+
+important
+
+If some changes do not take effect directly, take care to update the template cache:
+
+    ```bash
+    ./vendor/bin/oe-console oe:cache:clear
+    ```
+
+        
