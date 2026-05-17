@@ -73,7 +73,7 @@ Last thing you can overwrite are translations but this time you must use a littl
 
 
 
-    apex
+    o3-theme
       ├── de
       .  └── lang.php
       ├── en
