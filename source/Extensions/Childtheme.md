@@ -107,9 +107,10 @@ important
 
 If some changes do not take effect directly, take care to update the template cache:
 
-    ```bash
-    ./vendor/bin/oe-console oe:cache:clear
-    ```
+```bash
+ ./vendor/bin/oe-console oe:cache:clear 
+ 
+```
 
 Load development files
 -------------------------
