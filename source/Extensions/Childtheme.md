@@ -15,7 +15,7 @@ A child theme is an extension like a normal theme, module or component and must 
 
 ```json
     {
-        "name": "o3-theme/child",
+        "name": "o3-theme/o3-child",
         "description": "This is a child theme",
         "type": "o3-theme",
         "extra": {
@@ -35,7 +35,7 @@ Create a `theme.php` file in the root of the child folder.
 declare(strict_types=1);
 
 $aTheme = [
-    'id' => 'child',
+    'id' => 'o3-child',
     'title' => 'CHILD',
     'description' => 'A child theme from o3-shop.',
     'parentTheme' => 'o3-shop',
@@ -73,13 +73,13 @@ o3-theme
 This means we must copy the exact same structure in our child theme fot the template header.tpl:
 
 ```
-child
-  ├── de
-  ├── en
-  ├── out
-  └── tpl
-     └── layout
-        └── header.tpl
+    o3-child
+    ├── de
+    ├── en
+    ├── out
+    └── tpl
+        └── layout
+            └── header.tpl
 ```
 If we activate our child theme now, the template header.tpl from CHILD is taken while the template footer.tpl is still taken from o3-theme. This means we only copy and modify the templates we desire so.
 
@@ -101,7 +101,7 @@ Last thing you can overwrite are translations but this time you must use a littl
 You now use the same directory structure again but name the files ``cust_lang.php``.
 
 
-    child
+    o3-child
       ├── de
       .  └── cust_lang.php
       ├── en
@@ -145,7 +145,7 @@ And so we use the same structure for CHILD:
 
     source
       ├── out
-      .  └── child
+      .  └── o3-child
       .     └── img
       .        └── logo.svg
 
@@ -158,6 +158,6 @@ Load development files
 #### Copy Build Files for Child Theme
 
 ```bash
-cp -r my-o3shop-project/vendor/o3-shop/o3-theme/build my-o3shop-project/source/Application/views/child
-cp -r my-o3shop-project/vendor/o3-shop/o3-theme/package.json my-o3shop-project/source/Application/views/child
+cp -r my-o3shop-project/vendor/o3-shop/o3-theme/build my-o3shop-project/source/Application/views/o3-child
+cp -r my-o3shop-project/vendor/o3-shop/o3-theme/package.json my-o3shop-project/source/Application/views/o3-child
 ```
