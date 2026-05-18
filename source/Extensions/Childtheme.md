@@ -155,7 +155,7 @@ And so we use the same structure for CHILD:
 
 While ``logo.svg`` is now loading from CHILD all other assets still coming from o3-theme.
 
-[/
+
 Load development files
 -------------------------
 
@@ -172,4 +172,3 @@ Create Out Folder child and Copy Files
 mkdir your_project_name/source/out/child
 cp -r your_project_name/vendor/o3-shop/o3-theme/out/o3-theme* your_project_name/source/out/child
 ```       
-/]
