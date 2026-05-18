@@ -13,7 +13,7 @@ A child theme is an extension like a normal theme, module or component and must 
 
 ```json
 {
-    "name": "o3-theme/o3-child",
+    "name": "o3-shop/o3-child",
     "description": "This is a child theme",
     "type": "o3-theme",
     "extra": {
