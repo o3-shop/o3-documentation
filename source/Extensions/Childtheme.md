@@ -14,7 +14,6 @@ composer.json
 A child theme is an extension like a normal theme, module or component and must be encapsulated in a Composer package. The whole process to generate a Composer installable theme is described in the :doc:`previous section <theme_via_composer>`. We focus on the must-have contents here:
 
 ```json
-
     {
         "name": "o3-theme/child",
         "description": "This is a child theme",
@@ -57,6 +56,8 @@ Overwrite Templates
 
 To overwrite templates you follow the same structure as the parent theme and simply put the same template into your child theme. Let's say we want to overwrite the template header.tpl. The o3-theme (parent) theme follows this structure:
 
+**The parent path is: Application/views** 
+
 ```
 o3-theme
       ├── de
@@ -68,7 +69,6 @@ o3-theme
       .     ├── header.tpl
       .     └── ...
       .  └── ...
-
 ```
 This means we must copy the exact same structure in our child theme fot the template header.tpl:
 
@@ -80,7 +80,6 @@ child
   └── tpl
      └── layout
         └── header.tpl
-
 ```
 If we activate our child theme now, the template header.tpl from CHILD is taken while the template footer.tpl is still taken from o3-theme. This means we only copy and modify the templates we desire so.
 
@@ -91,14 +90,14 @@ Overwrite Translations
 Last thing you can overwrite are translations but this time you must use a little bit different structure. The original parent theme uses ``lang.php`` files in corresponding language directories like ``en`` for english or ``de`` for german.    
 **The parent path is: Application/views**  
 
-
+```
     o3-theme
       ├── de
       .  └── lang.php
       ├── en
       .  └── lang.php
       └── ...
-
+```
 You now use the same directory structure again but name the files ``cust_lang.php``.
 
 
@@ -112,7 +111,7 @@ You now use the same directory structure again but name the files ``cust_lang.ph
 Inside the ``cust_lang.php`` files you can change single translations. So the file may contain a few translations like follows:
 
 
-
+```
     $sLangName = 'English';
 
     $aLang = [
@@ -121,8 +120,8 @@ Inside the ``cust_lang.php`` files you can change single translations. So the fi
         'TRUST_BADGES' => 'Our Trust Badges',
         'SOCIAL_MEDIA' => 'Social Platforms',
     ];
-
-important
+```
+**Important**
 
 If some changes do not take effect directly, take care to update the template cache:
 
@@ -130,9 +129,6 @@ If some changes do not take effect directly, take care to update the template ca
  ./vendor/bin/oe-console oe:cache:clear 
  
 ```
-
-
-
 Overwrite Assets
 ----------------
 
