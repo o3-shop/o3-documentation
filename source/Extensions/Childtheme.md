@@ -159,16 +159,9 @@ While ``logo.svg`` is now loading from CHILD all other assets still coming from 
 Load development files
 -------------------------
 
-Create Views Folder and Copy Files
+#### Build-Dateien für Child Theme kopieren
 
 ```bash
-mkdir your_project_name/source/Application/views/child
-cp -r your_project_name/vendor/o3-shop/o3-theme/* your_project_name/source/Application/views/child
+cp -r my-o3shop-project/vendor/o3-shop/o3-theme/build my-o3shop-project/source/Application/views/child
+cp -r my-o3shop-project/vendor/o3-shop/o3-theme/package.json my-o3shop-project/source/Application/views/child
 ```
-
-Create Out Folder child and Copy Files
-
-```bash
-mkdir your_project_name/source/out/child
-cp -r your_project_name/vendor/o3-shop/o3-theme/out/o3-theme* your_project_name/source/out/child
-```       
