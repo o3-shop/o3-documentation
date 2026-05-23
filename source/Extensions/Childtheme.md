@@ -18,8 +18,8 @@ A child theme is an extension like a normal theme, module or component and must 
     "type": "o3-theme",
     "extra": {
         "oxideshop": {
-            "target-directory": "o3-theme"
-            "assets-directory": "out/o3-theme",
+            "target-directory": "o3-child"
+            "assets-directory": "out/o3-child",
         }
     }
 }
