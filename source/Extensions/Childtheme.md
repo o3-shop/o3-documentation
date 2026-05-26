@@ -47,7 +47,7 @@ A child theme is an extension like a normal theme, module or component and must 
 Create a `theme.php` file in the root of the child folder.
 
 ```php
-<php>
+<?php
 declare(strict_types=1);
 
 $aTheme = [
@@ -55,7 +55,7 @@ $aTheme = [
     'title' => 'CHILD',
     'description' => 'A child theme from o3-shop.',
     'parentTheme' => 'o3-shop',
-    'parentVersions' => ['1.1.0','1.3.0'],
+    'parentVersions' => array($oTheme->getInfo('version')),
 ];
 ```
 
@@ -132,7 +132,7 @@ Inside the ``cust_lang.php`` files you can change single translations. So the fi
     $sLangName = 'English';
 
     $aLang = [
-        'charset' => 'UTF-8'
+        'charset' => 'UTF-8',
 
         'TRUST_BADGES' => 'Our Trust Badges',
         'SOCIAL_MEDIA' => 'Social Platforms',
