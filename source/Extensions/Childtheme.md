@@ -15,10 +15,27 @@ A child theme is an extension like a normal theme, module or component and must 
 {
     "name": "o3-shop/o3-child",
     "description": "This is a child theme",
-    "type": "o3-theme",
+    "type": "o3shop-theme",
+    "keywords": [
+        "o3-shop",
+        "themes",
+        "eShop"
+    ],
+    "homepage": "https://www.o3-shop.com/",
+    "license": [
+        "GPL-3.0-only"
+    ],
+    "author": [
+        {
+            "name": "O3-Shop",
+            "email": "info@o3-shop.com",
+            "homepage": "https://www.o3-shop.com",
+            "role": "Developer"
+        }
+    ],
     "extra": {
         "oxideshop": {
-            "target-directory": "o3-child"
+            "target-directory": "o3-child",
             "assets-directory": "out/o3-child",
         }
     }
@@ -30,6 +47,7 @@ A child theme is an extension like a normal theme, module or component and must 
 Create a `theme.php` file in the root of the child folder.
 
 ```php
+<php>
 declare(strict_types=1);
 
 $aTheme = [
