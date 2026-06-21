@@ -86,6 +86,8 @@ Write your code or documentation following the project's coding standards and do
 
 Ensure your changes are covered by unit tests (for code contributions).
 
+**Signalling a version bump.** If you are working in a leaf package (a theme, demo data, a bundled module, or an asset/tooling package) and your change warrants more than a patch bump, record that intent so it survives until release time: commit a file named `.next-bump` at the repository root, containing a single line with `minor`, `major`, or an exact version such as `v2.0.0`. The release tooling reads it when the next release is cut (see Step 12) and then deletes it automatically, so it applies exactly once. You do not need this for `shop-ce` itself — it is always versioned in lockstep with the shop release.
+
 #### Step 7 — Run Tests and Code Style Checks (Role: Developer)
 
 In your project directory, run:
@@ -123,17 +125,45 @@ Before starting a release, confirm that all issues assigned to the milestone are
 The milestone overview can be found here:
 👉 [https://github.com/o3-shop/o3-shop/milestones](https://github.com/o3-shop/o3-shop/milestones)
 
-#### Step 12 — Update Version Numbers (Role: Release Manager)
+#### Step 12 — Cut the Release with `bin/release` (Role: Release Manager)
 
-Update the version number in all relevant locations within the shop project. This includes:
+O3-Shop is not a single repository — a release moves the whole package network together (`o3-shop` → `shop-metapackage-ce` → `shop-ce` → leaf packages such as themes, demo data, and bundled modules). You do **not** edit `composer.json` version pins or create tags by hand. The `bin/release` CLI shipped in `shop-ce` orchestrates the entire cut.
 
-- The root `composer.json` and any meta-package `composer.json` files
-- Any version constants defined in the codebase
-- The documentation (see Step 13 below for details)
+The version number follows [Semantic Versioning](https://semver.org/): `MAJOR.MINOR.PATCH`, and every tag is prefixed with `v` (e.g., `v1.6.0`). There is no version constant to edit in the code — the shop resolves its own version at runtime from the installed Composer package.
 
-For more information about that, look at the [GitHub Wiki](https://github.com/o3-shop/o3-shop/wiki/Create-a-Release)
+**Before you run it**, make sure every release-eligible repository is cloned as a sibling of your `shop-ce` checkout, and that each one:
 
-The version number follows [Semantic Versioning](https://semver.org/): `MAJOR.MINOR.PATCH`
+- is on its release branch (e.g., `b-1.6`),
+- has a clean working tree,
+- has a green test suite, and
+- has no unmerged merge-back PR left over from the previous release.
+
+`bin/release` enforces all of these with pre-flight gates and aborts with a clear diagnostic if any repo fails.
+
+**Bump levels.** Leaf packages are bumped by one patch level by default. To request a larger bump for a leaf, either commit a `.next-bump` file (containing `minor`, `major`, or an exact `vX.Y.Z`) at that repository's root on the release branch, or pass `--bump <repo>=<level>` on the command line — the flag wins over the file, and a consumed `.next-bump` file is deleted automatically in the tag commit. `shop-ce` and `shop-metapackage-ce` are always tagged at the `--to` version, since they move in lockstep with the shop release.
+
+**Preview first.** `--dry-run` prints the full plan — which tags get cut and which constraints get rewritten — without changing anything:
+
+```sh
+bin/release --from v1.6.0 --to v1.6.1 --dry-run
+```
+
+`--from` is the previous shop release tag; `--to` is the version you are cutting (release-candidate tags such as `v1.6.1-RC1` are supported).
+
+**Run it live** once the plan looks right:
+
+```sh
+bin/release --from v1.6.0 --to v1.6.1
+```
+
+In live mode the tool walks the repositories in dependency order (leaves first) and, for each repo that changed since `--from`:
+
+- rewrites its `composer.json` dependency constraints and commits + pushes them to the release branch,
+- cuts and pushes the new `v`-prefixed tag,
+- creates a **draft** GitHub release with auto-generated notes, and
+- for final releases (not release candidates), opens a merge-back PR from the release branch into `main`.
+
+`bin/release` deliberately stops short of publishing. It prints a finish checklist of the draft releases to publish and the merge-back PRs to merge — you complete those in Step 14.
 
 #### Step 13 — Update the Documentation (Role: Release Manager)
 
@@ -160,16 +190,14 @@ Update the O3-Shop documentation to reflect the new release:
    Open a pull request targeting the `main` branch. Once merged, the updated documentation will be published automatically via Read the Docs at:
    👉 [https://docs.o3-shop.com](https://docs.o3-shop.com)
 
-#### Step 14 — Create and Publish the Release Tag (Role: Release Manager)
+#### Step 14 — Publish the Release (Role: Release Manager)
 
-Create a Git tag for the release in the main shop repository. The tag name should match the version number and be prefixed with `v` (e.g., `v1.6.0`).
+`bin/release` (Step 12) cut every tag and created the GitHub releases as **drafts**, leaving the merge-back PRs **open** so that a human makes the final call. Work through the finish checklist printed at the end of the live run:
 
-Publish the release on GitHub, including:
-- The release tag
-- The release title (e.g., `O3-Shop v1.6.0`)
-- The release notes (auto-generated by GitHub from merged pull requests and issues)
+1. Open each draft release on GitHub, review the auto-generated notes and the release title (e.g., `O3-Shop v1.6.0`), and click **Publish release**.
+2. Review and merge each merge-back PR (release branch → `main`). These appear only for final releases, not for release candidates.
 
-The releases page is located at:
+The releases page for the main project is located at:
 👉 [https://github.com/o3-shop/o3-shop/releases](https://github.com/o3-shop/o3-shop/releases)
 
 #### Step 15 — Close the Milestone (Role: Release Manager)
@@ -200,9 +228,9 @@ Announce the new release to the community. This typically includes:
 | Review & Merge | 9. Review the pull request | Reviewer |
 | Review & Merge | 10. Approve and merge | Approver |
 | Release | 11. Verify the milestone | Release Manager |
-| Release | 12. Update version numbers | Release Manager |
+| Release | 12. Cut the release with `bin/release` | Release Manager |
 | Release | 13. Update the documentation | Release Manager |
-| Release | 14. Create and publish the release tag | Release Manager |
+| Release | 14. Publish the release | Release Manager |
 | Release | 15. Close the milestone | Release Manager |
 | Release | 16. Communicate the release | Release Manager |
 
