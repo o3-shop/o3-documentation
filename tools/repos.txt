@@ -6,10 +6,12 @@
 # collects every release from every listed repo whose publish date is on
 # or after the start of the anchor's publish day (UTC). Releases whose
 # tag exactly matches the anchor tag are excluded (so the coordinated
-# 1.5.4 releases across the ecosystem don't leak into the page).
+# releases that share the anchor tag across the ecosystem don't leak into
+# the page).
 #
-# When a new release ships, bump this line.
-anchor: shop-ce@v1.5.4
+# When a new release ships, bump this line to the *previous* release's tag
+# (e.g. cutting 1.6.1 -> anchor shop-ce@v1.6.0).
+anchor: shop-ce@v1.6.0
 
 shop-ce
 shop-metapackage-ce

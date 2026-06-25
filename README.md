@@ -53,10 +53,25 @@ What controls the page:
 
 ### When cutting a new release
 
-1. Bump `version` and `release` in `source/conf.py`.
-2. Update the `anchor:` line in `tools/repos.txt` to the previous release's tag.
-3. Update any version references in the documentation itself (e.g. the Composer command in `source/User/Installation/NewInstallation.md`).
-4. Open a pull request. Once merged, Read the Docs rebuilds and the page refreshes automatically.
+Worked example: cutting **1.6.1** (previous release was **1.6.0**).
+
+1. **`source/conf.py` — bump `release` to the new full version.**
+   - Set `release = '1.6.1'` (the full version; appears as the target in the page title).
+   - Leave `version` (the short `X.Y`, e.g. `'1.6'`) unchanged for a patch release. Only bump it when the minor line changes (e.g. `'1.6'` → `'1.7'`).
+
+2. **`tools/repos.txt` — set `anchor:` to the *previous* release's shop-ce tag.**
+   - Cutting 1.6.1 → `anchor: shop-ce@v1.6.0`. Always use the `v`-prefixed tag exactly as it appears on GitHub.
+   - The page then collects every listed repo's releases published on or after that tag's day, excluding releases that share the anchor tag itself. That yields a clean "1.6.0 → 1.6.1" window.
+
+3. **Composer constraint in `source/User/Installation/NewInstallation.md` — usually leave it.**
+   - The command pins `~1.6.0`, a tilde range that already resolves to the latest `1.6.x` (including `1.6.1`), so it does **not** need a bump for patch releases.
+   - Only update it when the minor line changes — e.g. for the 1.7 line it becomes `~1.7.0`.
+
+4. **Regenerate and preview the page locally** (see below), then sanity-check the new title and per-repo sections in `source/WhatsChanged.md`.
+
+5. **Open a pull request** with the `conf.py` + `repos.txt` (and regenerated `WhatsChanged.md`) changes. Once merged, Read the Docs rebuilds and the page refreshes automatically.
+
+> Note: `WhatsChanged.md` is regenerated on every Read the Docs build, so committing it is optional — but committing the regenerated copy keeps the repo in sync and makes the release diff reviewable.
 
 ### Previewing locally
 
