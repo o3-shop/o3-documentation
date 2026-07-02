@@ -11,7 +11,7 @@
 #
 # When a new release ships, bump this line to the *previous* release's tag
 # (e.g. cutting 1.6.1 -> anchor shop-ce@v1.6.0).
-anchor: shop-ce@v1.6.0
+anchor: shop-ce@v1.6.1
 
 shop-ce
 shop-metapackage-ce
