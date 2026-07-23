@@ -47,8 +47,24 @@ UPDATE oxuserpayments SET `OXVALUE` = `OXVALUE_UNENC` WHERE 1;
 ALTER TABLE oxuserpayments DROP COLUMN `OXVALUE_UNENC`;
 ```
 
-`fq45QS09_fqyx09239QQ` is the shop's default configuration key. On **MariaDB** or
-**MySQL 5.7** you can skip this step — the migrations decode the columns for you.
+`fq45QS09_fqyx09239QQ` is the shop's default configuration key.
+
+Because the decoded `OXVARVALUE` / `OXVALUE` bytes are latin1 (not valid UTF-8), MySQL 8's
+default strict `sql_mode` would **reject** them on import (`ER_TRUNCATED_WRONG_VALUE`, error
+1366) and silently truncate exactly the data this step is meant to preserve. So when you move
+the decoded database back onto MySQL 8, disable strict mode for the import:
+
+```bash
+# on the MariaDB (or MySQL 5.7) copy, after running the decode SQL above:
+mysqldump --no-tablespaces --single-transaction <database> > decoded.sql
+
+# import into the MySQL 8 target with strict mode off so the latin1 bytes are accepted:
+mysql --init-command="SET SESSION sql_mode=''" <database> < decoded.sql
+```
+
+The database views are regenerated during the migration, so they do not need to be
+transferred. On **MariaDB** or **MySQL 5.7** you can skip this whole pre-step — the
+migrations decode the columns for you.
 
 ## Perform migration
 
@@ -56,10 +72,11 @@ ALTER TABLE oxuserpayments DROP COLUMN `OXVALUE_UNENC`;
 
 Open a terminal window and navigate to the main store directory and replace the OXID
 packages with their O3-Shop counterparts. O3-Shop is pulled in through the
-`o3-shop/o3-shop` package, which resolves the full component set for you:
+`o3-shop/shop-metapackage-ce` package, which carries the full component set — this mirrors
+the `oxid-esales/oxideshop-metapackage-ce` you remove immediately afterwards:
 
 ```
-composer require -W o3-shop/o3-shop:^1.6 --no-scripts --no-plugins
+composer require -W o3-shop/shop-metapackage-ce:^1.6 --no-scripts --no-plugins
 composer remove oxid-esales/oxideshop-metapackage-ce --no-scripts --no-plugins
 composer update --no-interaction
 ```
@@ -70,7 +87,7 @@ Development tools (only if your installation uses them):
 
 ```
 composer remove oxid-esales/testing-library oxid-esales/oxideshop-ide-helper --dev --no-scripts --no-plugins
-composer require o3-shop/testing-library:^1.6 o3-shop/shop-ide-helper:^1.6 --dev --no-scripts --no-plugins
+composer require o3-shop/testing-library:^1.0 o3-shop/shop-ide-helper:^1.0 --dev --no-scripts --no-plugins
 ```
 
 In the case of additional packages installed by OXID or individual compositions of the
