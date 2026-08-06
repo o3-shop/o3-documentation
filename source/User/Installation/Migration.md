@@ -76,7 +76,7 @@ packages with their O3-Shop counterparts. O3-Shop is pulled in through the
 the `oxid-esales/oxideshop-metapackage-ce` you remove immediately afterwards:
 
 ```
-composer require -W o3-shop/shop-metapackage-ce:^1.6 --no-scripts --no-plugins
+composer require -W o3-shop/shop-metapackage-ce:^1.7 --no-scripts --no-plugins
 composer remove oxid-esales/oxideshop-metapackage-ce --no-scripts --no-plugins
 composer update --no-interaction
 ```
