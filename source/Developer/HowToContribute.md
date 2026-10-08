@@ -78,7 +78,7 @@ Clone your fork locally. In your project directory, run:
 
 This command will start the development environment using Docker. For a detailed walkthrough of the full setup process, refer to the README in the main shop repository:
 
-👉 [https://github.com/o3-shop/shop-ce/blob/b-1.6/README.md](https://github.com/o3-shop/shop-ce/blob/b-1.6/README.md)
+👉 [https://github.com/o3-shop/shop-ce/blob/b-1.7/README.md](https://github.com/o3-shop/shop-ce/blob/b-1.7/README.md)
 
 #### Step 6 — Implement the Change (Role: Developer)
 
@@ -129,11 +129,11 @@ The milestone overview can be found here:
 
 O3-Shop is not a single repository — a release moves the whole package network together (`o3-shop` → `shop-metapackage-ce` → `shop-ce` → leaf packages such as themes, demo data, and bundled modules). You do **not** edit `composer.json` version pins or create tags by hand. The `bin/release` CLI shipped in `shop-ce` orchestrates the entire cut.
 
-The version number follows [Semantic Versioning](https://semver.org/): `MAJOR.MINOR.PATCH`, and every tag is prefixed with `v` (e.g., `v1.6.0`). There is no version constant to edit in the code — the shop resolves its own version at runtime from the installed Composer package.
+The version number follows [Semantic Versioning](https://semver.org/): `MAJOR.MINOR.PATCH`, and every tag is prefixed with `v` (e.g., `v1.7.2`). There is no version constant to edit in the code — the shop resolves its own version at runtime from the installed Composer package.
 
 **Before you run it**, make sure every release-eligible repository is cloned as a sibling of your `shop-ce` checkout, and that each one:
 
-- is on its release branch (e.g., `b-1.6`),
+- is on its release branch (e.g., `b-1.7`),
 - has a clean working tree,
 - has a green test suite, and
 - has no unmerged merge-back PR left over from the previous release.
@@ -145,15 +145,15 @@ The version number follows [Semantic Versioning](https://semver.org/): `MAJOR.MI
 **Preview first.** `--dry-run` prints the full plan — which tags get cut and which constraints get rewritten — without changing anything:
 
 ```sh
-bin/release --from v1.6.0 --to v1.6.1 --dry-run
+bin/release --from v1.7.1 --to v1.7.2 --dry-run
 ```
 
-`--from` is the previous **final** shop release tag (also when cutting a release candidate); `--to` is the version you are cutting (release-candidate tags such as `v1.6.1-RC1` are supported). Never pass a `--to` that already exists as a tag; cut the next RC instead.
+`--from` is the previous **final** shop release tag (also when cutting a release candidate); `--to` is the version you are cutting (release-candidate tags such as `v1.7.2-RC1` are supported). Never pass a `--to` that already exists as a tag; cut the next RC instead.
 
 A plain `--dry-run` **skips the pre-flight gates** (`Pre-flight gates: skipped (no local repo paths supplied).`). To preview them too, pass the local clone of each repository that gets a new tag or a constraint edit; for a shop release at least these three:
 
 ```sh
-bin/release --from v1.6.0 --to v1.6.1 --dry-run \
+bin/release --from v1.7.1 --to v1.7.2 --dry-run \
   --repo-path o3-shop/shop-ce=/abs/path/shop-ce \
   --repo-path o3-shop/shop-metapackage-ce=/abs/path/shop-metapackage-ce \
   --repo-path o3-shop/o3-shop=/abs/path/o3-shop
@@ -166,7 +166,7 @@ With `--repo-path`, the up-to-date gate **fast-forwards** each local release bra
 **Run it live** once the plan looks right:
 
 ```sh
-bin/release --from v1.6.0 --to v1.6.1
+bin/release --from v1.7.1 --to v1.7.2
 ```
 
 In live mode the tool walks the repositories in dependency order (leaves first) and, for each repo that changed since `--from`:
@@ -183,14 +183,18 @@ In live mode the tool walks the repositories in dependency order (leaves first) 
 Update the O3-Shop documentation to reflect the new release:
 
 1. Update the version numbers in `source/conf.py`:
-   - Set `version` to the short `MAJOR.MINOR` version (e.g., `1.6`)
-   - Set `release` to the full version string (e.g., `1.6.0`)
+   - Set `version` to the short `MAJOR.MINOR` version (e.g., `1.7`)
+   - Set `release` to the full version string (e.g., `1.7.2`)
 
 2. Point the *What's Changed* page at the new release: in `tools/repos.txt`, set the `anchor:` line to the **previous final** shop-ce tag (cutting `v1.7.2` → `anchor: shop-ce@v1.7.1`). Read the Docs regenerates `source/WhatsChanged.md` from the published GitHub releases on every build (`tools/fetch_releases.py`, run in `pre_build`). To update the committed copy, run `GH_TOKEN=$(gh auth token) python3 tools/fetch_releases.py` **after** the releases are published (Step 14); drafts don't appear.
 
-3. Review all installation instructions (e.g., `source/User/Installation/NewInstallation.md`) and update any version constraints referenced in Composer commands to reflect the new release. Update the example tag on the demo image page (`source/User/Installation/DemoImage.md`).
+3. Review all installation instructions (e.g., `source/User/Installation/NewInstallation.md`) and update any version constraints referenced in Composer commands to reflect the new release.
 
-4. Build and verify the documentation locally before publishing:
+4. Bring every example version to the new release, so the docs always show the current one. For a final release `vX.Y.Z`:
+   - `source/User/Installation/DemoImage.md`: the image tag in both `docker run` examples and in "Replace `vX.Y.Z` …", the release-candidate example (the next patch's `-RC1`), and the release recommended in the e-mail note.
+   - This guide's release steps (Steps 12–14): the `bin/release` examples (`--from` = previous final tag, `--to` = new release, RC example), the `conf.py` examples in item 1, the tag and release-branch examples in Step 12, and the release title example in Step 14. On a new minor or major (new `b-X.Y` release line), also the README link in Step 5.
+
+5. Build and verify the documentation locally before publishing:
    ```sh
    sphinx-build -b html source build/html
    ```
@@ -199,7 +203,7 @@ Update the O3-Shop documentation to reflect the new release:
    make html
    ```
 
-5. Commit and push the documentation changes to the documentation repository:
+6. Commit and push the documentation changes to the documentation repository:
    👉 [https://github.com/o3-shop/o3-documentation](https://github.com/o3-shop/o3-documentation)
 
    Open a pull request targeting the `main` branch. Once merged, the updated documentation will be published automatically via Read the Docs at:
@@ -209,7 +213,7 @@ Update the O3-Shop documentation to reflect the new release:
 
 `bin/release` (Step 12) cut every tag and created the GitHub releases as **drafts**, leaving the merge-back PRs **open** so that a human makes the final call. Work through the finish checklist printed at the end of the live run:
 
-1. Open each draft release on GitHub, review the auto-generated notes and the release title (e.g., `O3-Shop v1.6.0`), and publish it with the **right flags**. They're decided by each release's own tag, not by the shop version you cut:
+1. Open each draft release on GitHub, review the auto-generated notes and the release title (e.g., `O3-Shop v1.7.2`), and publish it with the **right flags**. They're decided by each release's own tag, not by the shop version you cut:
    - Tag with `-RC<n>` (or `-alpha`/`-beta`): tick **Set as a pre-release**; never *latest*.
    - Final tag: **no** pre-release tick. In an RC cut, leaf packages (themes, demo data, …) often get final tags; publish those as normal releases too, and set them as *latest* in their repository.
    - For a final shop release, set the `o3-shop/o3-shop` release as **latest**.

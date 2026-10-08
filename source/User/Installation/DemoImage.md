@@ -43,7 +43,7 @@ On first use Docker fills empty named volumes with the image's demo data. Don't 
 The demo sends no e-mail. Registration, order and newsletter mails are accepted and then discarded; `docker logs` shows one line per discarded mail with its recipient. The shop's SMTP settings stay empty even if you set them in the admin.
 
 ```{note}
-The `v1.7.2-RC2` and `v1.7.2-RC3` images predate this: there, any action that sends a mail (e.g. registering with the newsletter box ticked) ends on the maintenance page. Use `v1.7.2-RC4` or later.
+The `v1.7.2-RC2` and `v1.7.2-RC3` images predate this: there, any action that sends a mail (e.g. registering with the newsletter box ticked) ends on the maintenance page. Use the current release, `v1.7.2`.
 ```
 
 ## Build it yourself
