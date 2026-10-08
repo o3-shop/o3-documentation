@@ -14,9 +14,9 @@ copyright = '2023 - 2026, O3-Shop, based on 2021 - 2022 OXID eSales AG'.format(d
 author = 'O3-Shop Community'
 
 # The short X.Y version
-version = '1.6'
+version = '1.7'
 # The full version, including alpha/beta/rc tags
-release = '1.6.2'
+release = '1.7.2'
 
 
 # -- General configuration ---------------------------------------------------

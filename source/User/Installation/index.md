@@ -17,8 +17,11 @@ Install/update missing components, e.g. update Composer.
 
 ## Perform
 
+Just want to try O3-Shop? Start the [demo Docker image](DemoImage.md) with one command.
+
 ```{toctree}
 :maxdepth: 1
+Try the demo (Docker) <DemoImage>
 New installation <NewInstallation>
 Migrate from OXID eShop <Migration>
 Update <Update>

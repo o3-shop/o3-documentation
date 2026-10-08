@@ -148,7 +148,20 @@ The version number follows [Semantic Versioning](https://semver.org/): `MAJOR.MI
 bin/release --from v1.6.0 --to v1.6.1 --dry-run
 ```
 
-`--from` is the previous shop release tag; `--to` is the version you are cutting (release-candidate tags such as `v1.6.1-RC1` are supported).
+`--from` is the previous **final** shop release tag (also when cutting a release candidate); `--to` is the version you are cutting (release-candidate tags such as `v1.6.1-RC1` are supported). Never pass a `--to` that already exists as a tag; cut the next RC instead.
+
+A plain `--dry-run` **skips the pre-flight gates** (`Pre-flight gates: skipped (no local repo paths supplied).`). To preview them too, pass the local clone of each repository that gets a new tag or a constraint edit; for a shop release at least these three:
+
+```sh
+bin/release --from v1.6.0 --to v1.6.1 --dry-run \
+  --repo-path o3-shop/shop-ce=/abs/path/shop-ce \
+  --repo-path o3-shop/shop-metapackage-ce=/abs/path/shop-metapackage-ce \
+  --repo-path o3-shop/o3-shop=/abs/path/o3-shop
+```
+
+```{note}
+With `--repo-path`, the up-to-date gate **fast-forwards** each local release branch to `origin`, even in a dry-run. Don't run it while you have unpushed work on a release branch.
+```
 
 **Run it live** once the plan looks right:
 
@@ -161,7 +174,7 @@ In live mode the tool walks the repositories in dependency order (leaves first) 
 - rewrites its `composer.json` dependency constraints and commits + pushes them to the release branch,
 - cuts and pushes the new `v`-prefixed tag,
 - creates a **draft** GitHub release with auto-generated notes, and
-- for final releases (not release candidates), opens a merge-back PR from the release branch into `main`.
+- for final releases (not release candidates), opens a merge-back PR into `main` from a `merge-back-vX.Y.Z` branch at the new tag. If `main` still pins an older version in `composer.json`, the PR conflicts on that line; resolve it in favour of the new release's pin.
 
 `bin/release` deliberately stops short of publishing. It prints a finish checklist of the draft releases to publish and the merge-back PRs to merge — you complete those in Step 14.
 
@@ -173,9 +186,11 @@ Update the O3-Shop documentation to reflect the new release:
    - Set `version` to the short `MAJOR.MINOR` version (e.g., `1.6`)
    - Set `release` to the full version string (e.g., `1.6.0`)
 
-2. Review all installation instructions (e.g., `source/User/Installation/NewInstallation.md`) and update any version constraints referenced in Composer commands to reflect the new release.
+2. Point the *What's Changed* page at the new release: in `tools/repos.txt`, set the `anchor:` line to the **previous final** shop-ce tag (cutting `v1.7.2` → `anchor: shop-ce@v1.7.1`). Read the Docs regenerates `source/WhatsChanged.md` from the published GitHub releases on every build (`tools/fetch_releases.py`, run in `pre_build`). To update the committed copy, run `GH_TOKEN=$(gh auth token) python3 tools/fetch_releases.py` **after** the releases are published (Step 14); drafts don't appear.
 
-3. Build and verify the documentation locally before publishing:
+3. Review all installation instructions (e.g., `source/User/Installation/NewInstallation.md`) and update any version constraints referenced in Composer commands to reflect the new release. Update the example tag on the demo image page (`source/User/Installation/DemoImage.md`).
+
+4. Build and verify the documentation locally before publishing:
    ```sh
    sphinx-build -b html source build/html
    ```
@@ -184,7 +199,7 @@ Update the O3-Shop documentation to reflect the new release:
    make html
    ```
 
-4. Commit and push the documentation changes to the documentation repository:
+5. Commit and push the documentation changes to the documentation repository:
    👉 [https://github.com/o3-shop/o3-documentation](https://github.com/o3-shop/o3-documentation)
 
    Open a pull request targeting the `main` branch. Once merged, the updated documentation will be published automatically via Read the Docs at:
@@ -194,8 +209,15 @@ Update the O3-Shop documentation to reflect the new release:
 
 `bin/release` (Step 12) cut every tag and created the GitHub releases as **drafts**, leaving the merge-back PRs **open** so that a human makes the final call. Work through the finish checklist printed at the end of the live run:
 
-1. Open each draft release on GitHub, review the auto-generated notes and the release title (e.g., `O3-Shop v1.6.0`), and click **Publish release**.
-2. Review and merge each merge-back PR (release branch → `main`). These appear only for final releases, not for release candidates.
+1. Open each draft release on GitHub, review the auto-generated notes and the release title (e.g., `O3-Shop v1.6.0`), and publish it with the **right flags**. They're decided by each release's own tag, not by the shop version you cut:
+   - Tag with `-RC<n>` (or `-alpha`/`-beta`): tick **Set as a pre-release**; never *latest*.
+   - Final tag: **no** pre-release tick. In an RC cut, leaf packages (themes, demo data, …) often get final tags; publish those as normal releases too, and set them as *latest* in their repository.
+   - For a final shop release, set the `o3-shop/o3-shop` release as **latest**.
+
+   Publish leaf packages first and `o3-shop/o3-shop` last.
+2. Review and merge each merge-back PR (`merge-back-vX.Y.Z` → `main`). These appear only for final releases, not for release candidates.
+3. Publishing the `o3-shop/o3-shop` release starts the demo image build (*Build and Push Demo Docker Image*, about 35 minutes). Check that it finishes green: it smoke-tests the image before pushing `ghcr.io/o3-shop/o3-shop-demo:<tag>`, and for the *latest* release it also moves `:latest`.
+4. Packagist needs 5–60 minutes to list the new tags. Check `https://repo.packagist.org/p2/o3-shop/o3-shop.json` (and the other new packages) before installing the release; if a tag is still missing after an hour, open the package on packagist.org and click **Update**.
 
 The releases page for the main project is located at:
 👉 [https://github.com/o3-shop/o3-shop/releases](https://github.com/o3-shop/o3-shop/releases)
