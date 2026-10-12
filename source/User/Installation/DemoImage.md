@@ -24,7 +24,7 @@ Replace `v1.7.2` with the release you want to try. Release candidates have their
 | `O3_SHOP_URL` | `http://localhost:8080` | URL the shop is reached under. Set it when you use another port or host, e.g. `docker run -p 9000:80 -e O3_SHOP_URL=http://localhost:9000 …` |
 | `O3_ADMIN_EMAIL` | `admin@example.com` | Admin login |
 | `O3_ADMIN_PASSWORD` | `admin123` | Admin password. Set your own for anything reachable by others. |
-| `O3_HTTPS` | `letsencrypt` | HTTPS only: `letsencrypt` = the container terminates TLS with a Let's Encrypt certificate; `proxy` = a reverse proxy in front terminates TLS. See [HTTPS](#https) below. |
+| `O3_HTTPS` | `letsencrypt` | HTTPS only: `letsencrypt` = the container terminates TLS with a Let's Encrypt certificate; `proxy` = a reverse proxy in front terminates TLS. See [HTTPS](#demo-https) below. |
 | `O3_ACME_EMAIL` | (none) | `letsencrypt` only: contact address for the certificate |
 | `O3_ACME_STAGING` | `0` | `letsencrypt` only: `1` uses the Let's Encrypt staging CA (untrusted certificates, for testing without rate limits) |
 
@@ -37,13 +37,17 @@ docker run -p 9000:80 -e O3_SHOP_URL=http://localhost:9000 ghcr.io/o3-shop/o3-sh
 docker run -p 80:80 -e O3_SHOP_URL=http://demo.example.com ghcr.io/o3-shop/o3-shop-demo:v1.7.2
 ```
 
-The URL is applied every time the container starts. To change it, create a new container with the new value; with the named volumes from "Keep your changes" below, your data carries over. Only a plain `http(s)://` URL is accepted (letters, digits and `. : _ ~ / - [ ]`); anything else stops the container at startup with an error message.
+The URL is applied every time the container starts. To change it, create a new container with the new value; with the named volumes from "Keep your changes" below, your data carries over. Only a plain `http(s)://` URL is accepted (letters, digits and `. : _ ~ / - [ ]`); anything else stops the container at startup with an error message. https URLs have further requirements, see [HTTPS](#demo-https).
 
-(https)=
+(demo-https)=
 ## HTTPS
 
 ```{note}
 HTTPS needs an image from the first release after `v1.7.2`. Replace `<release-tag>` below with that release or a newer one.
+```
+
+```{warning}
+An HTTPS demo is reachable by others: always set your own admin password (`O3_ADMIN_PASSWORD`, as in the examples below). The default `admin123` is published on this page.
 ```
 
 ### With a Let's Encrypt certificate
@@ -53,6 +57,7 @@ With an `https://` URL the demo serves the shop over HTTPS itself: Apache obtain
 ```bash
 docker run -p 80:80 -p 443:443 \
   -e O3_SHOP_URL=https://<your-host> \
+  -e O3_ADMIN_PASSWORD='<your-password>' \
   -v o3-demo-certs:/etc/apache2/md \
   ghcr.io/o3-shop/o3-shop-demo:<release-tag>
 ```
@@ -71,6 +76,7 @@ If a reverse proxy (nginx, Traefik, Caddy, …) terminates TLS and forwards plai
 ```bash
 docker run -p 127.0.0.1:8080:80 \
   -e O3_SHOP_URL=https://shop.example.org -e O3_HTTPS=proxy \
+  -e O3_ADMIN_PASSWORD='<your-password>' \
   ghcr.io/o3-shop/o3-shop-demo:<release-tag>
 ```
 
