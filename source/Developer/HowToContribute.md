@@ -191,7 +191,7 @@ Update the O3-Shop documentation to reflect the new release:
 3. Review all installation instructions (e.g., `source/User/Installation/NewInstallation.md`) and update any version constraints referenced in Composer commands to reflect the new release.
 
 4. Bring every example version to the new release, so the docs always show the current one. For a final release `vX.Y.Z`:
-   - `source/User/Installation/DemoImage.md`: the image tag in every `docker run` example and in "Replace `vX.Y.Z` …", the release-candidate example (the next patch's `-RC1`), and the release recommended in the e-mail note. On the first release that contains HTTPS (o3-shop/o3-shop#269), also rewrite the note at the top of the *HTTPS* section: name that release instead of "the first release after `v1.7.2`", and drop its sentence about `<release-tag>`, since the examples then carry the real tag.
+   - `source/User/Installation/DemoImage.md`: the image tag in every `docker run` example and in "Replace `vX.Y.Z` …", the release-candidate example (the next patch's `-RC1`), and the release recommended in the e-mail note.
    - This guide's release steps (Steps 12–14): the `bin/release` examples (`--from` = previous final tag, `--to` = new release, RC example), the `conf.py` examples in item 1, the tag and release-branch examples in Step 12, and the release title example in Step 14. On a new minor or major (new `b-X.Y` release line), also the README link in Step 5.
 
 5. Build and verify the documentation locally before publishing:

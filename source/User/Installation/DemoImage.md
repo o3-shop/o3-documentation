@@ -24,9 +24,9 @@ Replace `v1.7.2` with the release you want to try. Release candidates have their
 | `O3_SHOP_URL` | `http://localhost:8080` | URL the shop is reached under. Set it when you use another port or host, e.g. `docker run -p 9000:80 -e O3_SHOP_URL=http://localhost:9000 …` |
 | `O3_ADMIN_EMAIL` | `admin@example.com` | Admin login |
 | `O3_ADMIN_PASSWORD` | `admin123` | Admin password. Set your own for anything reachable by others. |
-| `O3_HTTPS` | `letsencrypt` | HTTPS only: `letsencrypt` = the container terminates TLS with a Let's Encrypt certificate; `proxy` = a reverse proxy in front terminates TLS. See [HTTPS](#demo-https) below. |
-| `O3_ACME_EMAIL` | (none) | `letsencrypt` only: contact address for the certificate |
-| `O3_ACME_STAGING` | `0` | `letsencrypt` only: `1` uses the Let's Encrypt staging CA (untrusted certificates, for testing without rate limits) |
+| `O3_HTTPS` | `letsencrypt` | Versions after 1.7.2, HTTPS only: `letsencrypt` = the container terminates TLS with a Let's Encrypt certificate; `proxy` = a reverse proxy in front terminates TLS. See [HTTPS](#demo-https) below. |
+| `O3_ACME_EMAIL` | (none) | Versions after 1.7.2, `letsencrypt` only: contact address for the certificate |
+| `O3_ACME_STAGING` | `0` | Versions after 1.7.2, `letsencrypt` only: `1` uses the Let's Encrypt staging CA (untrusted certificates, for testing without rate limits) |
 
 ## Run under another URL
 
@@ -43,7 +43,7 @@ The URL is applied every time the container starts. To change it, create a new c
 ## HTTPS
 
 ```{note}
-HTTPS needs an image from the first release after `v1.7.2`. Replace `<release-tag>` below with that release or a newer one.
+HTTPS (both modes, and the variables `O3_HTTPS`, `O3_ACME_EMAIL`, `O3_ACME_STAGING`) is available in images for versions after 1.7.2, starting with `v1.7.3-RC1`. Replace `<release-tag>` below with such a version. In `v1.7.2` and older, an https URL only changes the shop's links; the container doesn't serve HTTPS.
 ```
 
 ```{warning}
