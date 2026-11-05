@@ -135,6 +135,44 @@ The tool does not check the `composer.json` constraint from rule 3, and it does 
 the `version` in the module's `metadata.php` (it only does that for theme files). Bump
 `metadata.php` to the upcoming tag in a pull request on the line before each release.
 
+### Example: a shop release and its modules
+
+Shop and module versions only share the line (`1.7`); their last numbers are independent.
+Say the shop is released as `v1.7.19`
+(`bin/release --from v1.7.18 --to v1.7.19`), and the metapackage of `v1.7.18` pins
+`"o3-shop/paypal-checkout": "v1.7.4"`.
+
+**The module didn't change.** `b-1.7` sits exactly on `v1.7.4`, the latest `v1.7.*` tag,
+and none of the module's own dependency pins has to change. The module is reported as
+*unchanged*: no new module tag, no draft release, no merge-back
+pull request. The metapackage of `v1.7.19` keeps `"v1.7.4"`, and the release notes list
+the module under *Unchanged in this release*. Shop 1.7.19 ships with PayPal Checkout
+1.7.4, which is fine: the module requires `~1.7.0`.
+
+**The module changed.** The module's changes always end up in the shop release:
+
+| State of the module's `b-1.7` | What `bin/release` does | Metapackage of `v1.7.19` pins |
+|---|---|---|
+| Changes merged, not tagged yet (the usual case) | cuts `v1.7.5` (patch bump from `v1.7.4`), creates its draft release and, for a final shop release, a merge-back pull request | `v1.7.5` |
+| `v1.7.5` exists, more commits after it | cuts `v1.7.6`, with draft release and merge-back pull request as above | `v1.7.6` |
+| Exactly on an existing `v1.7.5` tag | reuses `v1.7.5`: no tag, no draft release, **no merge-back pull request** | `v1.7.5` |
+
+The shop's draft release gets a section with the module's changes from `v1.7.4` to the
+new version. Check it before publishing: for a tag that is cut in the same run, the
+section can come out empty.
+
+Merge the merge-back pull request into the module's `main` (`b-1.7` is the newest line).
+The reused tag in the last row usually comes from a shop release candidate: the RC cut
+`v1.7.5`, and release candidates open no merge-back pull requests. The final shop release
+then reuses `v1.7.5` and doesn't open one either, so bring `v1.7.5` into `main` by hand
+(branch `merge-back-v1.7.5` at the tag, pull request into `main`, merged with a merge
+commit).
+
+Any commit on `b-1.7` after the latest tag counts as a change: a README or CI edit, a
+forward merge from `b-1.6` or the `metadata.php` bump also produce a new patch tag. If the
+latest tag on the line is a pre-release (`v1.7.5-RC1`), a final shop release cuts `v1.7.6`
+unless you pass `--bump paypal-checkout=v1.7.5`.
+
 ## Moving a module onto the convention
 
 1. Create `b-X.Y` for the current shop line from the module's present release branch and
