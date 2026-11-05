@@ -4,9 +4,9 @@ This page describes how O3-Shop modules are branched, versioned and released, so
 Composer installs the right module version for every shop version.
 
 It applies to every module whose code depends on the shop version: payment modules, theme
-extensions, anything that extends shop classes or templates. **PayPal Checkout
-(`o3-shop/paypal-checkout`) is the first module that follows this convention; the other
-O3-Shop modules will move to it step by step.** Third-party module developers are welcome
+extensions, anything that extends shop classes or templates. **PayPal Checkout (package
+`o3-shop/paypal-checkout`, repository `o3-shop/paypal-module`) is the first module moving
+to this convention; the other O3-Shop modules will follow step by step.** Third-party module developers are welcome
 to follow it too.
 
 ## The problem it solves
@@ -37,7 +37,8 @@ A line only exists when the module supports that shop line. A module that only w
 
 Tags on `b-X.Y` are always `vX.Y.n`. Only the last number counts up independently, for
 every module release on that line. Inside a line there are no minor or major bumps: a
-change that would need one belongs on the next shop line.
+change that would need one belongs on the next shop line, and a feature backported to an
+older line ships as a patch tag there.
 
 So `paypal-checkout v1.7.4` reads as "the fifth release of PayPal Checkout for O3-Shop 1.7".
 
@@ -58,7 +59,9 @@ The `composer.json` on `b-X.Y` requires the matching shop line in `require` (not
 `~1.7.0` allows every 1.7.x shop, release candidates included, but no 1.6 or 1.8 shop.
 Composer refuses a module line that doesn't fit the installed shop, and
 `composer require o3-shop/paypal-checkout` in a shop project picks the matching line: a
-1.6 shop gets `v1.6.n`, a 1.7 shop gets `v1.7.n`.
+1.6 shop gets `v1.6.n`, a 1.7 shop gets `v1.7.n`. This only holds for tags that carry the
+requirement: tags cut before a module moved to the convention (PayPal Checkout `v1.0.x`)
+have no shop requirement and stay installable on any shop line.
 
 The O3-Shop metapackage keeps pinning each module to the exact version it shipped with
 (`"o3-shop/paypal-checkout": "v1.7.4"`), so every shop release records exactly which
@@ -119,7 +122,9 @@ Phase 5). Line-versioned modules are supported by the release tooling from
   mapped to a branch not named `b-X.Y`, `main` included, stops the plan with an error. The tool
   does not check that X.Y matches the shop version being released; the map has to be right.
 - A line's first tag needs an exact bump, for example
-  `bin/release --from v1.7.2 --to v1.7.3 --bump paypal-checkout=v1.7.0`. After that, the
+  `bin/release --from v1.7.2 --to v1.7.3 --bump paypal-checkout=v1.7.0`. The `--bump` key
+  is the package name without `o3-shop/` (`paypal-checkout`), not the repository name
+  (`paypal-module`); an unknown key is silently ignored. After that, the
   default patch bump continues the line. A `.next-bump` file with `minor` or `major` on a
   line branch stops the plan; delete it.
 - The tool cuts final module tags, also during a shop release candidate. A module
@@ -132,22 +137,32 @@ the `version` in the module's `metadata.php` (it only does that for theme files)
 
 ## Moving a module onto the convention
 
-1. Create `b-X.Y` for the current shop line from the module's present release branch.
+1. Create `b-X.Y` for the current shop line from the module's present release branch and
+   protect it.
 2. On `b-X.Y`, move `o3-shop/shop-ce` from `require-dev` (if it is there) to `require` as
    `~X.Y.0`, and set the `version` in `metadata.php` to the first tag. For a fork that still
    carries its upstream version (PayPal Checkout's `metadata.php` says `2.10.3`), the admin
    then shows a lower number (`1.7.0`); that is expected.
 3. Add the module to `ReleaseLine::LINE_VERSIONED_PACKAGES` and map it in
    `DefaultBranchResolver` to `b-X.Y`.
-4. Cut its first tag with an exact bump (`--bump <module>=vX.Y.0`).
+4. Cut its first tag with an exact bump (`--bump <package name without o3-shop/>=vX.Y.0`).
 5. Create the older lines the module needs, each from the next newer line plus the
-   changes for its shop version (for example `b-1.6` from `b-1.7`), with its constraint.
-   Then record the new line as already merged into the newer one
-   (`git switch b-1.7 && git merge -s ours b-1.6`, through a pull request merged with a
-   merge commit), so the first real forward merge doesn't carry the 1.6-specific changes
-   into 1.7. `bin/release` only reaches modules the shop line's metapackage requires: an
-   older line gets its first tag in a release of that shop line, after the module has been
-   added to that line's metapackage (a product decision per line) and the map switched.
+   changes for its shop version (for example `b-1.6` from `b-1.7`), with its constraint,
+   and protect it. Then record the new line as already merged into the newer one, so the
+   first real forward merge doesn't carry the 1.6-specific changes into 1.7:
+
+   ```bash
+   git switch -c record-b-1.6 origin/b-1.7
+   git merge -s ours origin/b-1.6
+   git push -u origin record-b-1.6
+   ```
+
+   Open a pull request from `record-b-1.6` into `b-1.7` and merge it with a merge commit.
+   That commit makes the next 1.7 release cut a new patch tag.
+
+   `bin/release` only reaches modules the shop line's metapackage requires: an older line
+   gets its first tag in a release of that shop line, after the module has been added to
+   that line's metapackage (a product decision per line) and the map switched.
 6. Point `main` at the newest line, make it the default branch, protect it, and keep
    *Automatically delete head branches* off (the release tooling checks this).
 
@@ -155,5 +170,5 @@ the `version` in the module's `metadata.php` (it only does that for theme files)
 
 | Module | Status |
 |---|---|
-| PayPal Checkout (`o3-shop/paypal-checkout`) | First module on the convention. Still released from its single `b-1.0` line (`v1.0.x`, default branch `b-1.0`); moving to `b-1.7`, then the other lines ([o3-shop/o3-shop#274](https://github.com/o3-shop/o3-shop/issues/274)). Shop 1.5 ships the classic PayPal module instead (package `o3-shop/paypal-module`, a different package), and the 1.6 metapackage doesn't include PayPal Checkout yet. |
+| PayPal Checkout (`o3-shop/paypal-checkout`, repository `o3-shop/paypal-module`) | First module moving to the convention. Still released from its single `b-1.0` line (`v1.0.x`, default branch `b-1.0`); moving to `b-1.7`, then the other lines ([o3-shop/o3-shop#274](https://github.com/o3-shop/o3-shop/issues/274)). Shop 1.5 ships the classic PayPal module instead (package `o3-shop/paypal-module`, repository `o3-shop/paypal`; a different package), and the 1.6 metapackage doesn't include PayPal Checkout yet. |
 | Other O3-Shop modules | Will follow. |

@@ -86,7 +86,7 @@ Write your code or documentation following the project's coding standards and do
 
 Ensure your changes are covered by unit tests (for code contributions).
 
-**Signalling a version bump.** If you are working in a leaf package (a theme, demo data, a bundled module, or an asset/tooling package) and your change warrants more than a patch bump, record that intent so it survives until release time: commit a file named `.next-bump` at the repository root, containing a single line with `minor`, `major`, or an exact version such as `v2.0.0`. The release tooling reads it when the next release is cut (see Step 12) and then deletes it automatically, so it applies exactly once. You do not need this for `shop-ce` itself — it is always versioned in lockstep with the shop release. Modules that follow [Module versioning](./ModuleVersioning.md) only take patch bumps inside a line, so `minor` or `major` there stops the release.
+**Signalling a version bump.** If you are working in a leaf package (a theme, demo data, a bundled module, or an asset/tooling package) and your change warrants more than a patch bump, record that intent so it survives until release time: commit a file named `.next-bump` at the repository root, containing a single line with `minor`, `major`, or an exact version such as `v2.0.0`. The release tooling reads it when the next release is cut (see Step 12) and then deletes it automatically, so it applies exactly once. You do not need this for `shop-ce` itself — it is always versioned in lockstep with the shop release. Modules that follow [Module versioning](./ModuleVersioning.md) only take patch bumps or an exact `vX.Y.n` of their line; `minor` or `major` stops the plan.
 
 #### Step 7 — Run Tests and Code Style Checks (Role: Developer)
 
