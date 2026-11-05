@@ -14,7 +14,9 @@ Use modules to
 - connect Enterprise Resource Planning (ERP) or content management systems with the O3-Shop
 - exchange information with systems for Customer Relationship Management (CRM) and Product Information Management (PIM)
 
-This part of the documentation describes modules for the O3-Shop.
+This part of the documentation describes modules for the O3-Shop. How modules are
+branched and versioned per shop line is described in
+[Module versioning](../Developer/ModuleVersioning.md).
 
 ## CAPTCHA providers
 

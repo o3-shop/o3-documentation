@@ -86,7 +86,7 @@ Write your code or documentation following the project's coding standards and do
 
 Ensure your changes are covered by unit tests (for code contributions).
 
-**Signalling a version bump.** If you are working in a leaf package (a theme, demo data, a bundled module, or an asset/tooling package) and your change warrants more than a patch bump, record that intent so it survives until release time: commit a file named `.next-bump` at the repository root, containing a single line with `minor`, `major`, or an exact version such as `v2.0.0`. The release tooling reads it when the next release is cut (see Step 12) and then deletes it automatically, so it applies exactly once. You do not need this for `shop-ce` itself — it is always versioned in lockstep with the shop release.
+**Signalling a version bump.** If you are working in a leaf package (a theme, demo data, a bundled module, or an asset/tooling package) and your change warrants more than a patch bump, record that intent so it survives until release time: commit a file named `.next-bump` at the repository root, containing a single line with `minor`, `major`, or an exact version such as `v2.0.0`. The release tooling reads it when the next release is cut (see Step 12) and then deletes it automatically, so it applies exactly once. You do not need this for `shop-ce` itself — it is always versioned in lockstep with the shop release. Modules that follow [Module versioning](./ModuleVersioning.md) only take patch bumps or an exact `vX.Y.n` of their line; `minor` or `major` stops the plan.
 
 #### Step 7 — Run Tests and Code Style Checks (Role: Developer)
 
@@ -140,7 +140,7 @@ The version number follows [Semantic Versioning](https://semver.org/): `MAJOR.MI
 
 `bin/release` enforces all of these with pre-flight gates and aborts with a clear diagnostic if any repo fails.
 
-**Bump levels.** Leaf packages are bumped by one patch level by default. To request a larger bump for a leaf, either commit a `.next-bump` file (containing `minor`, `major`, or an exact `vX.Y.Z`) at that repository's root on the release branch, or pass `--bump <repo>=<level>` on the command line — the flag wins over the file, and a consumed `.next-bump` file is deleted automatically in the tag commit. `shop-ce` and `shop-metapackage-ce` are always tagged at the `--to` version, since they move in lockstep with the shop release.
+**Bump levels.** Leaf packages are bumped by one patch level by default. To request a larger bump for a leaf, either commit a `.next-bump` file (containing `minor`, `major`, or an exact `vX.Y.Z`) at that repository's root on the release branch, or pass `--bump <repo>=<level>` on the command line — the flag wins over the file, and a consumed `.next-bump` file is deleted automatically in the tag commit. `shop-ce` and `shop-metapackage-ce` are always tagged at the `--to` version, since they move in lockstep with the shop release. Modules that follow [Module versioning](./ModuleVersioning.md) only take patch bumps (or an exact `vX.Y.n` on their line); `minor` or `major` stops the plan.
 
 **Preview first.** `--dry-run` prints the full plan — which tags get cut and which constraints get rewritten — without changing anything:
 
@@ -174,7 +174,7 @@ In live mode the tool walks the repositories in dependency order (leaves first) 
 - rewrites its `composer.json` dependency constraints and commits + pushes them to the release branch,
 - cuts and pushes the new `v`-prefixed tag,
 - creates a **draft** GitHub release with auto-generated notes, and
-- for final releases (not release candidates), opens a merge-back PR into `main` from a `merge-back-vX.Y.Z` branch at the new tag. If `main` still pins an older version in `composer.json`, the PR conflicts on that line; resolve it in favour of the new release's pin.
+- for final releases (not release candidates), opens a merge-back PR into `main` from a `merge-back-vX.Y.Z` branch at the new tag. If `main` still pins an older version in `composer.json`, the PR conflicts on that line; resolve it in favour of the new release's pin. For a module that follows [Module versioning](./ModuleVersioning.md), only the newest line's merge-back PR is merged; an older line's PR is closed unmerged.
 
 `bin/release` deliberately stops short of publishing. It prints a finish checklist of the draft releases to publish and the merge-back PRs to merge — you complete those in Step 14.
 
@@ -219,7 +219,7 @@ Update the O3-Shop documentation to reflect the new release:
    - For a final shop release, set the `o3-shop/o3-shop` release as **latest**.
 
    Publish leaf packages first and `o3-shop/o3-shop` last.
-2. Review and merge each merge-back PR (`merge-back-vX.Y.Z` → `main`). These appear only for final releases, not for release candidates.
+2. Review and merge each merge-back PR (`merge-back-vX.Y.Z` → `main`). These appear only for final releases, not for release candidates. For a line-versioned module released from an older line, close the PR unmerged and delete its branch instead (see [Module versioning](./ModuleVersioning.md)).
 3. Publishing the `o3-shop/o3-shop` release starts the demo image build (*Build and Push Demo Docker Image*, about 35 minutes). Check that it finishes green: it smoke-tests the image before pushing `ghcr.io/o3-shop/o3-shop-demo:<tag>`, and for the *latest* release it also moves `:latest`.
 4. Packagist needs 5–60 minutes to list the new tags. Check `https://repo.packagist.org/p2/o3-shop/o3-shop.json` (and the other new packages) before installing the release; if a tag is still missing after an hour, open the package on packagist.org and click **Update**.
 
