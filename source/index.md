@@ -17,6 +17,7 @@ System Requirements <User/Installation/SystemRequirements>
 :caption: Developer Manual
 Get involved <Developer/GetInvolved>
 How to Contribute <Developer/HowToContribute>
+Module versioning <Developer/ModuleVersioning>
 ```
 ```{toctree}
 :maxdepth: 1
