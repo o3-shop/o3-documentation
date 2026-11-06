@@ -9,19 +9,21 @@ Every published release (release candidates included) gets a ready-to-run demo i
 ## Start the demo
 
 ```bash
-docker run -p 8080:80 ghcr.io/o3-shop/o3-shop-demo:v1.7.2
+docker run --rm -p 8080:80 ghcr.io/o3-shop/o3-shop-demo:v1.7.3
 ```
 
 - Shop: <http://localhost:8080>
 - Admin: <http://localhost:8080/admin/> (`admin@example.com` / `admin123`)
 
-Replace `v1.7.2` with the release you want to try. Release candidates have their own tags (e.g. `v1.7.3-RC1`), and `latest` follows the newest final release. All tags are listed in the <a target="_blank" href="https://github.com/orgs/o3-shop/packages/container/package/o3-shop-demo">package registry</a>. Images exist from the first release that contains the demo image (v1.7.2-RC2).
+Stop it with `Ctrl+C`. `--rm` removes the container when it stops, so no stopped demo containers pile up and the next run starts from the demo state again.
+
+Replace `v1.7.3` with the release you want to try. Release candidates have their own tags (e.g. `v1.7.4-RC1`), and `latest` follows the newest final release. All tags are listed in the <a target="_blank" href="https://github.com/orgs/o3-shop/packages/container/package/o3-shop-demo">package registry</a>. Images exist from the first release that contains the demo image (v1.7.2-RC2).
 
 ## Settings
 
 | Variable | Default | Purpose |
 |---|---|---|
-| `O3_SHOP_URL` | `http://localhost:8080` | URL the shop is reached under. Set it when you use another port or host, e.g. `docker run -p 9000:80 -e O3_SHOP_URL=http://localhost:9000 …` |
+| `O3_SHOP_URL` | `http://localhost:8080` | URL the shop is reached under. Set it when you use another port or host, e.g. `docker run --rm -p 9000:80 -e O3_SHOP_URL=http://localhost:9000 …` |
 | `O3_ADMIN_EMAIL` | `admin@example.com` | Admin login |
 | `O3_ADMIN_PASSWORD` | `admin123` | Admin password. Set your own for anything reachable by others. |
 | `O3_HTTPS` | `letsencrypt` | Versions after 1.7.2, HTTPS only: `letsencrypt` = the container terminates TLS with a Let's Encrypt certificate; `proxy` = a reverse proxy in front terminates TLS. See [HTTPS](#demo-https) below. |
@@ -33,8 +35,8 @@ Replace `v1.7.2` with the release you want to try. Release candidates have their
 The shop builds its links from `O3_SHOP_URL`. If you open it under any address other than `http://localhost:8080` (another port, the machine's IP address or a host name), set the variable to exactly that address. Otherwise links point to the wrong place.
 
 ```bash
-docker run -p 9000:80 -e O3_SHOP_URL=http://localhost:9000 ghcr.io/o3-shop/o3-shop-demo:v1.7.2
-docker run -p 80:80 -e O3_SHOP_URL=http://demo.example.com ghcr.io/o3-shop/o3-shop-demo:v1.7.2
+docker run --rm -p 9000:80 -e O3_SHOP_URL=http://localhost:9000 ghcr.io/o3-shop/o3-shop-demo:v1.7.3
+docker run --rm -p 80:80 -e O3_SHOP_URL=http://demo.example.com ghcr.io/o3-shop/o3-shop-demo:v1.7.3
 ```
 
 The URL is applied every time the container starts. To change it, create a new container with the new value; with the named volumes from "Keep your changes" below, your data carries over. Only a plain `http(s)://` URL is accepted (letters, digits and `. : _ ~ / - [ ]`); anything else stops the container at startup with an error message. https URLs have further requirements, see [HTTPS](#demo-https).
@@ -43,7 +45,7 @@ The URL is applied every time the container starts. To change it, create a new c
 ## HTTPS
 
 ```{note}
-HTTPS (both modes, and the variables `O3_HTTPS`, `O3_ACME_EMAIL`, `O3_ACME_STAGING`) is available in images for versions after 1.7.2, starting with `v1.7.3-RC1`. Replace `<release-tag>` below with such a version. In `v1.7.2` and older, an https URL only changes the shop's links; the container doesn't serve HTTPS.
+HTTPS (both modes, and the variables `O3_HTTPS`, `O3_ACME_EMAIL`, `O3_ACME_STAGING`) is available in images for versions after 1.7.2: `v1.7.3` and newer, and the release candidates from `v1.7.3-RC1`. In `v1.7.2` and older, an https URL only changes the shop's links; the container doesn't serve HTTPS.
 ```
 
 ```{warning}
@@ -55,11 +57,11 @@ An HTTPS demo is reachable by others: always set your own admin password (`O3_AD
 With an `https://` URL the demo serves the shop over HTTPS itself: Apache obtains a Let's Encrypt certificate for the host and renews it while the container runs. Using an https URL accepts the <a target="_blank" href="https://letsencrypt.org/repository/">Let's Encrypt Subscriber Agreement</a>.
 
 ```bash
-docker run -p 80:80 -p 443:443 \
+docker run --rm -p 80:80 -p 443:443 \
   -e O3_SHOP_URL=https://<your-host> \
   -e O3_ADMIN_PASSWORD='<your-password>' \
   -v o3-demo-certs:/etc/apache2/md \
-  ghcr.io/o3-shop/o3-shop-demo:<release-tag>
+  ghcr.io/o3-shop/o3-shop-demo:v1.7.3
 ```
 
 - **Requirements:** the host name resolves to the machine, and ports 80 and 443 are reachable from the internet as they are. Let's Encrypt checks the host over port 80; an https URL with another port stops the container at startup.
@@ -74,10 +76,10 @@ docker run -p 80:80 -p 443:443 \
 If a reverse proxy (nginx, Traefik, Caddy, …) terminates TLS and forwards plain http to the container, set `O3_HTTPS=proxy`. The container then uses no certificate and doesn't redirect; the shop builds https links and treats every request as https. Any host name and port work, `localhost` included:
 
 ```bash
-docker run -p 127.0.0.1:8080:80 \
+docker run --rm -p 127.0.0.1:8080:80 \
   -e O3_SHOP_URL=https://shop.example.org -e O3_HTTPS=proxy \
   -e O3_ADMIN_PASSWORD='<your-password>' \
-  ghcr.io/o3-shop/o3-shop-demo:<release-tag>
+  ghcr.io/o3-shop/o3-shop-demo:v1.7.3
 ```
 
 ```{warning}
@@ -88,13 +90,13 @@ The proxy must forward the original `Host` header (nginx: `proxy_set_header Host
 
 ## Keep your changes
 
-Changes stay as long as you keep the container (`docker stop` / `docker start`). To keep them across new containers, use named volumes for the database and the uploaded pictures:
+With `--rm`, as in the examples on this page, Docker removes the container when it stops, and your changes go with it. To keep them across containers, use named volumes for the database and the uploaded pictures:
 
 ```bash
-docker run -p 8080:80 \
+docker run --rm -p 8080:80 \
   -v o3-demo-db:/var/lib/mysql \
   -v o3-demo-pictures:/var/www/html/source/out/pictures \
-  ghcr.io/o3-shop/o3-shop-demo:v1.7.2
+  ghcr.io/o3-shop/o3-shop-demo:v1.7.3
 ```
 
 On first use Docker fills empty named volumes with the image's demo data. Don't use empty bind mounts (host directories) for these paths: they hide the installed data and the shop won't start. A volume created with an older image keeps that version's database, so start with fresh volumes when you switch to a newer release.
@@ -104,7 +106,7 @@ On first use Docker fills empty named volumes with the image's demo data. Don't 
 The demo sends no e-mail. Registration, order and newsletter mails are accepted and then discarded; `docker logs` shows one line per discarded mail with its recipient. The shop's SMTP settings stay empty even if you set them in the admin.
 
 ```{note}
-The `v1.7.2-RC2` and `v1.7.2-RC3` images predate this: there, any action that sends a mail (e.g. registering with the newsletter box ticked) ends on the maintenance page. Use the current release, `v1.7.2`.
+The `v1.7.2-RC2` and `v1.7.2-RC3` images predate this: there, any action that sends a mail (e.g. registering with the newsletter box ticked) ends on the maintenance page. Use the current release, `v1.7.3`.
 ```
 
 ## Build it yourself
