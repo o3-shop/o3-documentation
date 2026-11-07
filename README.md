@@ -84,37 +84,24 @@ make html
 
 ## Redirects for old documentation URLs
 
-Released shops link to documentation URLs that have since moved. Removing one
-of these redirects breaks every shop that still links to its old URL, so they stay.
+Released shops link to documentation URLs that have since moved. Removing one of these redirects breaks every shop that still links to its old URL, so they stay.
 
 ### Redirect pages in `source/_redirects/`
 
-`source/conf.py` copies `source/_redirects/` verbatim into the build root (`html_extra_path`),
-so `source/_redirects/user/installation/NewInstallation/SystemRequirements.html` is served
-at `/en/latest/user/installation/NewInstallation/SystemRequirements.html`.
-Each page forwards to the current page and keeps the `#anchor`.
+`source/conf.py` copies `source/_redirects/` verbatim into the build root (`html_extra_path`), so `source/_redirects/user/installation/NewInstallation/SystemRequirements.html` is served at `/en/latest/user/installation/NewInstallation/SystemRequirements.html`. Each page forwards to the current page and keeps the `#anchor` the shop sends. That needs JavaScript; without it, a meta refresh lands on the page (or the permissions section) without the original anchor.
 
 | Old URL (below `/<lang>/<version>/`) | Linked from | Forwards to |
 |---|---|---|
 | `user/installation/NewInstallation/SystemRequirements.html` | admin System health, shop 1.1.0 – 1.7.1 | `User/Installation/SystemRequirements.html` |
 | `user/installation/NewInstallation/PrepareInstallation.html` | admin System health, shop 1.1.0 – 1.7.1 | `User/Installation/NewInstallation.html#adjust-file-and-directory-permissions` |
 
-A redirect page's path must never differ from a real page's path only in
-letter case (`user/…/Update.html` next to `User/…/Update.html`): on macOS and
-Windows one silently overwrites the other, while Read the Docs (Linux) keeps
-both. For the same reason, a build made on macOS or Windows puts all
-`User/Installation/` pages into `user/installation/`. That is fine for local
-preview, but don't copy such a build to a Linux web server.
+A redirect page's path must never differ from a real page's path only in letter case (`user/…/Update.html` next to `User/…/Update.html`): on macOS and Windows one silently overwrites the other, while Read the Docs (Linux) keeps both. For the same reason, a build made on macOS or Windows puts all `User/Installation/` pages into `user/installation/`. That is fine for local preview, but don't copy such a build to a Linux web server.
 
-Shop 1.1.0 – 1.7.1 links the permissions section as
-`#adjusting-file-and-directory-permissions`. `NewInstallation.md` keeps that id
-as a label above the heading; don't remove it.
+Shop 1.1.0 – 1.7.1 links the permissions section as `#adjusting-file-and-directory-permissions`. `NewInstallation.md` keeps that id as a label above the heading; don't remove it.
 
 ### Redirects that need the Read the Docs dashboard
 
-URLs outside `/<lang>/<version>/` never reach a build, so they can't be fixed
-from this repo. They are *Exact redirects* in Read the Docs
-(Admin → Redirects), status 301:
+URLs outside `/<lang>/<version>/` never reach a build, so they can't be fixed from this repo. They are *Exact redirects* in Read the Docs (Admin → Redirects), status 301:
 
 | From URL | To URL | Linked from |
 |---|---|---|
