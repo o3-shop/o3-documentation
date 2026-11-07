@@ -29,6 +29,8 @@ Use a different version constraint to install a different project version.
 
 After Composer has finished its work, the new directory named *your_project_name* exists. This is the root directory of the project and contains all files needed for the installation of the O3-Shop.
 
+(adjusting-file-and-directory-permissions)=
+
 ## Adjust file and directory permissions
 
 The HTTP server requires read and write access for the following directories and their subdirectories at runtime:
